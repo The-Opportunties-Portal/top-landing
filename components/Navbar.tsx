@@ -59,7 +59,8 @@ export default function WithSubnavigation() {
                 </Flex>
                 <Flex
                     flex={{ base: 1 }}
-                    justify={{ base: "center", md: "start" }}
+                    justify={{ base: "center", md: "space-between" }}
+                    align="center"
                 >
                     <Text
                         textAlign={useBreakpointValue({
@@ -72,41 +73,12 @@ export default function WithSubnavigation() {
                         <Image src="/images/logo.svg" alt="logo"/>
                     </Text>
 
-                    <Flex display={{ base: "none", md: "flex" }} ml={10}>
+                    <Flex display={{ base: "none", md: "flex" }} align={"center"} ml={10}>
                         <DesktopNav />
                     </Flex>
-                </Flex>
+                    <DesktopSubNav label="Work Request >" href="#" />
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={"flex-end"}
-                    direction={"row"}
-                    spacing={6}
-                >
-                    <Button
-                        as={"a"}
-                        fontSize={"sm"}
-                        color="#F2F6F9"
-                        fontWeight={400}
-                        variant={"link"}
-                        href={"#"}
-                    >
-                        Sign In
-                    </Button>
-                    <Button
-                        display={{ base: "none", md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={600}
-                        color={"white"}
-                        bg={"pink.400"}
-                        href={"#"}
-                        _hover={{
-                            bg: "pink.300",
-                        }}
-                    >
-                        Sign Up
-                    </Button>
-                </Stack>
+                </Flex>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
@@ -118,53 +90,54 @@ export default function WithSubnavigation() {
 
 const DesktopNav = () => {
     const linkColor = "#F2F6F9";
-    const linkHoverColor = useColorModeValue("gray.800", "white");
+    const linkHoverColor = "white";
     const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
     return (
-        <Stack direction={"row"} spacing={4}>
-            {NAV_ITEMS.map((navItem) => (
-                <Box key={navItem.label}>
-                    <Popover trigger={"hover"} placement={"bottom-start"}>
-                        <PopoverTrigger>
-                            <Link
-                                p={2}
-                                href={navItem.href ?? "#"}
-                                fontSize={"sm"}
-                                fontWeight={500}
-                                color={linkColor}
-                                _hover={{
-                                    textDecoration: "none",
-                                    color: linkHoverColor,
-                                }}
-                            >
-                                {navItem.label}
-                            </Link>
-                        </PopoverTrigger>
-
-                        {navItem.children && (
-                            <PopoverContent
-                                border={0}
-                                boxShadow={"xl"}
-                                bg={popoverContentBgColor}
-                                p={4}
-                                rounded={"xl"}
-                                minW={"sm"}
-                            >
-                                <Stack>
-                                    {navItem.children.map((child) => (
-                                        <DesktopSubNav
-                                            key={child.label}
-                                            {...child}
-                                        />
-                                    ))}
-                                </Stack>
-                            </PopoverContent>
-                        )}
-                    </Popover>
-                </Box>
-            ))}
-        </Stack>
+        <>
+            <Stack direction={"row"} spacing={8}>
+                {NAV_ITEMS.map((navItem) => (
+                    <Box key={navItem.label}>
+                        <Popover trigger={"hover"} placement={"bottom-start"}>
+                            <PopoverTrigger>
+                                <Link
+                                    p={2}
+                                    href={navItem.href ?? "#"}
+                                    fontSize={"26px"}
+                                    fontWeight={500}
+                                    color={linkColor}
+                                    _hover={{
+                                        textDecoration: "none",
+                                        color: linkHoverColor,
+                                    }}
+                                >
+                                    {navItem.label}
+                                </Link>
+                            </PopoverTrigger>
+                            {navItem.children && (
+                                <PopoverContent
+                                    border={0}
+                                    boxShadow={"xl"}
+                                    bg={popoverContentBgColor}
+                                    p={4}
+                                    rounded={"xl"}
+                                    minW={"sm"}
+                                >
+                                        <Stack>
+                                            {navItem.children.map((child) => (
+                                                <DesktopSubNav
+                                                    key={child.label}
+                                                    {...child}
+                                                />
+                                            ))}
+                                        </Stack>
+                                </PopoverContent>
+                            )}
+                        </Popover>
+                    </Box>
+                ))}
+            </Stack>
+            </>
     );
 };
 
@@ -184,6 +157,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                         transition={"all .3s ease"}
                         _groupHover={{ color: "pink.400" }}
                         fontWeight={500}
+                        fontSize="26px"
                     >
                         {label}
                     </Text>
@@ -293,41 +267,43 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: "Inspiration",
-        children: [
-            {
-                label: "Explore Design Work",
-                subLabel: "Trending Design to inspire you",
-                href: "#",
-            },
-            {
-                label: "New & Noteworthy",
-                subLabel: "Up-and-coming Designers",
-                href: "#",
-            },
-        ],
+        label: "About",
+        href: "#",
+        // children: [
+        //     {
+        //         label: "Explore Design Work",
+        //         subLabel: "Trending Design to inspire you",
+        //         href: "#",
+        //     },
+        //     {
+        //         label: "New & Noteworthy",
+        //         subLabel: "Up-and-coming Designers",
+        //         href: "#",
+        //     },
+        // ],
     },
     {
-        label: "Find Work",
-        children: [
-            {
-                label: "Job Board",
-                subLabel: "Find your dream design job",
-                href: "#",
-            },
-            {
-                label: "Freelance Projects",
-                subLabel: "An exclusive list for contract work",
-                href: "#",
-            },
-        ],
+        label: "Works",
+        href: "#",
+        // children: [
+        //     {
+        //         label: "Job Board",
+        //         subLabel: "Find your dream design job",
+        //         href: "#",
+        //     },
+        //     {
+        //         label: "Freelance Projects",
+        //         subLabel: "An exclusive list for contract work",
+        //         href: "#",
+        //     },
+        // ],
     },
     {
-        label: "Learn Design",
+        label: "Opportunities",
         href: "#",
     },
     {
-        label: "Hire Designers",
+        label: "Early Access",
         href: "#",
     },
 ];
