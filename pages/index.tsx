@@ -138,14 +138,16 @@ export default function Home() {
                   >
                     Student
                   </Heading>
-                  <Heading color="#784989">Skill over score!</Heading>
+                  <Heading color="#784989" mb={4}>
+                    Skill over score!
+                  </Heading>
                 </Box>
               </Flex>
-              <Text>
+              <Text textAlign={"justify"}>
                 Find the best possible opportunities and people available around
                 you complimenting your skillset;
-                Internships/Start-ups/Competitions/Hackathons/research
-                opportunities and more!To unlock the full potential of every
+                Internships/Start&#8209;ups/Competitions/Hackathons/research
+                opportunities and more! To unlock the full potential of every
                 student, it is crucial that we carefully nurture their unique
                 abilities and lead them towards the right opportunities where
                 they can flourish.
@@ -154,6 +156,8 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
+
+      <Box h="100vh" pt={"60px"} color="white" bg="rgba(3, 0, 30, 1)"></Box>
     </>
   );
 }
