@@ -103,7 +103,7 @@ const DesktopNav = () => {
                                 <Link
                                     p={2}
                                     href={navItem.href ?? "#"}
-                                    fontSize={"26px"}
+                                    fontSize={"lg"}
                                     fontWeight={500}
                                     color={linkColor}
                                     _hover={{
@@ -157,7 +157,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                         transition={"all .3s ease"}
                         _groupHover={{ color: "pink.400" }}
                         fontWeight={500}
-                        fontSize="26px"
+                        fontSize="lg"
                     >
                         {label}
                     </Text>
