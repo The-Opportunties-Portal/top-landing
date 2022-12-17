@@ -30,9 +30,9 @@ export default function Home() {
       /> */}
 
       <Opportunities />
-      <Users />
 
       <Network />
+      <Users />
 
       <KnowMore />
 
