@@ -43,6 +43,7 @@ export default function WithSubnavigation() {
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
+          flexGrow={0}
         >
           <IconButton
             onClick={onToggle}
@@ -51,12 +52,16 @@ export default function WithSubnavigation() {
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
+            _hover={{
+              bg: "black",
+            }}
           />
         </Flex>
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: "center", md: "space-between" }}
+          justify={{ base: "end", md: "space-between" }}
           align="center"
+          gap={{ base: "8px" }}
         >
           <Text
             textAlign={useBreakpointValue({
@@ -65,8 +70,14 @@ export default function WithSubnavigation() {
             })}
             fontFamily={"heading"}
             color={"#F2F6F9"}
+            w={150}
           >
-            <Image src="/images/logo.svg" alt="logo" />
+            <Image
+              src="/images/logo.svg"
+              w={[100, 150, 150, 150]}
+              alt="logo"
+              margin={"auto"}
+            />
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} align={"center"} ml={10}>
@@ -84,7 +95,7 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = "#F2F6F9";
+  const linkColor = "#B0B0B0";
   const linkHoverColor = "white";
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
@@ -149,7 +160,8 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             transition={"all .3s ease"}
             _groupHover={{ color: "pink.400" }}
             fontWeight={500}
-            fontSize="lg"
+            fontSize={["md", "lg", "lg", "lg"]}
+            whiteSpace={"nowrap"}
           >
             {label}
           </Text>
@@ -176,11 +188,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      p={4}
-      display={{ md: "none" }}
-    >
+    <Stack bg={"black"} p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -203,10 +211,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+        <Text fontWeight={600} color={"white"}>
           {label}
         </Text>
         {children && (
