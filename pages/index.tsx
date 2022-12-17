@@ -29,11 +29,10 @@ export default function Home() {
         borderRight={"2px solid rgba(236, 155, 131, 1)"}
       /> */}
 
+      <Opportunities />
       <Users />
 
       <Network />
-
-      <Opportunities />
 
       <KnowMore />
 
