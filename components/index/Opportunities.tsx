@@ -21,10 +21,11 @@ export const Opportunities = () => {
           }}
           fontSize={{
             base: "xl",
+            sm: "2xl",
             lg: "3xl",
           }}
-          pl={{ base: 8, sm: 0 }}
-          pr={{ base: 4, sm: 0 }}
+          pl={{ base: 8, sm: 4, md: 0 }}
+          pr={{ base: 4, sm: 4, md: 0 }}
         >
           Opportunities
         </Heading>
@@ -32,14 +33,15 @@ export const Opportunities = () => {
           color={"rgba(235, 154, 133, 1)"}
           fontSize={{
             base: "2xl",
+            sm: "3xl",
             lg: "5xl",
           }}
-          alignSelf={{
+          textAlign={{
             base: "start",
             sm: "center",
           }}
-          pl={{ base: 8, sm: 0 }}
-          pr={{ base: 4, sm: 0 }}
+          pl={{ base: 8, sm: 4, md: 0 }}
+          pr={{ base: 4, sm: 4, md: 0 }}
         >
           Welcome to the world of opportunities
         </Heading>
