@@ -64,7 +64,7 @@ export const Hero = () => {
                 sm: "row",
               }}
             >
-              <Button
+              {/* <Button
                 fontWeight="bold"
                 fontSize={"md"}
                 w="200px"
@@ -77,7 +77,7 @@ export const Hero = () => {
                 }}
               >
                 Sign up
-              </Button>
+              </Button> */}
               <Button
                 fontWeight="bold"
                 fontSize={"md"}
