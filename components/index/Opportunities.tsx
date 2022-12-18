@@ -63,7 +63,7 @@ export const Opportunities = () => {
               <Flex mb={4} justify={"space-between"}>
                 <Text
                   alignSelf={"center"}
-                  fontSize={{ md: "2xl", lg: "4xl" }}
+                  fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
                   fontWeight={"bold"}
                   sx={{
                     background:
@@ -99,7 +99,7 @@ export const Opportunities = () => {
               <Flex mb={4} justify={"space-between"}>
                 <Text
                   alignSelf={"center"}
-                  fontSize={{ md: "2xl", lg: "4xl" }}
+                  fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
                   fontWeight={"bold"}
                   sx={{
                     background:
