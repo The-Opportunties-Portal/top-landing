@@ -1,26 +1,25 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const PodcastsAndBlogs = () => {
   return (
-    <Flex direction={"column"} h={"75vh"} bg="rgba(3, 0, 30, 1)">
-      <Flex
-        grow={1}
-        direction={"column"}
-        justify={"center"}
-        textAlign={"center"}
-      >
+    <Flex
+      direction={"column"}
+      h={{ base: "75vh", sm: "100vh", md: "75vh" }}
+      bg="rgba(3, 0, 30, 1)"
+    >
+      <Flex direction={"column"} justify={"center"} textAlign={"center"}>
         <Text
           mt={8}
           fontWeight={"bold"}
-          fontSize={"3xl"}
+          fontSize={{ base: "xl", sm: "3xl" }}
           color={"rgba(229, 217, 253, 1)"}
         >
           Works
         </Text>
         <Text
           fontWeight={"bold"}
-          fontSize={"5xl"}
+          fontSize={{ base: "3xl", sm: "5xl" }}
           sx={{
             background: "linear-gradient(180deg, #F4A373 0%, #E29298 100%)",
             WebkitBackgroundClip: "text",
@@ -32,17 +31,23 @@ export const PodcastsAndBlogs = () => {
           Podcast & Blogs
         </Text>
       </Flex>
-      <Flex grow={2} justify={"center"} gap={16} align={"center"}>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        grow={1}
+        justify={"center"}
+        align={"center"}
+        gap={{ base: 4, sm: 0, md: 16 }}
+      >
         <Image
-          w={400}
-          h={300}
+          w={{ base: "300px", sm: "400px" }}
+          h={{ base: "200px", sm: "300px" }}
           borderRadius={24}
           alt="alskfj"
           src="/images/Rectangle 2462.svg"
         ></Image>
         <Image
-          w={400}
-          h={300}
+          w={{ base: "300px", sm: "400px" }}
+          h={{ base: "200px", sm: "300px" }}
           borderRadius={24}
           alt="alskfj"
           src="/images/Rectangle 2463.svg"
