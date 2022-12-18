@@ -3,10 +3,19 @@ import React from "react";
 
 export const Users = () => {
   return (
-    <Box h="100vh" pt={"60px"} color="white" bg="rgba(3, 0, 30, 1)">
+    <Box
+      h="100vh"
+      pt={{ base: "48px", md: "60px" }}
+      color="white"
+      bg="rgba(3, 0, 30, 1)"
+    >
       <Heading
         textAlign={"center"}
-        mb={32}
+        fontSize={{
+          base: "3xl",
+          md: "5xl",
+        }}
+        mb={{ base: 4, md: 32 }}
         sx={{
           background: "linear-gradient(180deg, #B981CF 0%, #9098CC 100%)",
           WebkitBackgroundClip: "text",
@@ -15,50 +24,112 @@ export const Users = () => {
       >
         Type of Users
       </Heading>
-      <Flex justify={"space-around"} align={"center"}>
+      <Flex
+        direction={{
+          base: "column",
+          md: "row",
+        }}
+        justify={"space-around"}
+        align={"center"}
+      >
         <Box className="users">
-          <Heading color={"#784989"} textAlign="center">
+          <Heading
+            color={"#784989"}
+            textAlign="center"
+            fontSize={{
+              base: "0px",
+              md: "4xl",
+            }}
+          >
             Users
           </Heading>
           <Image
             src="/images/Office management-pana (1) 1.svg"
             alt="user making plans"
+            w={{ base: "300px", md: "400px" }}
           ></Image>
         </Box>
-        <Flex bg={"#12102c"} borderRadius={32} h="fit-content">
+        <Flex
+          bg={"#12102c"}
+          borderRadius={32}
+          h="fit-content"
+          direction={{ base: "column", sm: "row" }}
+          mx={8}
+        >
           <Flex
             // height={"100%"}
-            direction={"column"}
+            direction={{ base: "row", sm: "column" }}
             justify={"space-around"}
             align={"center"}
-            minW="80px"
+            minW={{ base: "40px", md: "60px", lg: "80px" }}
+            p={2}
           >
             <Image
-              w="44px"
+              sx={{
+                base: {
+                  h: "60%",
+                },
+                sm: {
+                  w: "60%",
+                },
+              }}
+              // h={{ base: "60%", sm: "0" }}
+              // w={{ sm: "60%" }}
               src="/images/Ellipse 5.svg"
               alt="first ellipse"
             ></Image>
             <Image
-              w="44px"
+              sx={{
+                base: {
+                  h: "60%",
+                },
+                sm: {
+                  w: "60%",
+                },
+              }}
               src="/images/Ellipse 6.svg"
               alt="second ellipse"
             ></Image>
             <Image
-              w="44px"
+              sx={{
+                base: {
+                  h: "60%",
+                },
+                sm: {
+                  w: "60%",
+                },
+              }}
               src="/images/Ellipse 7.svg"
               alt="third ellipse"
             ></Image>
             <Image
-              w="44px"
+              sx={{
+                base: {
+                  h: "60%",
+                },
+                sm: {
+                  w: "60%",
+                },
+              }}
               src="/images/Ellipse 8.svg"
               alt="fourth ellipse"
             ></Image>
           </Flex>
           <Box maxW="440px" bg={"#201d38"} p={8} borderRadius={32}>
             <Flex>
-              <Image src="/images/Ellipse 4.svg" alt="ellipse" mr={4} />
+              <Image
+                w={{ base: "48px", md: "64px", lg: "76px" }}
+                src="/images/Ellipse 4.svg"
+                alt="ellipse"
+                mr={4}
+              />
               <Box>
                 <Heading
+                  fontSize={{
+                    base: "lg",
+                    md: "xl",
+                    lg: "2xl",
+                  }}
                   sx={{
                     background:
                       "linear-gradient(180deg, #FD8CA2 0%, #DA9A79 100%)",
@@ -70,12 +141,27 @@ export const Users = () => {
                 >
                   Student
                 </Heading>
-                <Heading color="#784989" mb={4}>
+                <Heading
+                  fontSize={{
+                    base: "xl",
+                    md: "2xl",
+                    lg: "3xl",
+                  }}
+                  color="#784989"
+                  mb={4}
+                >
                   Skill over score!
                 </Heading>
               </Box>
             </Flex>
-            <Text textAlign={"justify"}>
+            <Text
+              textAlign={"justify"}
+              fontSize={{
+                base: "xs",
+                md: "sm",
+                lg: "md",
+              }}
+            >
               Find the best possible opportunities and people available around
               you complimenting your skillset;
               Internships/Start&#8209;ups/Competitions/Hackathons/research
