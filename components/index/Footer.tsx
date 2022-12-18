@@ -66,34 +66,29 @@ export const Footer = () => {
         <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
           SOCIAL
         </Heading>
-        <HStack
-          bg={"#121212"}
-          p={4}
-          justify={"space-between"}
-          w={{ base: "300px", md: "300px" }}
-        >
+        <HStack justify={"space-between"} w={{ base: "300px", md: "300px" }}>
           <SocialIcon
             url="https://twitter.com/johntony366/"
             fgColor="white"
-            bgColor="#292929"
+            bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://instagram.com/john.tony366/"
             fgColor="white"
-            bgColor="#292929"
+            bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://www.linkedin.com/johntony366"
             fgColor="white"
-            bgColor="#292929"
+            bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://www.youtube.com/channel/UCjOxgxgP5Dhw0iBpaQpX0vA"
             fgColor="white"
-            bgColor="#292929"
+            bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
         </HStack>
