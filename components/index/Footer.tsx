@@ -14,22 +14,33 @@ export const Footer = () => {
   return (
     <SimpleGrid
       p={12}
-      h={"75vh"}
-      columns={2}
+      h={{ base: "75vh", md: "60vh" }}
+      columns={{ base: 1, md: 2 }}
+      spacingY={{ base: 8, lg: 0 }}
       bg={"#1E1E1E"}
       color={"white"}
       overflow="hidden"
+      justifyItems={"center"}
     >
       <Box w={400} pl={8}>
-        <Heading mb={8}>TOP</Heading>
-        <Text>
+        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+          TOP
+        </Heading>
+        <Text fontSize={{ base: "xs", sm: "sm" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
         </Text>
       </Box>
-      <Box w={400} justifySelf={"end "} pr={8}>
-        <Heading mb={8}>OTHER LINKS</Heading>
-        <HStack spacing={6} w={"100%"}>
+      <Box
+        w={400}
+        justifySelf={{ base: "center", md: "end" }}
+        pr={{ base: 0, md: 8 }}
+        pl={{ base: 8, md: 0 }}
+      >
+        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+          OTHER LINKS
+        </Heading>
+        <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6} w={"100%"}>
           <Text>Community</Text>
           <Text>Hire Talent</Text>
           <Text>Find Work</Text>
@@ -37,41 +48,61 @@ export const Footer = () => {
         </HStack>
       </Box>
       <Box w={400} pl={8}>
-        <Heading mb={8}>COMPANY</Heading>
-        <HStack spacing={6}>
+        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+          COMPANY
+        </Heading>
+        <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6}>
           <Text>About</Text>
           <Text>Privacy Policy</Text>
           <Text>Terms & Conditions</Text>
         </HStack>
       </Box>
-      <Box w={400} justifySelf={"end "} pr={8}>
-        <Heading mb={8}>SOCIAL</Heading>
-        <HStack bg={"#121212"} p={4} justify={"space-between"} w="100%">
+      <Box
+        w={400}
+        justifySelf={{ base: "center", md: "end" }}
+        pr={{ base: 0, md: 8 }}
+        pl={{ base: 8, md: 0 }}
+      >
+        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+          SOCIAL
+        </Heading>
+        <HStack
+          bg={"#121212"}
+          p={4}
+          justify={"space-between"}
+          w={{ base: "300px", md: "300px" }}
+        >
           <SocialIcon
             url="https://twitter.com/johntony366/"
             fgColor="white"
             bgColor="#292929"
+            style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://instagram.com/john.tony366/"
             fgColor="white"
             bgColor="#292929"
+            style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://www.linkedin.com/johntony366"
             fgColor="white"
             bgColor="#292929"
+            style={{ height: 35, width: 35 }}
           />
           <SocialIcon
             url="https://www.youtube.com/channel/UCjOxgxgP5Dhw0iBpaQpX0vA"
             fgColor="white"
             bgColor="#292929"
+            style={{ height: 35, width: 35 }}
           />
         </HStack>
       </Box>
-      <VStack align={"start"} justify={"end"} spacing={4} pl={8}>
+      <VStack w="400px" align={"start"} justify={"end"} spacing={4} pl={8}>
         <Image src="/images/logo.svg" alt="logo"></Image>
-        <Text>© 2022, TOP.pvt. All Rights Reserved.</Text>
+        <Text fontSize={{ base: "xs", sm: "sm" }}>
+          © 2022, TOP.pvt. All Rights Reserved.
+        </Text>
       </VStack>
     </SimpleGrid>
   );
