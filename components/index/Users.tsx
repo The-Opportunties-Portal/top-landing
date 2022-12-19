@@ -51,9 +51,10 @@ export const Users = () => {
           base: "column",
           md: "row",
         }}
-        justify={{ base: "start", sm: "center", md: "space-around" }}
+        justify={{ base: "start", sm: "start", md: "space-around" }}
         align={"center"}
         flexGrow={1}
+        gap={{ sm: 12, md: 0 }}
       >
         <Box className="users">
           <Heading
