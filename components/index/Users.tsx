@@ -1,7 +1,12 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+
+import styles from "../../styles/Users.module.css";
 
 export const Users = () => {
+  const initialImage = "Ellipse 5";
+  const [image, setImage] = useState(initialImage);
+
   return (
     <Box
       h="100vh"
@@ -44,7 +49,7 @@ export const Users = () => {
             Users
           </Heading>
           <Image
-            src="/images/Office management-pana (1) 1.svg"
+            src={`/images/${image} User.svg`}
             alt="user making plans"
             w={{ base: "300px", md: "400px" }}
           ></Image>
@@ -65,6 +70,12 @@ export const Users = () => {
             p={2}
           >
             <Image
+              className={styles.subImage}
+              onClick={(e) => {
+                if (e.target instanceof HTMLElement)
+                  setImage(e.target.dataset.img || " ");
+              }}
+              data-img="Ellipse 5"
               sx={{
                 base: {
                   h: "60%",
@@ -79,6 +90,12 @@ export const Users = () => {
               alt="first ellipse"
             ></Image>
             <Image
+              className={styles.subImage}
+              onClick={(e) => {
+                if (e.target instanceof HTMLElement)
+                  setImage(e.target.dataset.img || " ");
+              }}
+              data-img="Ellipse 6"
               sx={{
                 base: {
                   h: "60%",
@@ -91,6 +108,12 @@ export const Users = () => {
               alt="second ellipse"
             ></Image>
             <Image
+              className={styles.subImage}
+              onClick={(e) => {
+                if (e.target instanceof HTMLElement)
+                  setImage(e.target.dataset.img || " ");
+              }}
+              data-img="Ellipse 7"
               sx={{
                 base: {
                   h: "60%",
@@ -103,6 +126,12 @@ export const Users = () => {
               alt="third ellipse"
             ></Image>
             <Image
+              className={styles.subImage}
+              onClick={(e) => {
+                if (e.target instanceof HTMLElement)
+                  setImage(e.target.dataset.img || " ");
+              }}
+              data-img="Ellipse 8"
               sx={{
                 base: {
                   h: "60%",

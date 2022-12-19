@@ -1,0 +1,7 @@
+.subImage {
+  transition: transform 0.2s ease-in;
+}
+
+.subImage:hover {
+  transform: scale(1.2);
+}

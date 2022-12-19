@@ -27,7 +27,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box position="absolute" width={"100%"}>
+    <Box position="absolute" width={"100%"} zIndex={1}>
       <Flex
         bg={"rgba(30, 30, 30, 0.6)"}
         color={"#F2F6F9"}
