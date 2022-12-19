@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 import styles from "../../styles/Users.module.css";
 
@@ -7,8 +8,24 @@ export const Users = () => {
   const initialImage = "Ellipse 5";
   const [image, setImage] = useState(initialImage);
 
+  const variants = {
+    initial: {
+      x: 100,
+      opacity: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: {
+      x: -100,
+      opacity: 0.5,
+    },
+  };
+
   return (
-    <Box
+    <Flex
+      direction="column"
       h="100vh"
       pt={{ base: "48px", md: "60px" }}
       color="white"
@@ -34,8 +51,9 @@ export const Users = () => {
           base: "column",
           md: "row",
         }}
-        justify={"space-around"}
+        justify={{ base: "start", sm: "center", md: "space-around" }}
         align={"center"}
+        flexGrow={1}
       >
         <Box className="users">
           <Heading
@@ -49,10 +67,17 @@ export const Users = () => {
             Users
           </Heading>
           <Image
+            key={image}
+            as={motion.img}
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             src={`/images/${image} User.svg`}
             alt="user making plans"
             w={{ base: "300px", md: "400px" }}
-          ></Image>
+            h={{ base: "300px", md: "400px" }}
+          />
         </Box>
         <Flex
           bg={"#12102c"}
@@ -202,6 +227,6 @@ export const Users = () => {
           </Box>
         </Flex>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
