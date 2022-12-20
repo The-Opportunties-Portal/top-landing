@@ -14,16 +14,16 @@ export const Footer = () => {
   return (
     <SimpleGrid
       p={12}
-      h={{ base: "75vh", md: "60vh" }}
+      minH={{ base: "75vh", md: "60vh" }}
       columns={{ base: 1, md: 2 }}
-      spacingY={{ base: 8, lg: 0 }}
+      spacingY={{ base: 8, lg: 4 }}
       bg={"#1E1E1E"}
       color={"white"}
       overflow="hidden"
       justifyItems={"center"}
     >
       <Box w={400} pl={8}>
-        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+        <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           TOP
         </Heading>
         <Text fontSize={{ base: "xs", sm: "sm" }}>
@@ -37,7 +37,7 @@ export const Footer = () => {
         pr={{ base: 0, md: 8 }}
         pl={{ base: 8, md: 0 }}
       >
-        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+        <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           OTHER LINKS
         </Heading>
         <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6} w={"100%"}>
@@ -48,7 +48,7 @@ export const Footer = () => {
         </HStack>
       </Box>
       <Box w={400} pl={8}>
-        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+        <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           COMPANY
         </Heading>
         <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6}>
@@ -63,7 +63,7 @@ export const Footer = () => {
         pr={{ base: 0, md: 8 }}
         pl={{ base: 8, md: 0 }}
       >
-        <Heading mb={{ base: 1, lg: 8 }} fontSize={{ base: "lg", md: "2xl" }}>
+        <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           SOCIAL
         </Heading>
         <HStack justify={"space-between"} w={{ base: "300px", md: "300px" }}>

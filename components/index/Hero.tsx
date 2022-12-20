@@ -48,10 +48,11 @@ export const Hero = () => {
               fontSize={{ base: "sm", sm: "lg", md: "xl" }}
               color={"rgba(242, 246, 249, 0.6)"}
               px={8}
-              maxW={600}
+              maxW={1000}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et{" "}
+              Promoting growth and innovation by directing talented individuals
+              towards their desired opportunities present on their campus
+              itself! Ensuring that no potential remains untapped.
             </Text>
             <Flex
               w={"100%"}

@@ -5,7 +5,7 @@ export const PodcastsAndBlogs = () => {
   return (
     <Flex
       direction={"column"}
-      h={{ base: "75vh", sm: "100vh", md: "75vh" }}
+      minH={{ base: "75vh", sm: "100vh", md: "75vh" }}
       bg="rgba(3, 0, 30, 1)"
     >
       <Flex direction={"column"} justify={"center"} textAlign={"center"}>

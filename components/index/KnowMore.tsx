@@ -3,7 +3,7 @@ import React from "react";
 
 export const KnowMore = () => {
   return (
-    <Flex h="75vh" direction={"column"} bg={"rgba(30, 30, 30, 1)"}>
+    <Flex minH="75vh" direction={"column"} bg={"rgba(30, 30, 30, 1)"}>
       <Heading
         textAlign={"center"}
         mt={12}
