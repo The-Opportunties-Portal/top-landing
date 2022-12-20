@@ -173,8 +173,9 @@ export const Users = () => {
           <Box maxW="440px" bg={"#201d38"} p={8} borderRadius={32}>
             <Flex>
               <Image
+                as={motion.img}
                 w={{ base: "48px", md: "64px", lg: "76px" }}
-                src="/images/Ellipse 4.svg"
+                src={`/images/${image}.svg`}
                 alt="ellipse"
                 mr={4}
               />

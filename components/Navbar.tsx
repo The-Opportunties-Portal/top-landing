@@ -27,7 +27,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box position="absolute" width={"100%"} zIndex={1}>
+    <Box position="static" width={"100%"} h={"10vh"} zIndex={1}>
       <Flex
         bg={"rgba(30, 30, 30, 0.6)"}
         color={"#F2F6F9"}
@@ -38,12 +38,14 @@ export default function WithSubnavigation() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        direction={{ base: "row-reverse", md: "row" }}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
+          // ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
           flexGrow={0}
+          justify={{ base: "end" }}
         >
           <IconButton
             onClick={onToggle}
@@ -59,7 +61,7 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: "end", md: "space-between" }}
+          justify={{ base: "start", md: "space-between" }}
           align="center"
           gap={{ base: "8px" }}
         >
@@ -72,18 +74,13 @@ export default function WithSubnavigation() {
             color={"#F2F6F9"}
             w={150}
           >
-            <Image
-              src="/images/logo.svg"
-              w={[100, 150, 150, 150]}
-              alt="logo"
-              margin={"auto"}
-            />
+            <Image src="/images/logo.svg" w={[125, 150, 150, 150]} alt="logo" />
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} align={"center"} ml={10}>
             <DesktopNav />
           </Flex>
-          <DesktopSubNav label="Work Request >" href="#" />
+          <DesktopSubNav label="Join the team >" href="#" />
         </Flex>
       </Flex>
 
@@ -102,43 +99,46 @@ const DesktopNav = () => {
   return (
     <>
       <Stack direction={"row"} spacing={8}>
-        {NAV_ITEMS.map((navItem) => (
-          <Box key={navItem.label}>
-            <Popover trigger={"hover"} placement={"bottom-start"}>
-              <PopoverTrigger>
-                <Link
-                  p={2}
-                  href={navItem.href ?? "#"}
-                  fontSize={"lg"}
-                  fontWeight={500}
-                  color={linkColor}
-                  _hover={{
-                    textDecoration: "none",
-                    color: linkHoverColor,
-                  }}
-                >
-                  {navItem.label}
-                </Link>
-              </PopoverTrigger>
-              {navItem.children && (
-                <PopoverContent
-                  border={0}
-                  boxShadow={"xl"}
-                  bg={popoverContentBgColor}
-                  p={4}
-                  rounded={"xl"}
-                  minW={"sm"}
-                >
-                  <Stack>
-                    {navItem.children.map((child) => (
-                      <DesktopSubNav key={child.label} {...child} />
-                    ))}
-                  </Stack>
-                </PopoverContent>
-              )}
-            </Popover>
-          </Box>
-        ))}
+        {NAV_ITEMS.map((navItem) => {
+          if (navItem.label == "Join the team") return;
+          return (
+            <Box key={navItem.label}>
+              <Popover trigger={"hover"} placement={"bottom-start"}>
+                <PopoverTrigger>
+                  <Link
+                    p={2}
+                    href={navItem.href ?? "#"}
+                    fontSize={"lg"}
+                    fontWeight={500}
+                    color={linkColor}
+                    _hover={{
+                      textDecoration: "none",
+                      color: linkHoverColor,
+                    }}
+                  >
+                    {navItem.label}
+                  </Link>
+                </PopoverTrigger>
+                {navItem.children && (
+                  <PopoverContent
+                    border={0}
+                    boxShadow={"xl"}
+                    bg={popoverContentBgColor}
+                    p={4}
+                    rounded={"xl"}
+                    minW={"sm"}
+                  >
+                    <Stack>
+                      {navItem.children.map((child) => (
+                        <DesktopSubNav key={child.label} {...child} />
+                      ))}
+                    </Stack>
+                  </PopoverContent>
+                )}
+              </Popover>
+            </Box>
+          );
+        })}
       </Stack>
     </>
   );
@@ -149,7 +149,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     <Link
       href={href}
       role={"group"}
-      display={"block"}
+      display={{ base: "none", md: "block" }}
       p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
@@ -292,6 +292,10 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Early Access",
+    href: "#",
+  },
+  {
+    label: "Join the team",
     href: "#",
   },
 ];
