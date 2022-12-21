@@ -26,18 +26,25 @@ export default function Home() {
         <Hero />
       </Flex>
 
-      {/* <Box
+      <Box
         position={"absolute"}
-        transform="-50%"
         w="50vw"
-        h={12}
+        h={{ base: 16, lg: 24 }}
         borderRight={"2px solid rgba(236, 155, 131, 1)"}
-      /> */}
+      />
 
       <Opportunities />
 
-      <Network />
+      <Box
+        position={"absolute"}
+        w="50vw"
+        h={{ base: 12, md: 16 }}
+        borderRight={"2px solid rgba(120, 73, 137, 1)"}
+        zIndex={1}
+      />
+
       <Users />
+      <Network />
 
       <KnowMore />
 

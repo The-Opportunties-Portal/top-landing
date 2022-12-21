@@ -16,7 +16,7 @@ export const Opportunities = () => {
         w="100%"
         mb={{ base: 2, lg: 8 }}
         textAlign={{
-          base: "start",
+          base: "center",
           sm: "center",
         }}
         fontSize={{
@@ -37,7 +37,7 @@ export const Opportunities = () => {
           lg: "5xl",
         }}
         textAlign={{
-          base: "start",
+          base: "center",
           sm: "center",
         }}
         pl={{ base: 8, sm: 4, md: 0 }}
