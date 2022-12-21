@@ -50,14 +50,14 @@ export const PodcastsAndBlogs = () => {
           w={{ base: "300px", sm: "400px" }}
           h={{ base: "200px", sm: "300px" }}
           borderRadius={24}
-          alt="alskfj"
+          alt="The Opportunties Portal Podcast"
           src="/images/Rectangle 2462.svg"
         ></Image>
         <Image
           w={{ base: "300px", sm: "400px" }}
           h={{ base: "200px", sm: "300px" }}
           borderRadius={24}
-          alt="alskfj"
+          alt="The Opportunties Portal Blogs"
           src="/images/Rectangle 2463.svg"
         ></Image>
       </Flex>

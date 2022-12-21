@@ -83,7 +83,7 @@ export default function WithSubnavigation({ page }: { page: string }) {
               <Image
                 src="/images/logo.svg"
                 w={[125, 150, 150, 150]}
-                alt="logo"
+                alt="The Opprtunities Portal logo"
               />
             </Link>
           </Text>

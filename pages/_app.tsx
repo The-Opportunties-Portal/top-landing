@@ -20,13 +20,19 @@ export default function App({ Component, pageProps }: AppProps) {
             "Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped.",
           images: [
             {
-              url: "/logo.svg",
+              url: "/images/logo.png",
               width: 800,
               height: 420,
               alt: "The Opportunities Portal",
             },
           ],
           siteName: "The Opportunities Portal",
+          type: "website",
+          locale: "en_IE",
+        }}
+        twitter={{
+          site: "https://www.theopportunitiesportal.com/",
+          cardType: "summary_large_image",
         }}
       />
       <Component {...pageProps} />

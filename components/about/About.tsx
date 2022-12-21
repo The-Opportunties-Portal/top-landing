@@ -39,7 +39,11 @@ const AboutUs = () => {
             md: "flex",
           }}
         >
-          <img src="/images/logo.svg" alt="Logo" width="60%" />
+          <img
+            src="/images/logo.svg"
+            alt="The opprtunities Portal Logo"
+            width="60%"
+          />
         </Flex>
         <Box
           flexBasis={{
@@ -47,7 +51,11 @@ const AboutUs = () => {
             md: "50%",
           }}
         >
-          <img src="/images/topfam.svg" alt="Logo" width="100%" />
+          <img
+            src="/images/topfam.svg"
+            alt="The Opprtunities Portal logo family"
+            width="100%"
+          />
         </Box>
       </Flex>
       <Text
