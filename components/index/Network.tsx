@@ -13,6 +13,8 @@ export const Network = () => {
       direction={"column"}
       justify={"center"}
       align={"center"}
+      position="relative"
+      zIndex={9}
     >
       <Flex
         w="100%"
@@ -60,6 +62,15 @@ export const Network = () => {
           />
         </Box>
       </Flex>
+      <Box
+        position={"absolute"}
+        w="50%"
+        bottom={0}
+        left={0}
+        h={{ base: 12, md: 16 }}
+        borderRight={"1px solid rgba(236, 155, 131, 1)"}
+        zIndex={1}
+      />
     </Flex>
   );
 };

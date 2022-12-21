@@ -126,7 +126,7 @@ export const Users = () => {
       color="white"
       bg="rgba(3, 0, 30, 1)"
       position={"relative"}
-      zIndex={0}
+      zIndex={10}
     >
       <Heading
         textAlign={"center"}
@@ -355,6 +355,7 @@ export const Users = () => {
                 {user.content}
               </Text>
               <Flex
+                className="HELLO"
                 position={"absolute"}
                 display={{ base: "none", md: "flex" }}
                 left={0}
@@ -369,6 +370,7 @@ export const Users = () => {
                   w={{ md: "50%", lg: "100%" }}
                   borderRight="2px solid rgba(9, 126, 160, 1)"
                   borderBottom="2px solid rgba(9, 126, 160, 1)"
+                  zIndex={2}
                 />
                 <Box
                   w={{ md: "50%", lg: "100%" }}

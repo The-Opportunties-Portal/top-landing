@@ -11,6 +11,7 @@ import { Hero } from "../components/index/Hero";
 import { KnowMore } from "../components/index/KnowMore";
 import { PodcastsAndBlogs } from "../components/index/PodcastsAndBlogs";
 import { Footer } from "../components/index/Footer";
+import { WithWithout } from "../components/index/WithWithout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default function Home() {
         position={"absolute"}
         w="50vw"
         h={{ base: 16, lg: 24 }}
-        borderRight={"2px solid rgba(236, 155, 131, 1)"}
+        borderRight={"1px solid rgba(236, 155, 131, 1)"}
       />
 
       <Opportunities />
@@ -40,13 +41,16 @@ export default function Home() {
         w="50vw"
         h={{ base: 12, md: 16 }}
         borderRight={"2px solid rgba(120, 73, 137, 1)"}
-        zIndex={1}
+        zIndex={11}
       />
 
       <Users />
+
       <Network />
 
-      <KnowMore />
+      <WithWithout />
+
+      {/* <KnowMore /> */}
 
       <PodcastsAndBlogs />
 
