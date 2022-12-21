@@ -82,14 +82,14 @@ export const Hero = () => {
               </Button> */}
               <Button
                 fontWeight="bold"
-                fontSize={"md"}
+                fontSize={{ base: "md", lg: "lg" }}
+                color="black"
                 w="200px"
                 h="50px"
                 sx={{
-                  background:
-                    "radial-gradient(100% 359.18% at 0% 0%, #6DE3E1 0%, #B97CF1 100%) ",
+                  background: "rgba(255, 255, 255, 1)",
                   borderRadius: "12px",
-                  boxShadow: "0px 0px 0px 9px rgba(255, 255, 255, 0.10)",
+                  boxShadow: "0px 0px 0px 6px rgba(76, 80, 158, 1)",
                   _hover: {
                     transform: "scale(1.2)",
                   },
