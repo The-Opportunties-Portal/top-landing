@@ -279,7 +279,13 @@ export const Users = () => {
                 alt="fourth ellipse"
               ></Image>
             </Flex>
-            <Box maxW="440px" bg={"#201d38"} p={8} borderRadius={32}>
+            <Box
+              maxW="440px"
+              bg={"#201d38"}
+              p={8}
+              borderRadius={32}
+              position="relative"
+            >
               <Flex>
                 <Image
                   as={motion.img}
@@ -348,6 +354,38 @@ export const Users = () => {
               >
                 {user.content}
               </Text>
+              <Flex
+                position={"absolute"}
+                display={{ base: "none", md: "flex" }}
+                left={0}
+                bottom={0}
+                w="100%"
+                transform="translate(-50%, 100%)"
+                direction={"column"}
+                align="end"
+              >
+                <Box
+                  h={{ md: "84px", lg: "96px" }}
+                  w={{ md: "50%", lg: "100%" }}
+                  borderRight="2px solid rgba(9, 126, 160, 1)"
+                  borderBottom="2px solid rgba(9, 126, 160, 1)"
+                />
+                <Box
+                  w={{ md: "50%", lg: "100%" }}
+                  h={{ md: "84px", lg: "96px" }}
+                  borderLeft="2px solid rgba(9, 126, 160, 1)"
+                />
+              </Flex>
+              <Box
+                position="absolute"
+                left={{ base: "0px", sm: "-30px" }}
+                bottom="0px"
+                transform={"translateY(100%)"}
+                display={{ base: "block", md: "none" }}
+                w="50%"
+                h="48px"
+                borderRight="2px solid rgba(9, 126, 160, 1)"
+              />
             </Box>
           </Flex>
         </Flex>

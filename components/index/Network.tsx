@@ -5,7 +5,8 @@ export const Network = () => {
   return (
     <Flex
       minH="100vh"
-      pt={"60px"}
+      pt={{ base: "100px", md: "40px" }}
+      pb={"60px"}
       color="white"
       bg="rgba(3, 0, 30, 1)"
       px={8}
@@ -31,7 +32,7 @@ export const Network = () => {
           >
             Find a circle to work, earn, and network
           </Heading>
-          <Text maxW={500} fontSize={{ base: "medium", sm: "large" }}>
+          <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
             The Opportunities Portal is a platform that connects skilled
             students willing to work, with startups or project leaders on their
             campus. It provides a swift, direct, and transparent way for these
@@ -39,13 +40,13 @@ export const Network = () => {
             to new job opportunities, partnerships, or investments.
           </Text>
           <br />
-          <Text maxW={500} fontSize={{ base: "medium", sm: "large" }}>
+          <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
             For all students, TOP is a valuable resource for finding and
             learning about new opportunities with startups and VCs on their
             campus and finding potential niches and people they are looking for!
           </Text>
           <br />
-          <Text maxW={500} fontSize={{ base: "medium", sm: "large" }}>
+          <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
             For startups and VCs and other hiring parties, TOP is a useful tool
             for accessing a pool of qualified candidates and calling the best
             fit for their organization.
