@@ -87,7 +87,7 @@ export const Opportunities = () => {
                 <Image
                   w={{ base: "60px", lg: "120px" }}
                   src="images/Business vision-pana 1.svg"
-                  alt="man in the clouds"
+                  alt="The Opprtunities Portal - Giving an opportunity"
                 />
               </Flex>
               <Text
@@ -138,7 +138,7 @@ export const Opportunities = () => {
                 <Image
                   w={{ base: "60px", lg: "120px" }}
                   src="images/Digital nomad-pana 1.svg"
-                  alt="man in the clouds"
+                  alt="The Opprtunities Portal - Finding an opportunity"
                 />
               </Flex>
               <Text
