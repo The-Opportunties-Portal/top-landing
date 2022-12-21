@@ -1,12 +1,34 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
-import Navbar from "../components/Navbar";
 import { theme } from "../styles/theme";
+import { NextSeo } from "next-seo";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
+      <NextSeo
+        title="The Opportunities Portal"
+        titleTemplate="The Opportunities Portal"
+        defaultTitle="The Opportunities Portal"
+        description="Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped."
+        canonical="https://www.theopportunitiesportal.com/"
+        openGraph={{
+          url: "https://www.theopportunitiesportal.com/",
+          title: "The Opportunities Portal",
+          description:
+            "Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped.",
+          images: [
+            {
+              url: "/logo.svg",
+              width: 800,
+              height: 420,
+              alt: "The Opportunities Portal",
+            },
+          ],
+          siteName: "The Opportunities Portal",
+        }}
+      />
       <Component {...pageProps} />
     </ChakraProvider>
   );
