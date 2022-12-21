@@ -23,13 +23,17 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-export default function WithSubnavigation() {
+export default function WithSubnavigation({ page }: { page: string }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box position="static" width={"100%"} h={"10vh"} zIndex={1}>
       <Flex
-        bg={"rgba(30, 30, 30, 0.6)"}
+        bg={
+          page === "INDEX"
+            ? "rgba(30, 30, 30, 0.6)"
+            : "linear-gradient(180deg, rgba(73, 76, 94, 0.6) -265.69%, rgba(30, 30, 30, 0.6) 100%)"
+        }
         color={"#F2F6F9"}
         minH={"70px"}
         py={{ base: 2 }}
@@ -260,7 +264,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About us",
-    href: "#",
+    href: "/about",
     // children: [
     //     {
     //         label: "Explore Design Work",
