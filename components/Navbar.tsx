@@ -107,13 +107,17 @@ const DesktopNav = () => {
                 <PopoverTrigger>
                   <Link
                     p={2}
-                    href={navItem.href ?? "#"}
+                    // href={navItem.href ?? "#"}
                     fontSize={"lg"}
                     fontWeight={500}
                     color={linkColor}
                     _hover={{
                       textDecoration: "none",
                       color: linkHoverColor,
+                    }}
+                    onClick={() => {
+                      const element = document.querySelector(`${navItem.href}`);
+                      element?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
                     {navItem.label}

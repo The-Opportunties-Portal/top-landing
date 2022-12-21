@@ -5,6 +5,7 @@ export const Opportunities = () => {
   return (
     <Flex
       id="opportunities"
+      scrollBehavior={"smooth"}
       direction="column"
       minH="100vh"
       pt={{ base: 20, lg: 40 }}
