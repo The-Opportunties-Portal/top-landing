@@ -8,6 +8,13 @@ export const PodcastsAndBlogs = () => {
       minH={{ base: "75vh", sm: "100vh", md: "75vh" }}
       bg="rgba(3, 0, 30, 1)"
     >
+      <Box
+        position={"relative"}
+        w="50vw"
+        h={{ base: 12, md: 16 }}
+        borderRight={"1px solid rgba(231, 150, 141, 1)"}
+        zIndex={11}
+      />
       <Flex direction={"column"} justify={"center"} textAlign={"center"}>
         <Text
           mt={8}
