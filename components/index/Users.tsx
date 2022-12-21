@@ -3,35 +3,27 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import styles from "../../styles/Users.module.css";
+import { usersImageVariant } from "./UserCard";
+
+class User {
+  type: String;
+  heading: String;
+  content: String;
+
+  constructor(type: String, heading: String, content: String) {
+    this.type = type;
+    this.heading = heading;
+    this.content = content;
+  }
+}
+
+export type UserType = {
+  type: String;
+  heading: String;
+  content: String;
+};
 
 export const Users = () => {
-  const usersImageVariant = {
-    hidden: {
-      x: 10,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-  const userImageVariant = {
-    hidden: {
-      x: -10,
-      opacity: 0,
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
   const initialImage = "Ellipse 5";
   const imageClickHandler = (e: React.MouseEvent) => {
     if (e.target instanceof HTMLElement) {
@@ -54,18 +46,6 @@ export const Users = () => {
       }
     }
   };
-
-  class User {
-    type: String;
-    heading: String;
-    content: String;
-
-    constructor(type: String, heading: String, content: String) {
-      this.type = type;
-      this.heading = heading;
-      this.content = content;
-    }
-  }
 
   const studentsType = "Students";
   const studentsHeading = "Skill over Score!";
@@ -99,6 +79,8 @@ export const Users = () => {
     fundingInstitutionsHeading,
     fundingInstitutionsContent
   );
+
+  const allUsers = [student, startup, researcher, fundingInstitution];
 
   const [image, setImage] = useState(initialImage);
   const [user, setUser] = useState(student);
@@ -204,193 +186,7 @@ export const Users = () => {
             borderRadius={32}
             direction={{ base: "column", sm: "row" }}
             mx={8}
-          >
-            <Flex
-              // height={"100%"}
-              direction={{ base: "row", sm: "column" }}
-              justify={"space-around"}
-              align={"center"}
-              minW={{ base: "40px", md: "60px", lg: "80px" }}
-              p={2}
-            >
-              <Image
-                className={styles.subImage}
-                onClick={imageClickHandler}
-                data-img="Ellipse 5"
-                data-user="student"
-                sx={{
-                  base: {
-                    h: "60%",
-                  },
-                  sm: {
-                    w: "60%",
-                  },
-                }}
-                // h={{ base: "60%", sm: "0" }}
-                // w={{ sm: "60%" }}
-                src="/images/Ellipse 5.svg"
-                alt="first ellipse"
-              ></Image>
-              <Image
-                className={styles.subImage}
-                onClick={imageClickHandler}
-                data-img="Ellipse 6"
-                data-user="startup"
-                sx={{
-                  base: {
-                    h: "60%",
-                  },
-                  sm: {
-                    w: "60%",
-                  },
-                }}
-                src="/images/Ellipse 6.svg"
-                alt="second ellipse"
-              ></Image>
-              <Image
-                className={styles.subImage}
-                onClick={imageClickHandler}
-                data-img="Ellipse 7"
-                data-user="researcher"
-                sx={{
-                  base: {
-                    h: "60%",
-                  },
-                  sm: {
-                    w: "60%",
-                  },
-                }}
-                src="/images/Ellipse 7.svg"
-                alt="third ellipse"
-              ></Image>
-              <Image
-                className={styles.subImage}
-                onClick={imageClickHandler}
-                data-img="Ellipse 8"
-                data-user="fundingInstitution"
-                sx={{
-                  base: {
-                    h: "60%",
-                  },
-                  sm: {
-                    w: "60%",
-                  },
-                }}
-                src="/images/Ellipse 8.svg"
-                alt="fourth ellipse"
-              ></Image>
-            </Flex>
-            <Box
-              maxW="440px"
-              bg={"#201d38"}
-              p={8}
-              borderRadius={32}
-              position="relative"
-            >
-              <Flex>
-                <Image
-                  as={motion.img}
-                  key={image}
-                  h={{ base: "48px", md: "64px", lg: "64px" }}
-                  w={{ base: "48px", md: "64px", lg: "64px" }}
-                  src={`/images/${image}.svg`}
-                  alt="ellipse"
-                  mr={4}
-                  variants={userImageVariant}
-                  initial="hidden"
-                  animate="visible"
-                />
-                <Box>
-                  <Heading
-                    as={motion.h2}
-                    key={user.type as React.Key}
-                    fontSize={{
-                      base: "lg",
-                      md: "xl",
-                      lg: "2xl",
-                    }}
-                    sx={{
-                      background:
-                        "linear-gradient(180deg, #FD8CA2 0%, #DA9A79 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      textFillColor: "transparent",
-                    }}
-                    variants={userImageVariant}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    {user.type}
-                  </Heading>
-                  <Heading
-                    as={motion.h1}
-                    key={user.heading as React.Key}
-                    fontSize={{
-                      base: "xl",
-                      md: "2xl",
-                      lg: "3xl",
-                    }}
-                    color="#784989"
-                    mb={4}
-                    variants={userImageVariant}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    {user.heading}
-                  </Heading>
-                </Box>
-              </Flex>
-              <Text
-                as={motion.p}
-                key={user.content as React.Key}
-                fontSize={{
-                  base: "xs",
-                  md: "sm",
-                  lg: "md",
-                }}
-                variants={userImageVariant}
-                initial="hidden"
-                animate="visible"
-              >
-                {user.content}
-              </Text>
-              <Flex
-                className="HELLO"
-                position={"absolute"}
-                display={{ base: "none", md: "flex" }}
-                left={0}
-                bottom={0}
-                w="100%"
-                transform="translate(-50%, 100%)"
-                direction={"column"}
-                align="end"
-              >
-                <Box
-                  h={{ md: "84px", lg: "96px" }}
-                  w={{ md: "50%", lg: "100%" }}
-                  borderRight="2px solid rgba(9, 126, 160, 1)"
-                  borderBottom="2px solid rgba(9, 126, 160, 1)"
-                  zIndex={2}
-                />
-                <Box
-                  w={{ md: "50%", lg: "100%" }}
-                  h={{ md: "84px", lg: "96px" }}
-                  borderLeft="2px solid rgba(9, 126, 160, 1)"
-                />
-              </Flex>
-              <Box
-                position="absolute"
-                left={{ base: "0px", sm: "-30px" }}
-                bottom="0px"
-                transform={"translateY(100%)"}
-                display={{ base: "block", md: "none" }}
-                w="50%"
-                h="48px"
-                borderRight="2px solid rgba(9, 126, 160, 1)"
-              />
-            </Box>
-          </Flex>
+          ></Flex>
         </Flex>
       </Stack>
     </Flex>
