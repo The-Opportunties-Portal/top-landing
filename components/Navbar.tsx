@@ -32,7 +32,7 @@ export default function WithSubnavigation({ page }: { page: string }) {
         bg={
           page === "INDEX"
             ? "rgba(30, 30, 30, 0.6)"
-            : "linear-gradient(180deg, rgba(73, 76, 94, 0.6) -265.69%, rgba(30, 30, 30, 0.6) 100%)"
+            : "linear-gradient(180deg,rgba(30, 30, 30, 0.6)  0%,rgba(30, 30, 30, 0.6)  50%,rgba(73, 76, 94, 0.6)  100%)"
         }
         color={"#F2F6F9"}
         minH={"70px"}
