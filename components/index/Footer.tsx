@@ -27,8 +27,8 @@ export const Footer = () => {
           TOP
         </Heading>
         <Text fontSize={{ base: "xs", sm: "sm" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+          Helping talented individuals find and pursue the right opportunities
+          that can help them grow and succeed.
         </Text>
       </Box>
       <Box
