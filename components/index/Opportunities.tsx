@@ -4,7 +4,7 @@ import React from "react";
 export const Opportunities = () => {
   return (
     <Flex
-      className="opportunities"
+      id="opportunities"
       direction="column"
       minH="100vh"
       pt={{ base: 20, lg: 40 }}

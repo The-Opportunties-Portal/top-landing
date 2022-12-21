@@ -4,6 +4,7 @@ import React from "react";
 export const PodcastsAndBlogs = () => {
   return (
     <Flex
+      id="podcastsBlogs"
       direction={"column"}
       minH={{ base: "75vh", sm: "100vh", md: "75vh" }}
       bg="rgba(3, 0, 30, 1)"

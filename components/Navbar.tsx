@@ -38,12 +38,12 @@ export default function WithSubnavigation() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
-        direction={{ base: "row-reverse", md: "row" }}
+        direction={{ base: "row-reverse", lg: "row" }}
       >
         <Flex
-          flex={{ base: 1, md: "auto" }}
+          flex={{ base: 1, lg: "auto" }}
           // ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
+          display={{ base: "flex", lg: "none" }}
           flexGrow={0}
           justify={{ base: "end" }}
         >
@@ -61,14 +61,14 @@ export default function WithSubnavigation() {
         </Flex>
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: "start", md: "space-between" }}
+          justify={{ base: "start", lg: "space-between" }}
           align="center"
           gap={{ base: "8px" }}
         >
           <Text
             textAlign={useBreakpointValue({
               base: "center",
-              md: "left",
+              lg: "left",
             })}
             fontFamily={"heading"}
             color={"#F2F6F9"}
@@ -77,7 +77,7 @@ export default function WithSubnavigation() {
             <Image src="/images/logo.svg" w={[125, 150, 150, 150]} alt="logo" />
           </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} align={"center"} ml={10}>
+          <Flex display={{ base: "none", lg: "flex" }} align={"center"} ml={10}>
             <DesktopNav />
           </Flex>
           <DesktopSubNav label="Join the team >" href="#" />
@@ -149,7 +149,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     <Link
       href={href}
       role={"group"}
-      display={{ base: "none", md: "block" }}
+      display={{ base: "none", lg: "block" }}
       p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
@@ -188,7 +188,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack bg={"black"} p={4} display={{ md: "none" }}>
+    <Stack bg={"black"} p={4} display={{ lg: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -255,7 +255,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "About",
+    label: "About us",
     href: "#",
     // children: [
     //     {
@@ -271,7 +271,7 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Works",
+    label: "Work",
     href: "#",
     // children: [
     //     {
@@ -288,14 +288,18 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Opportunities",
-    href: "#",
+    href: "#opportunities",
   },
   {
-    label: "Early Access",
-    href: "#",
+    label: "Users",
+    href: "#users",
+  },
+  {
+    label: "Podcasts & Blogs",
+    href: "#podcastsBlogs",
   },
   {
     label: "Join the team",
-    href: "#",
+    href: "#podcastsBlogs",
   },
 ];

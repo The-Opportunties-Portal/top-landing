@@ -120,6 +120,7 @@ export const Users = () => {
 
   return (
     <Flex
+      id="users"
       direction="column"
       minH="100vh"
       pt={{ base: "48px", md: "60px" }}
