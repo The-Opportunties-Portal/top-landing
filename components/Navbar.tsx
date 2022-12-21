@@ -22,6 +22,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import router, { useRouter } from "next/router";
 
 export default function WithSubnavigation({ page }: { page: string }) {
   const { isOpen, onToggle } = useDisclosure();
@@ -78,7 +79,13 @@ export default function WithSubnavigation({ page }: { page: string }) {
             color={"#F2F6F9"}
             w={150}
           >
-            <Image src="/images/logo.svg" w={[125, 150, 150, 150]} alt="logo" />
+            <Link href="/">
+              <Image
+                src="/images/logo.svg"
+                w={[125, 150, 150, 150]}
+                alt="logo"
+              />
+            </Link>
           </Text>
 
           <Flex display={{ base: "none", lg: "flex" }} align={"center"} ml={10}>
@@ -120,8 +127,9 @@ const DesktopNav = () => {
                       color: linkHoverColor,
                     }}
                     onClick={() => {
-                      const element = document.querySelector(`${navItem.href}`);
-                      element?.scrollIntoView({ behavior: "smooth" });
+                      if (navItem.href) {
+                        router.push(navItem.href);
+                      }
                     }}
                   >
                     {navItem.label}
@@ -280,7 +288,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Work",
-    href: "#",
+    href: "/#",
     // children: [
     //     {
     //         label: "Job Board",
@@ -296,15 +304,15 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Opportunities",
-    href: "#opportunities",
+    href: "/#opportunities",
   },
   {
     label: "Users",
-    href: "#users",
+    href: "/#users",
   },
   {
     label: "Podcasts & Blogs",
-    href: "#podcastsBlogs",
+    href: "/#podcastsBlogs",
   },
   {
     label: "Join the team",
