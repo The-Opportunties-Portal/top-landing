@@ -42,9 +42,7 @@ export const Footer = () => {
         </Heading>
         <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6} w={"100%"}>
           <Text>Community</Text>
-          <Text>Hire Talent</Text>
-          <Text>Find Work</Text>
-          <Text>Events</Text>
+          <Text>Join our team</Text>
         </HStack>
       </Box>
       <Box w={400} pl={8}>

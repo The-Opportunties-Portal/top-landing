@@ -204,7 +204,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack bg={"black"} p={4} display={{ lg: "none" }}>
+    <Stack bg={"rgba(0,0,0,0.4)"} p={4} display={{ lg: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -227,7 +227,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text fontWeight={600} color={"white"}>
+        <Text
+          fontWeight={600}
+          fontSize={{ base: "16px", sm: "18px" }}
+          color={"white"}
+        >
           {label}
         </Text>
         {children && (
@@ -287,8 +291,8 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Work",
-    href: "/#",
+    label: "Early Access",
+    href: "/earlyAccess",
     // children: [
     //     {
     //         label: "Job Board",
@@ -303,19 +307,15 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Opportunities",
-    href: "/#opportunities",
-  },
-  {
     label: "Users",
-    href: "/#users",
+    href: "/users",
   },
   {
     label: "Podcasts & Blogs",
-    href: "/#podcastsBlogs",
+    href: "/podcastsAndBlogs",
   },
   {
     label: "Join the team",
-    href: "#podcastsBlogs",
+    href: "#",
   },
 ];
