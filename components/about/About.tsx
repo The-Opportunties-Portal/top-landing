@@ -61,6 +61,7 @@ const AboutUs = () => {
           md: "1.2rem",
         }}
         fontWeight="bold"
+        color="white"
       >
         Welcome to the Opportunities Portal, where talented individuals and
         startups connect for mutual success. Our platform connects skilled and
