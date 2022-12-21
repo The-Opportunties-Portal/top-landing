@@ -291,8 +291,8 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Work",
-    href: "/#",
+    label: "Early Access",
+    href: "/earlyAccess",
     // children: [
     //     {
     //         label: "Job Board",
@@ -307,19 +307,15 @@ const NAV_ITEMS: Array<NavItem> = [
     // ],
   },
   {
-    label: "Opportunities",
-    href: "/#opportunities",
-  },
-  {
     label: "Users",
-    href: "/#users",
+    href: "/users",
   },
   {
     label: "Podcasts & Blogs",
-    href: "/#podcastsBlogs",
+    href: "/podcastsAndBlogs",
   },
   {
     label: "Join the team",
-    href: "#podcastsBlogs",
+    href: "#",
   },
 ];
