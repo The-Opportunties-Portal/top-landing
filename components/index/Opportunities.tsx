@@ -103,8 +103,7 @@ export const Opportunities = () => {
               }}
             >
               By registering as a Startup, Researcher or Investor, you gain
-              access to highly skilled and talented professionals, graduates and
-              interns who will help in realizing your venture’s vision!
+              access to highly skilled and talented people
             </Text>
           </Box>
           <Box maxW={500} bg="rgba(30, 26, 26, 1)" p={8} borderRadius={42}>
@@ -149,7 +148,7 @@ export const Opportunities = () => {
             >
               By registering as a student, you gain access to a wide range of
               resources, opportunities and profiles that help you develop your
-              skills and maximize your potential as a student!
+              skills!
             </Text>
           </Box>
         </Flex>
