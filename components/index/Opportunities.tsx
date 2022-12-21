@@ -65,7 +65,7 @@ export const Opportunities = () => {
           <motion.div
             initial={{ opacity: 0, x: "-30%" }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Box maxW={500} bg="rgba(30, 26, 26, 1)" p={8} borderRadius={42}>
               <Flex mb={4} justify={"space-between"}>
@@ -117,7 +117,7 @@ export const Opportunities = () => {
           <motion.div
             initial={{ opacity: 0, x: "30%" }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Box maxW={500} bg="rgba(30, 26, 26, 1)" p={8} borderRadius={42}>
               <Flex mb={4} justify={"space-between"}>
