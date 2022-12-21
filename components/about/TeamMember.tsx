@@ -41,6 +41,7 @@ const TeamMember = ({
           backdropFilter: "blur(15px)",
         }}
         textAlign="center"
+        textColor="white"
       >
         <Center>{name}</Center>
         <br />
