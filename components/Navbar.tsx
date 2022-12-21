@@ -23,13 +23,16 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-export default function WithSubnavigation() {
+import styles from "../styles/About.module.css";
+
+export default function WithSubnavigation({ page }: { page: string }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box position="static" width={"100%"} h={"10vh"} zIndex={1}>
       <Flex
-        bg={"rgba(30, 30, 30, 0.6)"}
+        bg={page === "INDEX" ? "rgba(30, 30, 30, 0.6)" : ""}
+        className={page === "ABOUT" ? styles.navbarBackground : ""}
         color={"#F2F6F9"}
         minH={"70px"}
         py={{ base: 2 }}
