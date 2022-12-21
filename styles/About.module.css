@@ -1,9 +1,0 @@
-.gradientText {
-  background: linear-gradient(180deg, #B981CF, #9098CC);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.navbarBackground {
-  background: linear-gradient(180deg, rgba(73, 76, 94, 0.6) -265.69%, rgba(30, 30, 30, 0.6) 100%);
-}
