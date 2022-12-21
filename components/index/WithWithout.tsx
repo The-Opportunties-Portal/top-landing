@@ -24,13 +24,13 @@ export const WithWithout = () => {
       >
         <Image
           src="/images/WithoutTOP.svg"
-          alt="without TOP"
+          alt="without The Opportunties Portal"
           w={{ base: "350px", md: "45%" }}
           maxW="500px"
         ></Image>
         <Image
           src="/images/WithTOP.svg"
-          alt="with TOP"
+          alt="with The Opportunties Portal"
           w={{ base: "350px", md: "45%" }}
           maxW="500px"
         ></Image>

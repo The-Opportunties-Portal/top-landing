@@ -66,25 +66,25 @@ export const Footer = () => {
         </Heading>
         <HStack justify={"space-between"} w={{ base: "300px", md: "300px" }}>
           <SocialIcon
-            url="https://twitter.com/johntony366/"
+            url="https://twitter.com/"
             fgColor="white"
             bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
-            url="https://instagram.com/john.tony366/"
+            url="https://instagram.com/"
             fgColor="white"
             bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
-            url="https://www.linkedin.com/johntony366"
+            url="https://www.linkedin.com/"
             fgColor="white"
             bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
-            url="https://www.youtube.com/channel/UCjOxgxgP5Dhw0iBpaQpX0vA"
+            url="https://www.youtube.com/channel/"
             fgColor="white"
             bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
