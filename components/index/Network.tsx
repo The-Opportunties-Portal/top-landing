@@ -4,7 +4,7 @@ import React from "react";
 export const Network = () => {
   return (
     <Flex
-      minH="100vh"
+      minH="75vh"
       pt={{ base: "100px", md: "40px" }}
       pb={"60px"}
       color="white"
