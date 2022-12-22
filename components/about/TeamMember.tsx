@@ -1,13 +1,11 @@
-import { Box, Center } from "@chakra-ui/react";
+import { Box, Center , Text} from "@chakra-ui/react";
 
 const TeamMember = ({
   name,
-  title,
   image,
   bio,
 }: {
   name: string;
-  title: string;
   image: string;
   bio: string;
 }) => {
@@ -30,22 +28,16 @@ const TeamMember = ({
       p="1rem"
     >
       <Center>
-        <img src={image} alt={name} />
+        <img src={image} alt={name} style={{"height":"200px"}} />
       </Center>
       <Box
         m="2rem"
-        sx={{
-          background:
-            "linear-gradient(225deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), #03001E",
-          boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(15px)",
-        }}
         textAlign="center"
         textColor="white"
       >
-        <Center>{name}</Center>
+        <Center fontSize={24} fontWeight={"bold"} >{name}</Center>
         <br />
-        {bio}
+        <Text fontSize={18} >{bio}</Text> 
       </Box>
     </Box>
   );
