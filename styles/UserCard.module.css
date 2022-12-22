@@ -1,9 +1,9 @@
 .transformThis {
-  animation: scaleDown 500ms;
+  animation: scaleDown 350ms;
 }
 
 .transformPrev {
-  animation: scaleUp 100ms;
+  animation: scaleUp 350ms;
 }
 
 @keyframes scaleUp {
