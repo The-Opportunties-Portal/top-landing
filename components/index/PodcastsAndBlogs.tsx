@@ -1,4 +1,12 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  Link,
+  LinkBox,
+  LinkOverlay,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 
 export const PodcastsAndBlogs = () => {
@@ -46,20 +54,30 @@ export const PodcastsAndBlogs = () => {
         align={"center"}
         gap={{ base: 4, sm: 0, md: 16 }}
       >
-        <Image
-          w={{ base: "300px", sm: "400px" }}
-          h={{ base: "200px", sm: "300px" }}
-          borderRadius={24}
-          alt="The Opportunties Portal Podcast"
-          src="/images/Rectangle 2462.svg"
-        ></Image>
-        <Image
-          w={{ base: "300px", sm: "400px" }}
-          h={{ base: "200px", sm: "300px" }}
-          borderRadius={24}
-          alt="The Opportunties Portal Blogs"
-          src="/images/Rectangle 2463.svg"
-        ></Image>
+        <a
+          href="https://youtu.be/GpYu3AepSRM"
+          target={"_blank"}
+          rel="noreferrer"
+        >
+          <Image
+            w={{ base: "300px", sm: "400px" }}
+            borderRadius={24}
+            alt="The Opportunties Portal Podcast"
+            src="/images/podcastThumbnail.jpg"
+          ></Image>
+        </a>
+        <a
+          href="https://medium.com/@anshamogh/where-talent-meets-opportunities-43e1b2473f3d"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            w={{ base: "300px", sm: "400px" }}
+            borderRadius={24}
+            alt="The Opportunties Portal Blogs"
+            src="/images/Rectangle 2463.svg"
+          ></Image>
+        </a>
       </Flex>
     </Flex>
   );
