@@ -3,7 +3,7 @@
 }
 
 .transformPrev {
-  animation: scaleUp 1s;
+  animation: scaleUp 100ms;
 }
 
 @keyframes scaleUp {

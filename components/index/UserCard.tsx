@@ -26,6 +26,8 @@ export const UserCard = ({
   index,
   allUsers,
   setAllUsers,
+  firstCardClasses,
+  setFirstCardClasses,
 }: {
   user: UserType;
   image: String;
@@ -33,6 +35,8 @@ export const UserCard = ({
   index: number;
   allUsers: Array<UserType>;
   setAllUsers: React.Dispatch<React.SetStateAction<Array<UserType>>>;
+  firstCardClasses: string;
+  setFirstCardClasses: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const userImageVariant = {
     hidden: {
@@ -51,22 +55,20 @@ export const UserCard = ({
   const userHeadingVariant = {
     hidden: {
       x: -10,
-      y: index == 0 ? 0 : 32,
       opacity: 0,
     },
     visible: {
       x: 0,
-      y: index == 0 ? 0 : 32,
-      opacity: 1,
+      opacity: index == 0 ? 1 : 0,
       transition: {
         duration: 0.3,
       },
     },
   };
 
-  const [classes, setClasses] = useState("");
   let style;
-  if (classes.includes("transformThis")) {
+
+  if (firstCardClasses.includes("transformThis")) {
     style = styles.transformThis;
   } else {
     style = styles.transformPrev;
@@ -78,7 +80,7 @@ export const UserCard = ({
       h={{ base: "300px", lg: "375px" }}
       justify="center"
       align={index == 0 ? "center" : "start"}
-      className={`${cn} ${style}`}
+      className={`${cn} ${index == 0 && style}`}
       borderRadius={32}
       zIndex={allUsers.length - index}
     >
@@ -88,18 +90,37 @@ export const UserCard = ({
         position="relative"
         as={"button"}
         onClick={function () {
-          if (classes.includes("transformThis")) {
-            classes.replace("transformThis", "");
+          // if (classes.includes("transformThis")) {
+          //   setAllClasses((oldAllClasses: string[]): string[] => {
+          //     return oldAllClasses.map((oldClasses, i) => {
+          //       if (i == index) {
+          //         return classes.replace("transformThis", "transformPrev");
+          //       } else {
+          //         return oldAllClasses[i];
+          //       }
+          //     });
+          //   });
+          // }
+          // if (classes.includes("transformPrev")) {
+          //   setAllClasses((oldAllClasses: string[]): string[] => {
+          //     return oldAllClasses.map((oldClasses, i) => {
+          //       if (i == index) {
+          //         return classes.replace("transformPrev", "transformThis");
+          //       } else {
+          //         return oldAllClasses[i];
+          //       }
+          //     });
+          //   });
+          // }
+          if (firstCardClasses == "transformThis") {
+            setFirstCardClasses(() => "transformPrev");
           }
-          if (classes.includes("transformPrev")) {
-            classes.replace("transformPrev", "");
+          if (firstCardClasses == "transformPrev") {
+            setFirstCardClasses(() => "transformThis");
           }
           setAllUsers((oldAllUsers) =>
             oldAllUsers.filter((oldUser) => oldUser !== user)
           );
-          setClasses((oldClasses) => {
-            return oldClasses + " transformThis transformPrev";
-          });
           setAllUsers((oldAllUsers) => [user, ...oldAllUsers]);
         }}
       >
@@ -107,8 +128,8 @@ export const UserCard = ({
           <Image
             as={motion.img}
             key={image as React.Key}
-            h={{ base: "48px", md: "64px", lg: "64px" }}
-            w={{ base: "48px", md: "64px", lg: "64px" }}
+            h={{ base: "0", md: "64px", lg: "64px" }}
+            w={{ base: "0", md: "64px", lg: "64px" }}
             src={`/images/${image}.svg`}
             alt="ellipse"
             mr={4}

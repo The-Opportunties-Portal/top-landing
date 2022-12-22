@@ -121,6 +121,8 @@ export const Users = () => {
     },
   };
 
+  const [firstCardClasses, setFirstCardClasses] = useState("transformThis");
+
   return (
     <Flex
       id="users"
@@ -208,15 +210,9 @@ export const Users = () => {
             mx={8}
             position="relative"
           >
-            <div
+            <Box
               className={`${styles.cardWrap} ${styles.trans}`}
-              style={{
-                marginTop: "150px",
-                // display: "flex",
-                // justifyContent: "center",
-                // alignItems: "center",
-                // flexDirection: "column",
-              }}
+              mt={{ base: "0px", md: "150px" }}
             >
               {allUsers.map((singleUser: UserType, i: number) => (
                 <UserCard
@@ -227,9 +223,11 @@ export const Users = () => {
                   cn={`${styles.card} ${singleUser.type}`}
                   allUsers={allUsers}
                   setAllUsers={setAllUsers}
+                  firstCardClasses={firstCardClasses}
+                  setFirstCardClasses={setFirstCardClasses}
                 />
               ))}
-            </div>
+            </Box>
             <Flex
               className="HELLO"
               position={"absolute"}
