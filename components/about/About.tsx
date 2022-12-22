@@ -51,14 +51,7 @@ const AboutUs = () => {
             md: "50%",
           }}
         >
-          <img
-            src="/images/topfam.svg"
-            alt="The Opprtunities Portal logo family"
-            width="100%"
-          />
-        </Box>
-      </Flex>
-      <Text
+          <Text
         m={{
           base: "2rem",
           md: "4rem",
@@ -79,6 +72,9 @@ const AboutUs = () => {
         profiling and navigating through the demand and supply of the industry
         around them.
       </Text>
+        </Box>
+      </Flex>
+      
     </Box>
   );
 };
