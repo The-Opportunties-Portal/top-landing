@@ -5,8 +5,8 @@ export const Network = () => {
   return (
     <Flex
       minH="75vh"
-      pt={{ base: "100px", md: "40px" }}
-      pb={"60px"}
+      pt={{ base: "100px", md: "250px" }}
+      pb={"150px"}
       color="white"
       bg="rgba(3, 0, 30, 1)"
       px={8}

@@ -1,19 +1,22 @@
 import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { motion } from "framer-motion";
 
 import styles from "../../styles/Users.module.css";
 import { usersImageVariant } from "./UserCard";
+import { UserCard } from "./UserCard";
 
 class User {
   type: String;
   heading: String;
   content: String;
+  image: String;
 
-  constructor(type: String, heading: String, content: String) {
+  constructor(type: String, heading: String, content: String, image: String) {
     this.type = type;
     this.heading = heading;
     this.content = content;
+    this.image = image;
   }
 }
 
@@ -21,69 +24,87 @@ export type UserType = {
   type: String;
   heading: String;
   content: String;
+  image: String;
 };
 
 export const Users = () => {
   const initialImage = "Ellipse 5";
-  const imageClickHandler = (e: React.MouseEvent) => {
-    if (e.target instanceof HTMLElement) {
-      setImage(e.target.dataset.img || " ");
-      switch (e.target.dataset.user) {
-        case "student":
-          setUser(student);
-          break;
-        case "startup":
-          setUser(startup);
-          break;
-        case "researcher":
-          setUser(researcher);
-          break;
-        case "fundingInstitution":
-          setUser(fundingInstitution);
-          break;
-        default:
-          setUser(student);
-      }
-    }
-  };
+  // const imageClickHandler = (e: React.MouseEvent) => {
+  //   if (e.target instanceof HTMLElement) {
+  //     setImage(e.target.dataset.img || " ");
+  //     switch (e.target.dataset.user) {
+  //       case "student":
+  //         setUser(student);
+  //         break;
+  //       case "startup":
+  //         setUser(startup);
+  //         break;
+  //       case "researcher":
+  //         setUser(researcher);
+  //         break;
+  //       case "fundingInstitution":
+  //         setUser(fundingInstitution);
+  //         break;
+  //       default:
+  //         setUser(student);
+  //     }
+  //   }
+  // };
 
   const studentsType = "Students";
   const studentsHeading = "Skill over Score!";
   const studentsContent = `Find the best possible opportunities and people available around you complimenting your skillset; Internships/Start\u{2011}ups/Competitions/Hackathons/research opportunities and more! To unlock the full potential of every student, it is crucial that we carefully nurture their unique abilities and lead them towards the right opportunities where they can flourish.`;
+  const studentsImage = "Ellipse 5";
 
   const startupsType = "Startups";
   const startupsHeading = "Effort over procrastination!";
   const startupsContent =
     "With a single search, you can access a wealth of high\u{2011}quality talent with the specific skillsets you need to succeed. No longer will you have to sift through countless resumes or spend countless hours searching for the perfect candidate. Simply enter your search criteria and let our platform do the rest, connecting you with the finest talent available.";
+  const startupsImage = "Ellipse 6";
 
   const researchersType = "Researchers";
   const researchersHeading = "Find skilled thinkers and innovators!";
   const researchersContent =
     "Uncover a pool of exceptional problem\u{2011}solvers, critical thinkers, and innovative minds with the necessary skills for your research. Our platform connects you with individuals who are not only highly qualified, but also eager to learn, grow, and take on new challenges. With just a few clicks, you can find the perfect team to drive your research forward and unlock new insights and breakthroughs.";
+  const researchersImage = "Ellipse 7";
 
   const fundingInstitutionsType = "Funding Institutions";
-  const fundingInstitutionsHeading =
-    "The best startups and talents, all in one place!";
+  const fundingInstitutionsHeading = "The most promising talent in one place!";
   const fundingInstitutionsContent =
     "For funding institutions and inventors, finding a promising startup to invest in is always a hassle. Worry no more, as our platform helps investors find the best and most promising startups, backed by highly talented and quality teams, with just a simple search. By working with the best startups, funding institutions can help cultivate innovation and economic growth and get the right returns.";
+  const fundingInstitutionsImage = "Ellipse 8";
 
-  const student = new User(studentsType, studentsHeading, studentsContent);
-  const startup = new User(startupsType, startupsHeading, startupsContent);
+  const student = new User(
+    studentsType,
+    studentsHeading,
+    studentsContent,
+    studentsImage
+  );
+  const startup = new User(
+    startupsType,
+    startupsHeading,
+    startupsContent,
+    startupsImage
+  );
   const researcher = new User(
     researchersType,
     researchersHeading,
-    researchersContent
+    researchersContent,
+    researchersImage
   );
   const fundingInstitution = new User(
     fundingInstitutionsType,
     fundingInstitutionsHeading,
-    fundingInstitutionsContent
+    fundingInstitutionsContent,
+    fundingInstitutionsImage
   );
 
-  const allUsers = [student, startup, researcher, fundingInstitution];
-
-  const [image, setImage] = useState(initialImage);
-  const [user, setUser] = useState(student);
+  const [allUsers, setAllUsers] = useState([
+    student,
+    startup,
+    researcher,
+    fundingInstitution,
+  ]);
 
   const variants = {
     initial: {
@@ -152,7 +173,6 @@ export const Users = () => {
         justify={{ base: "start", sm: "start", md: "space-around" }}
         align={"center"}
         flexGrow={1}
-        gap={{ sm: 12, md: 0 }}
       >
         <Box className="users" pt={{ base: 12 }}>
           <Heading
@@ -166,10 +186,10 @@ export const Users = () => {
             Users
           </Heading>
           <Image
-            key={image}
+            key={allUsers[0].image as React.Key}
             as={motion.img}
             exit="exit"
-            src={`/images/${image} User.svg`}
+            src={`/images/${allUsers[0].image} User.svg`}
             alt="user making plans"
             w={{ base: "300px", md: "400px" }}
             h={{ base: "300px", md: "400px" }}
@@ -182,11 +202,69 @@ export const Users = () => {
         <Flex>
           <Flex
             w={{ base: "100%", md: "100%" }}
-            bg={"#12102c"}
+            // bg={"#12102c"}
             borderRadius={32}
             direction={{ base: "column", sm: "row" }}
             mx={8}
-          ></Flex>
+            position="relative"
+          >
+            <div
+              className={`${styles.cardWrap} ${styles.trans}`}
+              style={{
+                marginTop: "150px",
+                // display: "flex",
+                // justifyContent: "center",
+                // alignItems: "center",
+                // flexDirection: "column",
+              }}
+            >
+              {allUsers.map((singleUser: UserType, i: number) => (
+                <UserCard
+                  key={i as React.Key}
+                  index={i}
+                  user={singleUser}
+                  image={singleUser.image}
+                  cn={`${styles.card} ${singleUser.type}`}
+                  allUsers={allUsers}
+                  setAllUsers={setAllUsers}
+                />
+              ))}
+            </div>
+            <Flex
+              className="HELLO"
+              position={"absolute"}
+              display={{ base: "none", md: "flex" }}
+              left={0}
+              bottom={0}
+              w="100%"
+              transform="translate(-50%, 100%)"
+              direction={"column"}
+              align="end"
+            >
+              <Box
+                h={{ md: "84px", lg: "96px" }}
+                w={{ md: "50%", lg: "100%" }}
+                borderRight="2px solid rgba(9, 126, 160, 1)"
+                borderBottom="2px solid rgba(9, 126, 160, 1)"
+                zIndex={2}
+              />
+              <Box
+                w={{ md: "50%", lg: "100%" }}
+                h={{ md: "84px", lg: "96px" }}
+                borderLeft="2px solid rgba(9, 126, 160, 1)"
+              />
+            </Flex>
+            <Box
+              position="absolute"
+              left={{ base: "0px" }}
+              bottom="0px"
+              transform={"translateY(100%)"}
+              display={{ base: "block", md: "none" }}
+              w="50%"
+              h="48px"
+              borderRight="2px solid rgba(9, 126, 160, 1)"
+            />
+          </Flex>
         </Flex>
       </Stack>
     </Flex>
