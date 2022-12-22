@@ -12,6 +12,7 @@ import { KnowMore } from "../components/index/KnowMore";
 import { PodcastsAndBlogs } from "../components/index/PodcastsAndBlogs";
 import { Footer } from "../components/index/Footer";
 import { WithWithout } from "../components/index/WithWithout";
+import { JoinTeam } from "../components/index/JoinTeam";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,7 +54,14 @@ export default function Home() {
       {/* <KnowMore /> */}
 
       <PodcastsAndBlogs />
-
+      <Box
+        position={"absolute"}
+        w="50vw"
+        h={{ base: 12, md: 16 }}
+        borderRight={"2px solid rgba(120, 73, 137, 1)"}
+        zIndex={11}
+      />
+      <JoinTeam />
       <Footer />
     </>
   );
