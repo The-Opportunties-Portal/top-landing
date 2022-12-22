@@ -10,13 +10,13 @@ const TeamData = [
   {
     name: "Abhinav Dubey",
     image: "/images/abhinav.png",
-    bio: "Mai beer hu",
+    bio: "Quantifying qualities",
   },
   {
     name: "Sahil Kaling",
     image: "/images/sahil.png",
     bio: "Master of the 'it's not a bug, it's a feature' excuse",
-  }, 
+  },
   {
     name: "Tanmay Vyas",
     image: "/images/tanmay.png",
@@ -32,7 +32,7 @@ const TeamData = [
     image: "/images/rupam.png",
     bio: "An unsolvable paradox with a dry sense of humour ",
   },
-  
+
   {
     name: "Bhavesh",
     image: "/images/bhavesh.png",
