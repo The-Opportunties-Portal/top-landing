@@ -3,22 +3,40 @@ import TeamMember from "./TeamMember";
 
 const TeamData = [
   {
-    name: "John Doe",
-    title: "CEO",
-    image: "/images/member1.svg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, ",
+    name: "Yuvraj Aaditya Arya",
+    image: "/images/yuvi.png",
+    bio: "Plays the orchestra",
   },
   {
-    name: "John Doe",
-    title: "CEO",
-    image: "/images/member1.svg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, ",
+    name: "Abhinav Dubey",
+    image: "/images/abhinav.png",
+    bio: "Mai beer hu",
   },
   {
-    name: "John Doe",
-    title: "CEO",
-    image: "/images/member1.svg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, ",
+    name: "Sahil Kaling",
+    image: "/images/sahil.png",
+    bio: "Master of the 'it's not a bug, it's a feature' excuse",
+  }, 
+  {
+    name: "Tanmay Vyas",
+    image: "/images/tanmay.png",
+    bio: "Still overthinking this line",
+  },
+  {
+    name: "John Toby",
+    image: "/images/john.png",
+    bio: "Loves when stuff just works",
+  },
+  {
+    name: "Rupam Mal",
+    image: "/images/rupam.png",
+    bio: "An unsolvable paradox with a dry sense of humour ",
+  },
+  
+  {
+    name: "Bhavesh",
+    image: "/images/bhavesh.png",
+    bio: "Can learn most of the things when experienced hands on",
   },
 ];
 
@@ -47,33 +65,18 @@ const OurTeam = () => {
         </Heading>
       </Center>
       <Flex
-        justify="space-around"
+        justify="center"
+        align="center"
+        flexWrap="wrap"
         flexDirection={{
           base: "column",
           md: "row",
         }}
+        gap="12"
       >
         {TeamData.map((member) => (
           <TeamMember
             name={member.name}
-            title={member.title}
-            image={member.image}
-            bio={member.bio}
-            key={member.name}
-          />
-        ))}
-      </Flex>
-      <Flex
-        justify="space-around"
-        flexDirection={{
-          base: "column",
-          md: "row",
-        }}
-      >
-        {TeamData.map((member) => (
-          <TeamMember
-            name={member.name}
-            title={member.title}
             image={member.image}
             bio={member.bio}
             key={member.name}

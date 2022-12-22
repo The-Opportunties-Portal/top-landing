@@ -46,7 +46,7 @@ export default function WithSubnavigation({ page }: { page: string }) {
         direction={{ base: "row-reverse", lg: "row" }}
       >
         <Flex
-          flex={{ base: 1, lg: "auto" }}
+         flex={{ base: 1, lg: "auto" }}
           // ml={{ base: -2 }}
           display={{ base: "flex", lg: "none" }}
           flexGrow={0}
