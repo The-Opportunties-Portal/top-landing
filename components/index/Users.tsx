@@ -210,9 +210,10 @@ export const Users = () => {
             mx={8}
             position="relative"
           >
-            <Box
+            <Flex
               className={`${styles.cardWrap} ${styles.trans}`}
               mt={{ base: "0px", md: "150px" }}
+              justifyContent="center"
             >
               {allUsers.map((singleUser: UserType, i: number) => (
                 <UserCard
@@ -227,7 +228,7 @@ export const Users = () => {
                   setFirstCardClasses={setFirstCardClasses}
                 />
               ))}
-            </Box>
+            </Flex>
             <Flex
               className="HELLO"
               position={"absolute"}

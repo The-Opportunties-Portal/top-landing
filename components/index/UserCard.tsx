@@ -76,7 +76,7 @@ export const UserCard = ({
 
   return (
     <Flex
-      w="100%"
+      w={{ base: "75%", md: "100%" }}
       h={{ base: "300px", lg: "375px" }}
       justify="center"
       align={index == 0 ? "center" : "start"}
@@ -128,8 +128,8 @@ export const UserCard = ({
           <Image
             as={motion.img}
             key={image as React.Key}
-            h={{ base: "0", md: "64px", lg: "64px" }}
-            w={{ base: "0", md: "64px", lg: "64px" }}
+            h={{ base: index == 0 ? "48px" : "0", md: "64px", lg: "64px" }}
+            w={{ base: index == 0 ? "48px" : "0", md: "64px", lg: "64px" }}
             src={`/images/${image}.svg`}
             alt="ellipse"
             mr={4}
