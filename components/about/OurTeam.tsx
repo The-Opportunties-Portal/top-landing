@@ -23,7 +23,7 @@ const TeamData = [
     bio: "Still overthinking this line",
   },
   {
-    name: "John Toby",
+    name: "John Tony",
     image: "/images/john.png",
     bio: "Loves when stuff just works",
   },
