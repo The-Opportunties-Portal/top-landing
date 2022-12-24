@@ -38,6 +38,16 @@ const TeamData = [
     image: "/images/bhavesh.png",
     bio: "Can learn most of the things when experienced hands on",
   },
+  {
+    name: "Abeer",
+    image: "/images/abeer.png",
+    bio: "Can learn most of the things when experienced hands on",
+  },
+  {
+    name: "Amogh",
+    image: "/images/amogh.png",
+    bio: "Writing keeps me Running",
+  },
 ];
 
 const OurTeam = () => {
