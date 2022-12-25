@@ -8,14 +8,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <NextSeo
-        title="FindOpps"
-        titleTemplate="FindOpps"
-        defaultTitle="FindOpps"
+        title="The Opportunities Portal"
+        titleTemplate="The Opportunities Portal"
+        defaultTitle="The Opportunities Portal"
         description="Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped."
         canonical="https://www.theopportunitiesportal.com/"
         openGraph={{
           url: "https://www.theopportunitiesportal.com/",
-          title: "FindOpps",
+          title: "The Opportunities Portal",
           description:
             "Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped.",
           images: [
@@ -23,10 +23,10 @@ export default function App({ Component, pageProps }: AppProps) {
               url: "/images/logo.png",
               width: 800,
               height: 420,
-              alt: "FindOpps",
+              alt: "The Opportunities Portal",
             },
           ],
-          siteName: "FindOpps",
+          siteName: "The Opportunities Portal",
           type: "website",
           locale: "en_IE",
         }}
