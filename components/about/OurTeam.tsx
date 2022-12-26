@@ -34,14 +34,14 @@ const TeamData = [
   },
 
   {
-    name: "Bhavesh",
+    name: "Bhavesh Sathiyamurthy",
     image: "/images/bhavesh.png",
     bio: "Can learn most of the things when experienced hands on",
   },
   {
-    name: "Abeer",
+    name: "Abeer Mathur",
     image: "/images/abeer.png",
-    bio: "Can learn most of the things when experienced hands on",
+    bio: "Designing a life worth living, one adventure at a time",
   },
   {
     name: "Amogh",
