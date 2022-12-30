@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
             "Promoting growth and innovation by directing talented individuals towards their desired opportunities present on their campus itself! Ensuring that no potential remains untapped.",
           images: [
             {
-              url: "/images/logo.png",
+              url: "https://www.theopportunitiesportal.com/images/logo.png",
               width: 800,
               height: 420,
               alt: "The Opportunities Portal",
