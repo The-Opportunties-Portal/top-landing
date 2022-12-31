@@ -32,7 +32,7 @@ export const Network = () => {
             color={"rgba(9, 124, 158, 1)"}
             fontSize={{ base: "3xl", sm: "4xl" }}
           >
-            Find a circle to work, develop, and network
+            The one-stop hub for talent, opportunities and success!
           </Heading>
           <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
             The Opportunities Portal is a platform that connects skilled
