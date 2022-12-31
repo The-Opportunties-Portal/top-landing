@@ -7,7 +7,31 @@ import { Footer } from "../components/index/Footer";
 const About = () => {
   return (
     <Flex direction="column" bgColor="#03001E" minH="100vh">
-      <Navbar page="ABOUT" />
+      <Navbar
+        page="about"
+        NAV_ITEMS={[
+          {
+            label: "About us",
+            href: "/about",
+          },
+          {
+            label: "Early Access",
+            href: "/earlyAccess",
+          },
+          {
+            label: "Users",
+            href: "/#users",
+          },
+          {
+            label: "Podcasts & Blogs",
+            href: "/#podcastsBlogs",
+          },
+          {
+            label: "Join the team",
+            href: "/#",
+          },
+        ]}
+      />
       <AboutUs />
       <OurTeam />
       <Footer />
