@@ -90,28 +90,6 @@ export const UserCard = ({
         position="relative"
         as={"button"}
         onClick={function () {
-          // if (classes.includes("transformThis")) {
-          //   setAllClasses((oldAllClasses: string[]): string[] => {
-          //     return oldAllClasses.map((oldClasses, i) => {
-          //       if (i == index) {
-          //         return classes.replace("transformThis", "transformPrev");
-          //       } else {
-          //         return oldAllClasses[i];
-          //       }
-          //     });
-          //   });
-          // }
-          // if (classes.includes("transformPrev")) {
-          //   setAllClasses((oldAllClasses: string[]): string[] => {
-          //     return oldAllClasses.map((oldClasses, i) => {
-          //       if (i == index) {
-          //         return classes.replace("transformPrev", "transformThis");
-          //       } else {
-          //         return oldAllClasses[i];
-          //       }
-          //     });
-          //   });
-          // }
           if (firstCardClasses == "transformThis") {
             setFirstCardClasses(() => "transformPrev");
           }
