@@ -36,7 +36,7 @@ export const UserCard = ({
   allUsers: Array<UserType>;
   setAllUsers: React.Dispatch<React.SetStateAction<Array<UserType>>>;
   firstCardReloader: Boolean;
-  setFirstCardReloader: React.Dispatch<React.SetStateAction<Boolean>>;
+  setFirstCardReloader: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const userImageVariant = {
     hidden: {
@@ -72,7 +72,7 @@ export const UserCard = ({
     <Flex
       w={{ base: "75%", md: "100%" }}
       h={{ base: "300px", lg: "375px" }}
-      key={clickedCardReloader}
+      key={clickedCardReloader as unknown as React.Key}
       justify="center"
       align={index == 0 ? "center" : "start"}
       className={`${cn} ${index == 0 && styles.transformPrev} ${
@@ -89,7 +89,8 @@ export const UserCard = ({
         as={"button"}
         onClick={function () {
           setClickedCardReloader((oldValue) => !oldValue);
-          document && document.querySelector("#cardNumber0").click();
+          document &&
+            (document.querySelector("#cardNumber0")! as HTMLElement).click();
 
           setAllUsers((oldAllUsers) =>
             oldAllUsers.map((oldUser) => {
