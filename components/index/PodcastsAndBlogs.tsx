@@ -52,7 +52,7 @@ export const PodcastsAndBlogs = () => {
         grow={1}
         justify={"center"}
         align={"center"}
-        gap={{ base: 4, sm: 0, md: 16 }}
+        gap={{ base: 4, sm: 8, md: 16 }}
       >
         <a
           href="https://youtu.be/GpYu3AepSRM"

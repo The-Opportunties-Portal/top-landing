@@ -11,8 +11,8 @@ const About = () => {
         page="about"
         NAV_ITEMS={[
           {
-            label: "About us",
-            href: "/about",
+            label: "Home",
+            href: "/",
           },
           {
             label: "Early Access",

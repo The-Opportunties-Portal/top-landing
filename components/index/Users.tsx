@@ -147,6 +147,7 @@ export const Users = () => {
           WebkitTextFillColor: "transparent",
         }}
         maxW={{ base: 500, md: 700 }}
+        px={4}
         mx="auto"
       >
         Empowering everyone to reach their full potential - one user at a time!
