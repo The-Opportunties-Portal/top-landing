@@ -121,7 +121,7 @@ export const Users = () => {
     },
   };
 
-  const [firstCardClasses, setFirstCardClasses] = useState("transformThis");
+  const [firstCardReloader, setFirstCardReloader] = useState(true);
 
   return (
     <Flex
@@ -225,8 +225,8 @@ export const Users = () => {
                   cn={`${styles.card} ${singleUser.type}`}
                   allUsers={allUsers}
                   setAllUsers={setAllUsers}
-                  firstCardClasses={firstCardClasses}
-                  setFirstCardClasses={setFirstCardClasses}
+                  firstCardReloader={firstCardReloader}
+                  setFirstCardReloader={setFirstCardReloader}
                 />
               ))}
             </Flex>

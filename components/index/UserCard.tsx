@@ -26,8 +26,8 @@ export const UserCard = ({
   index,
   allUsers,
   setAllUsers,
-  firstCardClasses,
-  setFirstCardClasses,
+  firstCardReloader,
+  setFirstCardReloader,
 }: {
   user: UserType;
   image: String;
@@ -35,8 +35,8 @@ export const UserCard = ({
   index: number;
   allUsers: Array<UserType>;
   setAllUsers: React.Dispatch<React.SetStateAction<Array<UserType>>>;
-  firstCardClasses: string;
-  setFirstCardClasses: React.Dispatch<React.SetStateAction<string>>;
+  firstCardReloader: Boolean;
+  setFirstCardReloader: React.Dispatch<React.SetStateAction<Boolean>>;
 }) => {
   const userImageVariant = {
     hidden: {
@@ -66,40 +66,42 @@ export const UserCard = ({
     },
   };
 
-  let style;
-
-  if (firstCardClasses.includes("transformThis")) {
-    style = styles.transformThis;
-  } else {
-    style = styles.transformPrev;
-  }
+  const [clickedCardReloader, setClickedCardReloader] = useState(false);
 
   return (
     <Flex
       w={{ base: "75%", md: "100%" }}
       h={{ base: "300px", lg: "375px" }}
+      key={clickedCardReloader}
       justify="center"
       align={index == 0 ? "center" : "start"}
-      className={`${cn} ${index == 0 && style}`}
+      className={`${cn} ${index == 0 && styles.transformPrev} ${
+        index !== 0 && styles.transformThis
+      }`}
       borderRadius={32}
       zIndex={allUsers.length - index}
     >
       <Box
+        id={`cardNumber${index}`}
         maxW="440px"
         p={8}
         position="relative"
         as={"button"}
         onClick={function () {
-          if (firstCardClasses == "transformThis") {
-            setFirstCardClasses(() => "transformPrev");
-          }
-          if (firstCardClasses == "transformPrev") {
-            setFirstCardClasses(() => "transformThis");
-          }
+          setClickedCardReloader((oldValue) => !oldValue);
+          document && document.querySelector("#cardNumber0").click();
+
           setAllUsers((oldAllUsers) =>
-            oldAllUsers.filter((oldUser) => oldUser !== user)
+            oldAllUsers.map((oldUser) => {
+              if (oldUser == oldAllUsers[0]) {
+                return user;
+              } else if (oldUser === user) {
+                return oldAllUsers[0];
+              } else {
+                return oldUser;
+              }
+            })
           );
-          setAllUsers((oldAllUsers) => [user, ...oldAllUsers]);
         }}
       >
         <Flex>

@@ -16,6 +16,7 @@
 .card {
   position: absolute;
   text-align: center;
+  background: #1a172d;
 }
 
 .card:hover {
@@ -26,15 +27,16 @@
   /* z-index: 10; */
   bottom: 0px;
   transform: scale(1);
-  background: #0d0c16;
-  border: 1px solid rgba(120, 73, 137, 1);
+
+  border: 1px solid rgba(9, 126, 160, 1);
 }
 
 .card:nth-of-type(2) {
   /* z-index: 9; */
   bottom: 100px;
   transform: scale(0.95);
-  background: #131122;
+  border: 1px solid rgba(120, 73, 137, 1);
+  filter: grayscale(5%);
 }
 
 .card:nth-of-type(3) {
@@ -42,16 +44,17 @@
   bottom: 200px;
   transform: scale(0.9);
 
-  background: #1a172d;
+  border: 1px solid rgba(120, 73, 137, 1);
+  filter: grayscale(10%);
 }
 
 .card:nth-of-type(4) {
   /* z-index: 7; */
   bottom: 300px;
   transform: scale(0.85);
-  background: #201d38;
 
-  box-shadow: none;
+  border: 1px solid rgba(120, 73, 137, 1);
+  filter: grayscale(15%);
 }
 
 @media screen and (max-width: 900px) {
@@ -59,21 +62,18 @@
     /* z-index: 10; */
     bottom: 0px;
     transform: scale(1);
-    background: #0d0c16;
   }
 
   .card:nth-of-type(2) {
     /* z-index: 9; */
     bottom: 70px;
     transform: scale(0.95);
-    background: #131122;
   }
 
   .card:nth-of-type(3) {
     /* z-index: 8; */
     bottom: 140px;
     transform: scale(0.9);
-    background: #1a172d;
   }
 
   .card:nth-of-type(4) {
@@ -81,6 +81,5 @@
     bottom: 210px;
     transform: scale(0.85);
     box-shadow: none;
-    background: #201d38;
   }
 }
