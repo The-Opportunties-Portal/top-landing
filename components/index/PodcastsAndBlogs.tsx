@@ -75,7 +75,7 @@ export const PodcastsAndBlogs = () => {
             w={{ base: "300px", sm: "400px" }}
             borderRadius={24}
             alt="The Opportunties Portal Blogs"
-            src="/images/Rectangle 2463.svg"
+            src="/images/blogThumbnail.jpg"
           ></Image>
         </a>
       </Flex>
