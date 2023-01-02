@@ -28,6 +28,7 @@ export const Hero = () => {
         justify={"center"}
         align={"center"}
         gap={4}
+        pb={8}
       >
         <motion.div
           initial={{ opacity: 0, y: "-30%" }}
@@ -58,10 +59,11 @@ export const Hero = () => {
               </Heading>
               <Text
                 fontWeight={"bold"}
-                fontSize={{ base: "sm", sm: "lg", md: "xl" }}
+                fontSize={{ base: "sm", sm: "md", md: "xl" }}
                 color={"rgba(242, 246, 249, 0.6)"}
                 px={8}
                 maxW={1000}
+                mt={4}
               >
                 Promoting growth and innovation by directing talented
                 individuals towards their desired opportunities present on their
@@ -86,6 +88,7 @@ export const Hero = () => {
                     color="black"
                     w="200px"
                     h="50px"
+                    mb={8}
                     sx={{
                       background: "rgba(255, 255, 255, 1)",
                       borderRadius: "12px",
