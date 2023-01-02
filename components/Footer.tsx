@@ -18,7 +18,7 @@ export const Footer = () => {
       p={12}
       minH={{ base: "75vh", md: "60vh" }}
       columns={{ base: 1, md: 2 }}
-      spacingY={{ base: 8, lg: 4 }}
+      spacingY={{ base: 10, lg: 4 }}
       bg={"#1E1E1E"}
       color={"white"}
       overflow="hidden"
@@ -81,7 +81,7 @@ export const Footer = () => {
         <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           SOCIAL
         </Heading>
-        <HStack justify={"space-between"} w={{ base: "300px", md: "300px" }}>
+        <HStack justify={"space-between"} w={{ base: "200px", md: "200px" }}>
           <SocialIcon
             url="https://twitter.com/"
             fgColor="white"
@@ -108,7 +108,25 @@ export const Footer = () => {
           />
         </HStack>
       </Box>
-      <VStack w="400px" align={"start"} justify={"end"} spacing={4} pl={8}>
+      <Box w={400} pl={8}>
+        <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
+          Contact us
+        </Heading>
+        <Text fontSize={{ base: "xs", sm: "sm" }}>
+          <ChakraLink href="mailto: contact@theopportunitiesportal.com">
+            contact@theopportunitiesportal.com
+          </ChakraLink>
+        </Text>
+      </Box>
+      <VStack
+        w={400}
+        justifySelf={{ base: "center", md: "end" }}
+        pr={{ base: 0, md: 8 }}
+        pl={{ base: 8, md: 0 }}
+        align={"start"}
+        justify={"start"}
+        spacing={4}
+      >
         <Image src="/images/logo.svg" alt="logo"></Image>
         <Text fontSize={{ base: "xs", sm: "sm" }}>
           © 2022, TOP.pvt. All Rights Reserved.
