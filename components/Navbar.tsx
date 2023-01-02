@@ -14,7 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-  Image as ChakraImage,
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -23,7 +23,6 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import router, { useRouter } from "next/router";
-import Image from "next/image";
 
 export default function WithSubnavigation({
   NAV_ITEMS,
@@ -259,8 +258,7 @@ export default function WithSubnavigation({
             w={150}
           >
             <Link href="/">
-              <ChakraImage
-                as={Image}
+              <Image
                 src="/images/logo.svg"
                 w={[125, 150, 150, 150]}
                 alt="The Opprtunities Portal logo"

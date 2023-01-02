@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Image as ChakraImage,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const Network = () => {
@@ -50,8 +43,7 @@ export const Network = () => {
           </Text>
         </Box>
         <Box alignSelf={"center"}>
-          <ChakraImage
-            as={Image}
+          <Image
             w={{ base: "200px", sm: "250px" }}
             src="/images/3-circles.svg"
             alt="3 overlapping circles"

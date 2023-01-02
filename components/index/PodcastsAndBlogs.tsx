@@ -1,13 +1,12 @@
 import {
   Box,
   Flex,
-  Image as ChakraImage,
+  Image,
   Link,
   LinkBox,
   LinkOverlay,
   Text,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import React from "react";
 
 export const PodcastsAndBlogs = () => {
@@ -60,26 +59,24 @@ export const PodcastsAndBlogs = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <ChakraImage
-            as={Image}
+          <Image
             w={{ base: "300px", sm: "400px" }}
             borderRadius={24}
             alt="The Opportunties Portal Podcast"
             src="/images/podcastThumbnail.jpg"
-          />
+          ></Image>
         </a>
         <a
           href="https://medium.com/@anshamogh/where-talent-meets-opportunities-43e1b2473f3d"
           target="_blank"
           rel="noreferrer"
         >
-          <ChakraImage
-            as={Image}
+          <Image
             w={{ base: "300px", sm: "400px" }}
             borderRadius={24}
             alt="The Opportunties Portal Blogs"
             src="/images/blogThumbnail.jpg"
-          />
+          ></Image>
         </a>
       </Flex>
     </Flex>

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Image as ChakraImage,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -92,8 +84,7 @@ export const Opportunities = () => {
                 >
                   Giving an opportunity
                 </Text>
-                <ChakraImage
-                  as={Image}
+                <Image
                   w={{ base: "60px", lg: "120px" }}
                   src="images/Business vision-pana 1.svg"
                   alt="The Opprtunities Portal - Giving an opportunity"
@@ -144,8 +135,7 @@ export const Opportunities = () => {
                 >
                   Finding an opportunity
                 </Text>
-                <ChakraImage
-                  as={Image}
+                <Image
                   w={{ base: "60px", lg: "120px" }}
                   src="images/Digital nomad-pana 1.svg"
                   alt="The Opprtunities Portal - Finding an opportunity"

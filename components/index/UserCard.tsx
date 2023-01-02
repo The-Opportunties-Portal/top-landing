@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Image as ChakraImage,
-  Text,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
@@ -113,7 +106,7 @@ export const UserCard = ({
         }}
       >
         <Flex>
-          <ChakraImage
+          <Image
             as={motion.img}
             key={image as React.Key}
             h={{ base: index == 0 ? "48px" : "0", md: "64px", lg: "64px" }}

@@ -3,14 +3,13 @@ import {
   Button,
   Flex,
   Heading,
+  Image,
   Text,
   VStack,
-  Image as ChakraImage,
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -37,8 +36,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <ChakraImage
-            as={Image}
+          <Image
             src={"/images/New employee-amico 1.svg"}
             w={{ base: "250px", sm: "300px", md: "350px" }}
             alt="employees discussing"
