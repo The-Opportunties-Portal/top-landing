@@ -24,7 +24,6 @@
 }
 
 .card:first-of-type {
-  /* z-index: 10; */
   bottom: 0px;
   transform: scale(1);
 
@@ -32,7 +31,6 @@
 }
 
 .card:nth-of-type(2) {
-  /* z-index: 9; */
   bottom: 100px;
   transform: scale(0.9);
   border: 1px solid rgba(120, 73, 137, 1);
@@ -40,7 +38,6 @@
 }
 
 .card:nth-of-type(3) {
-  /* z-index: 8; */
   bottom: 200px;
   transform: scale(0.8);
 
@@ -49,7 +46,6 @@
 }
 
 .card:nth-of-type(4) {
-  /* z-index: 7; */
   bottom: 300px;
   transform: scale(0.7);
 
@@ -59,25 +55,21 @@
 
 @media screen and (max-width: 900px) {
   .card:first-of-type {
-    /* z-index: 10; */
     bottom: 0px;
     transform: scale(1);
   }
 
   .card:nth-of-type(2) {
-    /* z-index: 9; */
     bottom: 70px;
     transform: scale(0.95);
   }
 
   .card:nth-of-type(3) {
-    /* z-index: 8; */
     bottom: 140px;
     transform: scale(0.9);
   }
 
   .card:nth-of-type(4) {
-    /* z-index: 7; */
     bottom: 210px;
     transform: scale(0.85);
     box-shadow: none;
