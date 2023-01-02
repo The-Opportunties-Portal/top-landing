@@ -60,8 +60,16 @@ export const Footer = () => {
           <ChakraLink as={Link} href="/about">
             <Text>About</Text>
           </ChakraLink>
-          <Text>Privacy Policy</Text>
-          <Text>Terms & Conditions</Text>
+          <ChakraLink as={Link} href={"/PrivacyPolicy.pdf"} target="_blank">
+            <Text>Privacy Policy</Text>
+          </ChakraLink>
+          <ChakraLink
+            as={Link}
+            href={"/TermsAndConditions.pdf"}
+            target="_blank"
+          >
+            <Text>Terms & Conditions</Text>
+          </ChakraLink>
         </HStack>
       </Box>
       <Box
