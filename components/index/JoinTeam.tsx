@@ -38,7 +38,7 @@ export const JoinTeam = () => {
         px={8}
       >
         <Flex>
-          <Link href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1">
+          <Link href="mailto: contact@theopportunitiesportal.com">
             <Button
               fontWeight="bold"
               fontSize={{ base: "md", lg: "lg" }}
