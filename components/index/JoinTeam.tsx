@@ -28,7 +28,7 @@ export const JoinTeam = () => {
         pr={{ base: 4, sm: 4, md: 0 }}
         mb={{ base: 4, lg: 10 }}
       >
-        Want to join our team ?
+        Want to get in touch with us ?
       </Heading>
       <Flex
         grow={1}
