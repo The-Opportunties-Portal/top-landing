@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import AboutUs from "../components/about/About";
 import OurTeam from "../components/about/OurTeam";
-import { Footer } from "../components/index/Footer";
+import { Footer } from "../components/Footer";
 
 const About = () => {
   return (

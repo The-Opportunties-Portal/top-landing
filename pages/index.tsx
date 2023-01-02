@@ -10,7 +10,7 @@ import { Users } from "../components/index/Users";
 import { Hero } from "../components/index/Hero";
 import { KnowMore } from "../components/index/KnowMore";
 import { PodcastsAndBlogs } from "../components/index/PodcastsAndBlogs";
-import { Footer } from "../components/index/Footer";
+import { Footer } from "../components/Footer";
 import { WithWithout } from "../components/index/WithWithout";
 import { JoinTeam } from "../components/index/JoinTeam";
 
