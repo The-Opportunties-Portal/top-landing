@@ -95,7 +95,7 @@ export const Footer = () => {
             style={{ height: 35, width: 35 }}
           />
           <SocialIcon
-            url="https://www.linkedin.com/"
+            url="https://www.linkedin.com/company/the-opportunities-portal/"
             fgColor="white"
             bgColor="#3C3C3C"
             style={{ height: 35, width: 35 }}
