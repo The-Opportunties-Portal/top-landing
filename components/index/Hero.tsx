@@ -81,7 +81,7 @@ export const Hero = () => {
                   sm: "row",
                 }}
               >
-                <Link href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1">
+                <Link href="https://29ggsvdxkad.typeform.com/to/vbJ4Xz7Q">
                   <Button
                     fontWeight="bold"
                     fontSize={{ base: "md", lg: "lg" }}
