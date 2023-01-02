@@ -72,7 +72,7 @@ export const JoinTeam = () => {
               }}
               my={14}
             >
-              Click Here!
+              Write to us! 
             </Button>
           </Link>
         </Flex>
