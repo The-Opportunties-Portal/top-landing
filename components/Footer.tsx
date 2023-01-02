@@ -2,13 +2,13 @@ import {
   Box,
   Heading,
   HStack,
-  Image,
   Link as ChakraLink,
   SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 

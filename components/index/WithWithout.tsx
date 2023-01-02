@@ -1,4 +1,11 @@
-import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image as ChakraImage,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
 
 export const WithWithout = () => {
@@ -22,18 +29,19 @@ export const WithWithout = () => {
         align={"center"}
         direction={{ base: "column", md: "row" }}
       >
-        <Image
+        <ChakraImage
+          as={Image}
           src="/images/WithoutTOP.svg"
           alt="without The Opportunties Portal"
           w={{ base: "350px", md: "45%" }}
           maxW="500px"
-        ></Image>
-        <Image
+        />
+        <ChakraImage
           src="/images/WithTOP.svg"
           alt="with The Opportunties Portal"
           w={{ base: "350px", md: "45%" }}
           maxW="500px"
-        ></Image>
+        />
       </Flex>
     </VStack>
   );

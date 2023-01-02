@@ -1,4 +1,5 @@
-import { Box, Center , Text} from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
+import Image from "next/image";
 
 const TeamMember = ({
   name,
@@ -28,16 +29,14 @@ const TeamMember = ({
       p="1rem"
     >
       <Center>
-        <img src={image} alt={name} style={{"height":"200px"}} />
+        <Image src={image} alt={name} style={{ height: "200px" }} />
       </Center>
-      <Box
-        m="2rem"
-        textAlign="center"
-        textColor="white"
-      >
-        <Center fontSize={24} fontWeight={"bold"} >{name}</Center>
+      <Box m="2rem" textAlign="center" textColor="white">
+        <Center fontSize={24} fontWeight={"bold"}>
+          {name}
+        </Center>
         <br />
-        <Text fontSize={18} >{bio}</Text> 
+        <Text fontSize={18}>{bio}</Text>
       </Box>
     </Box>
   );
