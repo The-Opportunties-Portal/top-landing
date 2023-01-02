@@ -269,7 +269,10 @@ export default function WithSubnavigation({
           <Flex display={{ base: "none", lg: "flex" }} align={"center"} ml={10}>
             <DesktopNav />
           </Flex>
-          <DesktopSubNav label="Join the team >" href="#" />
+          <DesktopSubNav
+            label="Join the team >"
+            href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1"
+          />
         </Flex>
       </Flex>
 

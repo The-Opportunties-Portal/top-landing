@@ -33,7 +33,7 @@ export default function Home() {
             },
             {
               label: "Early Access",
-              href: "/earlyAccess",
+              href: "https://29ggsvdxkad.typeform.com/to/vbJ4Xz7Q",
             },
             {
               label: "Users",
@@ -45,7 +45,7 @@ export default function Home() {
             },
             {
               label: "Join the team",
-              href: "#",
+              href: "https://29ggsvdxkad.typeform.com/to/ubcZK2t1",
             },
           ]}
         />

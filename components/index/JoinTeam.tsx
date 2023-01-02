@@ -1,6 +1,7 @@
-import { Flex, Heading,Button } from "@chakra-ui/react";
+import { Flex, Heading, Button } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const JoinTeam = () => {
   return (
@@ -37,24 +38,26 @@ export const JoinTeam = () => {
         px={8}
       >
         <Flex>
-         <Button
-                  fontWeight="bold"
-                  fontSize={{ base: "md", lg: "lg" }}
-                  color="black"
-                  w="200px"
-                  h="50px"
-                  sx={{
-                    background: "rgba(255, 255, 255, 1)",
-                    borderRadius: "12px",
-                    boxShadow: "0px 0px 0px 6px rgba(76, 80, 158, 1)",
-                    _hover: {
-                      transform: "scale(1.2)",
-                    },
-                  }}
-                  my={14}
-                >
-                  Contact Us
-         </Button>
+          <Link href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1">
+            <Button
+              fontWeight="bold"
+              fontSize={{ base: "md", lg: "lg" }}
+              color="black"
+              w="200px"
+              h="50px"
+              sx={{
+                background: "rgba(255, 255, 255, 1)",
+                borderRadius: "12px",
+                boxShadow: "0px 0px 0px 6px rgba(76, 80, 158, 1)",
+                _hover: {
+                  transform: "scale(1.2)",
+                },
+              }}
+              my={14}
+            >
+              Contact Us
+            </Button>
+          </Link>
         </Flex>
       </Flex>
     </Flex>

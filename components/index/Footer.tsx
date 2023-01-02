@@ -3,10 +3,12 @@ import {
   Heading,
   HStack,
   Image,
+  Link as ChakraLink,
   SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 
@@ -42,7 +44,12 @@ export const Footer = () => {
         </Heading>
         <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6} w={"100%"}>
           <Text>Community</Text>
-          <Text>Join our team</Text>
+          <ChakraLink
+            as={Link}
+            href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1"
+          >
+            <Text>Join our team</Text>
+          </ChakraLink>
         </HStack>
       </Box>
       <Box w={400} pl={8}>
@@ -50,7 +57,9 @@ export const Footer = () => {
           COMPANY
         </Heading>
         <HStack fontSize={{ base: "xs", sm: "sm" }} spacing={6}>
-          <Text>About</Text>
+          <ChakraLink as={Link} href="/about">
+            <Text>About</Text>
+          </ChakraLink>
           <Text>Privacy Policy</Text>
           <Text>Terms & Conditions</Text>
         </HStack>
