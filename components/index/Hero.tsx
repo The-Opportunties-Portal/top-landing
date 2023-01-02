@@ -15,7 +15,8 @@ export const Hero = () => {
   return (
     <Box
       className="hero-panel"
-      h="90vh"
+      h="fit-content"
+      // minH="90vh"
       flexGrow={1}
       color="white"
       position={"relative"}
@@ -28,7 +29,7 @@ export const Hero = () => {
         justify={"center"}
         align={"center"}
         gap={4}
-        pb={8}
+        pt={8}
       >
         <motion.div
           initial={{ opacity: 0, y: "-30%" }}

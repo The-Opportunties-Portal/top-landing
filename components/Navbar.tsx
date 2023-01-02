@@ -206,7 +206,7 @@ export default function WithSubnavigation({
   };
 
   return (
-    <Box position="static" width={"100%"} h={"10vh"} zIndex={1}>
+    <Box position="static" width={"100%"} h={"fit-content"} zIndex={1}>
       <Flex
         bg={
           page === "index"
