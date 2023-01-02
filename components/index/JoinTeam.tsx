@@ -28,7 +28,24 @@ export const JoinTeam = () => {
         pr={{ base: 4, sm: 4, md: 0 }}
         mb={{ base: 4, lg: 10 }}
       >
-        Want to get in touch with us ?
+        Want to get in touch with us?
+      </Heading>
+      <Heading
+        color={"rgba(235, 154, 133, 1)"}
+        fontSize={{
+          base: "1xl",
+          sm: "2xl",
+          lg: "3xl",
+        }}
+        textAlign={{
+          base: "center",
+          sm: "center",
+        }}
+        pl={{ base: 8, sm: 4, md: 0 }}
+        pr={{ base: 4, sm: 4, md: 0 }}
+        mb={{ base: 4, lg: 10 }}
+      >
+        Reach out to us anytime!
       </Heading>
       <Flex
         grow={1}
@@ -55,7 +72,7 @@ export const JoinTeam = () => {
               }}
               my={14}
             >
-              Contact Us
+              Click Here!
             </Button>
           </Link>
         </Flex>
