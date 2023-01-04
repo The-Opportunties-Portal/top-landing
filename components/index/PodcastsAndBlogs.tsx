@@ -62,7 +62,7 @@ export const PodcastsAndBlogs = () => {
               alt="The Opportunties Portal Podcast"
               src="/images/podcastThumbnail.jpg"
               fill
-              sizes="(max-width: 0px) 300px, (max-width: 500px) 40px"
+              sizes="(max-width: 0px) 300px, (max-width: 500px) 400px"
               style={{ borderRadius: "24px" }}
             />
           </Box>
@@ -81,7 +81,7 @@ export const PodcastsAndBlogs = () => {
               alt="The Opportunties Portal Blogs"
               src="/images/blogThumbnail.jpg"
               fill
-              sizes="(max-width: 0px) 300px, (max-width: 500px) 40px"
+              sizes="(max-width: 0px) 300px, (max-width: 500px) 400px"
               style={{ borderRadius: "24px" }}
             />
           </Box>

@@ -128,7 +128,13 @@ export const Footer = () => {
         spacing={4}
       >
         <Box w="151px" h="42px" position="relative">
-          <NextImage src="/images/logo.svg" alt="logo" fill sizes="151px" />
+          <NextImage
+            src="/images/logo.svg"
+            alt="logo"
+            fill
+            sizes="151px"
+            priority
+          />
         </Box>
         <Text fontSize={{ base: "xs", sm: "sm" }}>
           © 2022, TOP.pvt. All Rights Reserved.
