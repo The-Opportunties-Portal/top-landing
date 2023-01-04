@@ -44,7 +44,7 @@ const TeamData = [
     bio: "Designing a life worth living, one adventure at a time",
   },
   {
-    name: "Amogh",
+    name: "Amogh Ansh",
     image: "/images/amogh.png",
     bio: "Writing keeps me Running",
   },
