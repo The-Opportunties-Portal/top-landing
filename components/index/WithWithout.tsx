@@ -1,5 +1,6 @@
-import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import NextImage from "next/image";
 
 export const WithWithout = () => {
   return (
@@ -16,24 +17,43 @@ export const WithWithout = () => {
         Helping talented individuals succeed through growth opportunities.
       </Text>
       <Flex
-        gap={{ base: "32px", md: "32px", lg: "48px" }}
+        gap={{ base: "32px", md: "48px", lg: "64px" }}
+        grow={1}
         w="100%"
         justify={"center"}
         align={"center"}
         direction={{ base: "column", md: "row" }}
       >
-        <Image
-          src="/images/WithoutTOP.svg"
-          alt="without The Opportunties Portal"
-          w={{ base: "350px", md: "45%" }}
+        <Box
+          w={{ base: "350px", md: "450px" }}
           maxW="500px"
-        ></Image>
-        <Image
-          src="/images/WithTOP.svg"
-          alt="with The Opportunties Portal"
-          w={{ base: "350px", md: "45%" }}
+          position="relative"
+          sx={{
+            aspectRatio: "1 / 1",
+          }}
+        >
+          <NextImage
+            src="/images/WithoutTOP.svg"
+            alt="without The Opportunties Portal"
+            fill
+            sizes="(max-width: 0px) 350px, (max-width: 900px) 600px"
+          />
+        </Box>
+        <Box
+          w={{ base: "350px", md: "450px" }}
           maxW="500px"
-        ></Image>
+          position="relative"
+          sx={{
+            aspectRatio: "1 / 1",
+          }}
+        >
+          <NextImage
+            src="/images/WithTOP.svg"
+            alt="with The Opportunties Portal"
+            fill
+            sizes="(max-width: 0px) 350px, (max-width: 900px) 600px"
+          />
+        </Box>
       </Flex>
     </VStack>
   );

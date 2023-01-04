@@ -1,13 +1,7 @@
-import {
-  Box,
-  Flex,
-  Image,
-  Link,
-  LinkBox,
-  LinkOverlay,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Link, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
 import React from "react";
+
+import NextImage from "next/image";
 
 export const PodcastsAndBlogs = () => {
   return (
@@ -59,24 +53,38 @@ export const PodcastsAndBlogs = () => {
           target={"_blank"}
           rel="noreferrer"
         >
-          <Image
+          <Box
             w={{ base: "300px", sm: "400px" }}
-            borderRadius={24}
-            alt="The Opportunties Portal Podcast"
-            src="/images/podcastThumbnail.jpg"
-          ></Image>
+            h={{ base: "168.75px", sm: "225px" }}
+            position="relative"
+          >
+            <NextImage
+              alt="The Opportunties Portal Podcast"
+              src="/images/podcastThumbnail.jpg"
+              fill
+              sizes="(max-width: 0px) 300px, (max-width: 500px) 40px"
+              style={{ borderRadius: "24px" }}
+            />
+          </Box>
         </a>
         <a
           href="https://medium.com/@anshamogh/where-talent-meets-opportunities-43e1b2473f3d"
           target="_blank"
           rel="noreferrer"
         >
-          <Image
+          <Box
             w={{ base: "300px", sm: "400px" }}
-            borderRadius={24}
-            alt="The Opportunties Portal Blogs"
-            src="/images/blogThumbnail.jpg"
-          ></Image>
+            h={{ base: "168.75px", sm: "225px" }}
+            position="relative"
+          >
+            <NextImage
+              alt="The Opportunties Portal Blogs"
+              src="/images/blogThumbnail.jpg"
+              fill
+              sizes="(max-width: 0px) 300px, (max-width: 500px) 40px"
+              style={{ borderRadius: "24px" }}
+            />
+          </Box>
         </a>
       </Flex>
     </Flex>

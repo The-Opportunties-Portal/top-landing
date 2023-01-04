@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import NextImage from "next/image";
 
 import { UserType } from "./Users";
 import styles from "../../styles/UserCard.module.css";
@@ -71,7 +72,7 @@ export const UserCard = ({
   return (
     <Flex
       w={{ base: "75%", md: "100%" }}
-      h={{ base: "300px", lg: "375px" }}
+      h={{ base: "325px", lg: "400px" }}
       key={clickedCardReloader as unknown as React.Key}
       justify="center"
       align={index == 0 ? "center" : "start"}
@@ -105,19 +106,21 @@ export const UserCard = ({
           );
         }}
       >
-        <Flex>
-          <Image
-            as={motion.img}
-            key={image as React.Key}
+        <Flex mb={4}>
+          <Box
             h={{ base: index == 0 ? "48px" : "0", md: "64px", lg: "64px" }}
-            w={{ base: index == 0 ? "48px" : "0", md: "64px", lg: "64px" }}
-            src={`/images/${image}.svg`}
-            alt="ellipse"
             mr={4}
-            variants={userImageVariant}
-            initial="hidden"
-            animate="visible"
-          />
+            position="relative"
+            sx={{ aspectRatio: "1 / 1" }}
+          >
+            <NextImage
+              key={image as React.Key}
+              src={`/images/${image}.svg`}
+              alt="ellipse"
+              fill
+              sizes="(max-width: 0px) 48px, (max-width: 900px) 64px, (max-width: 1150px) 64px"
+            />
+          </Box>
           <Box>
             <Heading
               as={motion.h2}

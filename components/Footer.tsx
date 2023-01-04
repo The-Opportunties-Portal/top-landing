@@ -2,7 +2,6 @@ import {
   Box,
   Heading,
   HStack,
-  Image,
   Link as ChakraLink,
   SimpleGrid,
   Text,
@@ -11,6 +10,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { SocialIcon } from "react-social-icons";
+import NextImage from "next/image";
 
 export const Footer = () => {
   return (
@@ -127,7 +127,9 @@ export const Footer = () => {
         justify={"start"}
         spacing={4}
       >
-        <Image src="/images/logo.svg" alt="logo"></Image>
+        <Box w="151px" h="42px" position="relative">
+          <NextImage src="/images/logo.svg" alt="logo" fill sizes="151px" />
+        </Box>
         <Text fontSize={{ base: "xs", sm: "sm" }}>
           © 2022, TOP.pvt. All Rights Reserved.
         </Text>

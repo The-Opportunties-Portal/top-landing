@@ -127,7 +127,7 @@ export const Users = () => {
             key={allUsers[0].image as React.Key}
             as={motion.img}
             exit="exit"
-            src={`/images/${allUsers[0].image} User.svg`}
+            src={`/images/${allUsers[0].image}User.svg`}
             alt="user making plans"
             w={{ base: "300px", md: "400px" }}
             h={{ base: "300px", md: "400px" }}

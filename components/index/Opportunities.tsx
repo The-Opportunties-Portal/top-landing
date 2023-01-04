@@ -1,6 +1,7 @@
-import { Box, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
+import NextImage from "next/image";
 
 export const Opportunities = () => {
   return (
@@ -84,11 +85,19 @@ export const Opportunities = () => {
                 >
                   Giving an opportunity
                 </Text>
-                <Image
+                <Box
                   w={{ base: "60px", lg: "120px" }}
-                  src="images/Business vision-pana 1.svg"
-                  alt="The Opprtunities Portal - Giving an opportunity"
-                />
+                  h={{ base: "60px", lg: "120px" }}
+                  position="relative"
+                  sx={{ aspectRatio: "1 / 1" }}
+                >
+                  <NextImage
+                    src="/images/GivingOpp.svg"
+                    alt="The Opprtunities Portal - Giving an opportunity"
+                    fill
+                    sizes="(max-width: 0px) 60px, (max-width: 1150px) 120px"
+                  />
+                </Box>
               </Flex>
               <Text
                 fontSize={{
@@ -135,11 +144,19 @@ export const Opportunities = () => {
                 >
                   Finding an opportunity
                 </Text>
-                <Image
+                <Box
                   w={{ base: "60px", lg: "120px" }}
-                  src="images/Digital nomad-pana 1.svg"
-                  alt="The Opprtunities Portal - Finding an opportunity"
-                />
+                  h={{ base: "60px", lg: "120px" }}
+                  position="relative"
+                  sx={{ aspectRatio: "1 / 1" }}
+                >
+                  <NextImage
+                    src="/images/TakingOpp.svg"
+                    alt="The Opprtunities Portal - Finding an opportunity"
+                    fill
+                    sizes="(max-width: 0px) 60px, (max-width: 1150px) 120px"
+                  />
+                </Box>
               </Flex>
               <Text
                 fontSize={{

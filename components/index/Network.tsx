@@ -1,5 +1,6 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import NextImage from "next/image";
 
 export const Network = () => {
   return (
@@ -43,11 +44,18 @@ export const Network = () => {
           </Text>
         </Box>
         <Box alignSelf={"center"}>
-          <Image
+          <Box
             w={{ base: "200px", sm: "250px" }}
-            src="/images/3-circles.svg"
-            alt="3 overlapping circles"
-          />
+            position="relative"
+            sx={{ aspectRatio: "1.2 / 1" }}
+          >
+            <NextImage
+              src="/images/3-circles.svg"
+              alt="3 overlapping circles"
+              fill
+              sizes="(max-width: 0px) 200px, (max-width: 500px) 250px"
+            />
+          </Box>
         </Box>
       </Flex>
       <Box
