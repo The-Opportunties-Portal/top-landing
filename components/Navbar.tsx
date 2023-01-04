@@ -4,10 +4,10 @@ import {
   Text,
   IconButton,
   Button,
+  Link,
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -23,6 +23,8 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import router, { useRouter } from "next/router";
+import NextLink from "next/link";
+import NextImage from "next/image";
 
 export default function WithSubnavigation({
   NAV_ITEMS,
@@ -248,7 +250,7 @@ export default function WithSubnavigation({
           align="center"
           gap={{ base: "8px" }}
         >
-          <Text
+          <Box
             textAlign={useBreakpointValue({
               base: "center",
               lg: "left",
@@ -257,14 +259,22 @@ export default function WithSubnavigation({
             color={"#F2F6F9"}
             w={150}
           >
-            <Link href="/">
-              <Image
-                src="/images/logo.svg"
+            <NextLink href="/">
+              <Box
                 w={[125, 150, 150, 150]}
-                alt="The Opprtunities Portal logo"
-              />
-            </Link>
-          </Text>
+                h={[34.76, 41.71, 41.71, 41.71]}
+                position="relative"
+              >
+                <NextImage
+                  src="/images/logo.svg"
+                  alt="The Opprtunities Portal logo"
+                  fill
+                  priority
+                  sizes="(max-width: 0px) 125px, (max-width: 500px) 150px"
+                />
+              </Box>
+            </NextLink>
+          </Box>
 
           <Flex display={{ base: "none", lg: "flex" }} align={"center"} ml={10}>
             <DesktopNav />

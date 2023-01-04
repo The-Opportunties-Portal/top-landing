@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import NextImage from "next/image";
 
 export const Hero = () => {
   return (
@@ -36,12 +37,20 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Image
-            src={"/images/New employee-amico 1.svg"}
+          <Box
             w={{ base: "250px", sm: "300px", md: "350px" }}
-            alt="employees discussing"
+            h={{ base: "250px", sm: "300px", md: "350px" }}
             mb={2}
-          />
+            position="relative"
+          >
+            <NextImage
+              src={"/images/HeroImage.svg"}
+              alt="employees discussing"
+              fill
+              priority
+              sizes="(max-width: 0px) 250px, (max-width: 500px) 300px, (max-width: 900px) 350px"
+            />
+          </Box>
         </motion.div>
         <Box>
           <Flex
