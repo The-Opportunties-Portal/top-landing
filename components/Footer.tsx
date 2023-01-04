@@ -28,9 +28,9 @@ export const Footer = () => {
         <Heading mb={{ base: 1, lg: 2 }} fontSize={{ base: "lg", md: "2xl" }}>
           TOP
         </Heading>
-        <Text fontSize={{ base: "xs", sm: "sm" }}>
+        <Text maxW={{ base: 320, md: 400 }} fontSize={{ base: "xs", sm: "sm" }}>
           Helping talented individuals find and pursue the right opportunities
-          that can help them grow and succeed.
+          that can help them grow and succeed
         </Text>
       </Box>
       <Box
