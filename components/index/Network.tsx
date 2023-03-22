@@ -36,11 +36,12 @@ export const Network = () => {
             The one-stop hub for talent, opportunities and success!
           </Heading>
           <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
-            The Opportunities Portal is a platform that connects skilled
-            students willing to work, with startups or project leaders on their
-            campus. It provides a swift, direct, and transparent way for these
-            groups to discover and engage with one another, potentially leading
-            to new job opportunities, partnerships, or investments.
+            The Opportunities Portal: Connects skilled students with relevant
+            project opportunities and the right teams to turn ideas into
+            reality. It's a quick, direct, and transparent platform for
+            discovering and engaging with others, leading to potential
+            collaborations, startups, job opportunities, research initiatives,
+            and investments.
           </Text>
         </Box>
         <Box alignSelf={"center"}>
