@@ -17,37 +17,37 @@ const TeamData = [
     image: "/images/sahil.png",
     bio: "Master of the 'it's not a bug, it's a feature' excuse",
   },
-  {
-    name: "Tanmay Vyas",
-    image: "/images/tanmay.png",
-    bio: "Still overthinking this line",
-  },
-  {
-    name: "John Tony",
-    image: "/images/john.png",
-    bio: "Loves when stuff just works",
-  },
-  {
-    name: "Rupam Mal",
-    image: "/images/rupam.png",
-    bio: "An unsolvable paradox with a dry sense of humour ",
-  },
+  // {
+  //   name: "Tanmay Vyas",
+  //   image: "/images/tanmay.png",
+  //   bio: "Still overthinking this line",
+  // },
+  // {
+  //   name: "John Tony",
+  //   image: "/images/john.png",
+  //   bio: "Loves when stuff just works",
+  // },
+  // {
+  //   name: "Rupam Mal",
+  //   image: "/images/rupam.png",
+  //   bio: "An unsolvable paradox with a dry sense of humour ",
+  // },
 
-  {
-    name: "Bhavesh Sathiyamurthy",
-    image: "/images/bhavesh.png",
-    bio: "Can learn most of the things when experienced hands on",
-  },
-  {
-    name: "Abeer Mathur",
-    image: "/images/abeer.png",
-    bio: "Designing a life worth living, one adventure at a time",
-  },
-  {
-    name: "Amogh Ansh",
-    image: "/images/amogh.png",
-    bio: "Writing keeps me Running",
-  },
+  // {
+  //   name: "Bhavesh Sathiyamurthy",
+  //   image: "/images/bhavesh.png",
+  //   bio: "Can learn most of the things when experienced hands on",
+  // },
+  // {
+  //   name: "Abeer Mathur",
+  //   image: "/images/abeer.png",
+  //   bio: "Designing a life worth living, one adventure at a time",
+  // },
+  // {
+  //   name: "Amogh Ansh",
+  //   image: "/images/amogh.png",
+  //   bio: "Writing keeps me Running",
+  // },
 ];
 
 const OurTeam = () => {
