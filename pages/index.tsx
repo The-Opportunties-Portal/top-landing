@@ -33,7 +33,7 @@ export default function Home() {
             },
             {
               label: "Early Access",
-              href: "https://29ggsvdxkad.typeform.com/to/vbJ4Xz7Q",
+              href: "/demo",
             },
             {
               label: "Users",
