@@ -80,7 +80,7 @@ function Demo() {
               position="relative"
             >
               <NextImage
-                src="/images/logo.svg"
+                src="/images/logo-black.svg"
                 alt="The Opprtunities Portal logo"
                 fill
                 priority

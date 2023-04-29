@@ -40,7 +40,8 @@ const AboutUs = () => {
           }}
         >
           <img
-            src="/images/logo.svg"
+            src="/images/logo-white.svg"
+            color="white"
             alt="The opprtunities Portal Logo"
             width="60%"
           />
@@ -52,29 +53,28 @@ const AboutUs = () => {
           }}
         >
           <Text
-        m={{
-          base: "2rem",
-          md: "4rem",
-        }}
-        textAlign="center"
-        fontSize={{
-          base: "1rem",
-          md: "1.2rem",
-        }}
-        fontWeight="bold"
-        color="white"
-      >
-        Welcome to the Opportunities Portal, where talented individuals and
-        startups connect for mutual success. Our platform connects skilled and
-        motivated job seekers with companies looking for top talent, creating a
-        win-win for everyone. For all our users we have a separate platform to
-        help them find what they are looking for after completing their
-        profiling and navigating through the demand and supply of the industry
-        around them.
-      </Text>
+            m={{
+              base: "2rem",
+              md: "4rem",
+            }}
+            textAlign="center"
+            fontSize={{
+              base: "1rem",
+              md: "1.2rem",
+            }}
+            fontWeight="bold"
+            color="white"
+          >
+            Welcome to the Opportunities Portal, where talented individuals and
+            startups connect for mutual success. Our platform connects skilled
+            and motivated job seekers with companies looking for top talent,
+            creating a win-win for everyone. For all our users we have a
+            separate platform to help them find what they are looking for after
+            completing their profiling and navigating through the demand and
+            supply of the industry around them.
+          </Text>
         </Box>
       </Flex>
-      
     </Box>
   );
 };
