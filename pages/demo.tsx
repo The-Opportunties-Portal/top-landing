@@ -155,10 +155,9 @@ function Demo() {
       <HStack alignItems={"center"}>
         <Box>
           <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<SearchIcon color="gray.300" />}
-            />
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon color="gray.300" />
+            </InputLeftElement>
             <Input
               type="text"
               value={searchQuery}

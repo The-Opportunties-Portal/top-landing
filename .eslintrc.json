@@ -1,12 +1,3 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
-  ],
-  "plugins": ["react", "@typescript-eslint", "next"],
-  "rules": {
-    // Your ESLint rules here
-  }
+  "extends": "next/core-web-vitals"
 }

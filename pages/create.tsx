@@ -13,13 +13,13 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { WithContext as ReactTags } from "react-tag-input";
 
-export default function create() {
+export default function Create() {
   const [formData, setFormData] = useState<{
     position: string;
     company: string;
     contentTitle: string;
     contentBody: string;
-    skills: never[];
+    skills: Array<{ id: string; text: string }>;
     link: string;
   }>({
     position: "",
@@ -68,14 +68,18 @@ export default function create() {
     }));
   };
 
-  const handleTagAddition = (tag: never) => {
+  const handleTagAddition = (tag: { id: string; text: string }) => {
     setFormData((oldFormData) => ({
       ...oldFormData,
       skills: [...oldFormData.skills, tag],
     }));
   };
 
-  const handleTagDrag = (tag: never, currPos: number, newPos: number) => {
+  const handleTagDrag = (
+    tag: { id: string; text: string },
+    currPos: number,
+    newPos: number
+  ) => {
     const newTags = formData.skills.slice();
 
     newTags.splice(currPos, 1);
