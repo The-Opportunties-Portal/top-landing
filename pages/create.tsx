@@ -49,7 +49,8 @@ export default function Create() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    debugger;
+    console.log(process.env.NEXT_PUBLIC_API_URL);
+
     await axios.post(
       process.env.NEXT_PUBLIC_API_URL + "/opportunity",
       formData,
