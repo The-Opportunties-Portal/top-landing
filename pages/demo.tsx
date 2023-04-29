@@ -144,6 +144,11 @@ function Demo() {
       >
         Find Opportunities
       </Heading>
+      {!sessionCookie && (
+        <Text mt={2} color={"red.600"} fontSize={"2xl"}>
+          Please login to access contact details
+        </Text>
+      )}
       <SimpleGrid
         w={"100%"}
         minChildWidth="300px"
@@ -153,7 +158,11 @@ function Demo() {
         pt={8}
       >
         {opportunities.map((opportunity) => (
-          <Card key={opportunity._id} {...opportunity} />
+          <Card
+            key={opportunity._id}
+            {...opportunity}
+            sessionCookie={sessionCookie}
+          />
         ))}
       </SimpleGrid>
     </VStack>

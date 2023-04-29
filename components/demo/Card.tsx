@@ -21,6 +21,7 @@ export function Card({
   skills,
   link,
   emailAddress,
+  sessionCookie,
 }: {
   position: string;
   company: string;
@@ -29,6 +30,7 @@ export function Card({
   skills: [{ id: string; text: string }];
   link: string;
   emailAddress: string;
+  sessionCookie: string | null;
 }) {
   return (
     <Box
@@ -69,6 +71,7 @@ export function Card({
         <Flex mt={8} justify="space-between">
           <Button
             colorScheme="teal"
+            disabled={!sessionCookie}
             onClick={() => {
               window.open(link, "_blank");
             }}
@@ -77,6 +80,7 @@ export function Card({
           </Button>
           <Button
             colorScheme="blackAlpha"
+            disabled={!sessionCookie}
             onClick={() => {
               window.location.href = `mailto:${emailAddress}`;
             }}
