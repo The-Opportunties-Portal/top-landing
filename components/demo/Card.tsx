@@ -14,15 +14,21 @@ import {
 } from "@chakra-ui/react";
 
 export function Card({
-  title,
+  position,
   company,
-  responsibilities,
+  contentTitle,
+  contentBody,
   skills,
+  link,
+  emailAddress,
 }: {
-  title: string;
+  position: string;
   company: string;
-  responsibilities: string[];
-  skills: string[];
+  contentTitle: string;
+  contentBody: string;
+  skills: [{ id: string; text: string }];
+  link: string;
+  emailAddress: string;
 }) {
   return (
     <Box
@@ -30,24 +36,24 @@ export function Card({
       borderRadius="lg"
       overflow="hidden"
       boxShadow="md"
-      minW={"300px"}
+      display={"flex"}
+      flexDirection={"column"}
+      w={"350px"}
     >
       <Box bg="gray.200" p={4}>
         <Heading size="lg" fontWeight="bold">
-          {title}
+          {position}
         </Heading>
         <Text fontSize="sm" color="gray.500">
           {company}
         </Text>
       </Box>
       <Divider />
-      <Box p={4}>
-        <Heading size="md">Key Responsibilities</Heading>
-        <UnorderedList mt={4}>
-          {responsibilities.map((item, index) => (
-            <ListItem key={index}>{item}</ListItem>
-          ))}
-        </UnorderedList>
+      <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+        <Heading size="md">{contentTitle}</Heading>
+        <Text>{contentBody}</Text>
+      </Box>
+      <Box justifySelf={"flex-end"} p={4}>
         <Heading size="md" mt={8}>
           Skills Required
         </Heading>
@@ -55,7 +61,7 @@ export function Card({
           {skills.map((skill, index) => (
             <WrapItem key={index}>
               <Badge colorScheme="blue" p={2} borderRadius={12}>
-                {skill}
+                {skill.text}
               </Badge>
             </WrapItem>
           ))}

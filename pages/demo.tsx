@@ -24,12 +24,39 @@ import { Card } from "../components/demo/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
+interface OpportunitySchema {
+  _id: string;
+  position: string;
+  company: string;
+  contentTitle: string;
+  contentBody: string;
+  skills: [{ id: string; text: string }];
+  link: string;
+  emailAddress: string;
+}
+
 function Demo() {
   const [sessionCookie, setSessionCookie] = React.useState<string | null>(null);
+  const [opportunities, setOpportunities] = React.useState<OpportunitySchema[]>(
+    []
+  );
+  console.log(opportunities);
 
   useEffect(() => {
     const session = Cookies.get("connect.sid") || null;
     setSessionCookie(session);
+
+    async function fetchData() {
+      const response = await axios.get(
+        process.env.NEXT_PUBLIC_API_URL + "/opportunity",
+        {
+          withCredentials: true,
+        }
+      );
+      setOpportunities(response.data);
+    }
+
+    fetchData();
   }, [sessionCookie]);
 
   return (
@@ -125,150 +152,9 @@ function Demo() {
         justifyItems={"center"}
         pt={8}
       >
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
-        <Card
-          title="Graphic Designing internship in The opportunity portal"
-          company="The opportunity portal"
-          responsibilities={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-            "incididunt ut labore et dolore magna aliqua.",
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex",
-            "ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
-            "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-          ]}
-          skills={["Adobe Photoshop", "Adobe Illustrator", "Adobe XD"]}
-        />
+        {opportunities.map((opportunity) => (
+          <Card key={opportunity._id} {...opportunity} />
+        ))}
       </SimpleGrid>
     </VStack>
   );
