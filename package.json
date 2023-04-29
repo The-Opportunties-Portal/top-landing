@@ -32,6 +32,8 @@
   "devDependencies": {
     "@types/js-cookie": "^3.0.3",
     "@types/react-tag-input": "^6.6.1",
-    "eslint": "^8.39.0"
+    "eslint": "^8.39.0",
+    "eslint-plugin-next": "^0.0.0",
+    "plugin": "^0.3.3"
   }
 }
