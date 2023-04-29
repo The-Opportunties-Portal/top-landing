@@ -98,7 +98,7 @@ function Demo() {
             sessionCookie
               ? () => {
                   axios
-                    .get("http://localhost:3001/auth/logout", {
+                    .get(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
                       withCredentials: true,
                     })
                     .then((res) => {
@@ -110,7 +110,7 @@ function Demo() {
                     });
                 }
               : () => {
-                  window.location.href = `http://localhost:3001/auth`;
+                  window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth`;
                 }
           }
         >
