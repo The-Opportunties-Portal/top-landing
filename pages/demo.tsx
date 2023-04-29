@@ -7,6 +7,10 @@ import {
   HStack,
   Heading,
   Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
   Link,
   SimpleGrid,
   Stack,
@@ -14,14 +18,14 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { ReactHTMLElement, useEffect, useState } from "react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 import Cookies from "js-cookie";
 
 import Navbar from "../components/Navbar";
 import { Card } from "../components/demo/Card";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
 interface OpportunitySchema {
@@ -40,7 +44,13 @@ function Demo() {
   const [opportunities, setOpportunities] = React.useState<OpportunitySchema[]>(
     []
   );
+  const [searchQuery, setSearchQuery] = useState("");
+
   console.log(opportunities);
+
+  const handleSearchInputChange = (event: any) => {
+    setSearchQuery(event.target.value);
+  };
 
   useEffect(() => {
     const session = Cookies.get("connect.sid") || null;
@@ -133,9 +143,6 @@ function Demo() {
           </Stack>
         </Link>
       </HStack>
-      <Link href="./create">
-        <Button>Create opportunity</Button>
-      </Link>
       <Heading
         pt={4}
         size={"3xl"}
@@ -144,6 +151,26 @@ function Demo() {
       >
         Find Opportunities
       </Heading>
+
+      <HStack alignItems={"center"}>
+        <Box>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<SearchIcon color="gray.300" />}
+            />
+            <Input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+              placeholder={`Search...`}
+            />
+          </InputGroup>
+        </Box>
+        <Link href="./create">
+          <Button>Create opportunity</Button>
+        </Link>
+      </HStack>
       {!sessionCookie && (
         <Text mt={2} color={"red.600"} fontSize={"2xl"}>
           Please login to access contact details
@@ -157,7 +184,20 @@ function Demo() {
         justifyItems={"center"}
         pt={8}
       >
-        {opportunities.map((opportunity) => (
+        {Array.from(
+          new Set([
+            ...opportunities.filter((opportunity) =>
+              opportunity.position
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+            ),
+            ...opportunities.filter((opportunity) =>
+              opportunity.skills.some((skill) =>
+                skill.text.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+            ),
+          ])
+        ).map((opportunity) => (
           <Card
             key={opportunity._id}
             {...opportunity}
