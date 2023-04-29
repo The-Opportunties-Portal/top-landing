@@ -4,7 +4,7 @@ import {
   Heading,
   Text,
   Divider,
-  OrderedList,
+  UnorderedList,
   ListItem,
   HStack,
   Badge,
@@ -43,11 +43,11 @@ export function Card({
       <Divider />
       <Box p={4}>
         <Heading size="md">Key Responsibilities</Heading>
-        <OrderedList mt={4}>
+        <UnorderedList mt={4}>
           {responsibilities.map((item, index) => (
             <ListItem key={index}>{item}</ListItem>
           ))}
-        </OrderedList>
+        </UnorderedList>
         <Heading size="md" mt={8}>
           Skills Required
         </Heading>

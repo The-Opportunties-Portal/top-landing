@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Flex,
   Grid,
   GridItem,
@@ -32,7 +33,7 @@ function Demo() {
   }, [sessionCookie]);
 
   return (
-    <VStack minH={"100vh"} p={8}>
+    <VStack minH={"100vh"} p={8} gap={4}>
       <HStack w={"100%"} justify={"space-between"}>
         <Box fontFamily={"heading"} w={150} color="black">
           <NextLink href="/">
@@ -105,8 +106,11 @@ function Demo() {
           </Stack>
         </Link>
       </HStack>
+      <Link href="./create">
+        <Button>Create opportunity</Button>
+      </Link>
       <Heading
-        pt={12}
+        pt={4}
         size={"3xl"}
         textDecoration={"underline"}
         textAlign={"center"}
