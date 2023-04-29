@@ -13,15 +13,24 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import NextImage from "next/image";
+import Cookies from "js-cookie";
 
 import Navbar from "../components/Navbar";
 import { Card } from "../components/demo/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
 function Demo() {
+  const [sessionCookie, setSessionCookie] = React.useState<string | null>(null);
+
+  useEffect(() => {
+    const session = Cookies.get("connect.sid") || null;
+    setSessionCookie(session);
+  }, [sessionCookie]);
+
   return (
     <VStack minH={"100vh"} p={8}>
       <HStack w={"100%"} justify={"space-between"}>
@@ -43,12 +52,29 @@ function Demo() {
           </NextLink>
         </Box>
         <Link
-          href={"/"}
           role={"group"}
-          display={{ base: "none", lg: "block" }}
           p={2}
           rounded={"md"}
           _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+          onClick={
+            sessionCookie
+              ? () => {
+                  axios
+                    .get("http://localhost:3001/auth/logout", {
+                      withCredentials: true,
+                    })
+                    .then((res) => {
+                      setSessionCookie(null);
+                      Cookies.set("connect.sid", "");
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }
+              : () => {
+                  window.location.href = `http://localhost:3001/auth`;
+                }
+          }
         >
           <Stack direction={"row"} align={"center"}>
             <Box>
@@ -59,7 +85,7 @@ function Demo() {
                 fontSize={["md", "lg", "lg", "lg"]}
                 whiteSpace={"nowrap"}
               >
-                {"Login"}
+                {sessionCookie ? "Logout" : "Login"}
               </Text>
             </Box>
             <Flex
