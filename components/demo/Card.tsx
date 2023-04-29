@@ -66,8 +66,23 @@ export function Card({
             </WrapItem>
           ))}
         </Wrap>
-        <Flex mt={8} justify="center">
-          <Button colorScheme="blue">{"Apply"}</Button>
+        <Flex mt={8} justify="space-between">
+          <Button
+            colorScheme="teal"
+            onClick={() => {
+              window.open(link, "_blank");
+            }}
+          >
+            {"Apply"}
+          </Button>
+          <Button
+            colorScheme="blackAlpha"
+            onClick={() => {
+              window.location.href = `mailto:${emailAddress}`;
+            }}
+          >
+            {"Contact"}
+          </Button>
         </Flex>
       </Box>
     </Box>
