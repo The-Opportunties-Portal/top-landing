@@ -89,7 +89,7 @@ function Demo() {
             </Box>
           </NextLink>
         </Box>
-        <Link
+        {/* <Link
           role={"group"}
           p={2}
           rounded={"md"}
@@ -141,7 +141,7 @@ function Demo() {
               <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
             </Flex>
           </Stack>
-        </Link>
+        </Link> */}
       </HStack>
       <Heading
         pt={4}
