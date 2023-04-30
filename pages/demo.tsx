@@ -38,7 +38,9 @@ interface OpportunitySchema {
 }
 
 function Demo() {
-  const [sessionCookie, setSessionCookie] = React.useState<string | null>(null);
+  const [sessionCookie, setSessionCookie] = React.useState<string | null>(
+    "fake session"
+  );
   const [opportunities, setOpportunities] = React.useState<OpportunitySchema[]>(
     []
   );
@@ -51,8 +53,8 @@ function Demo() {
   };
 
   useEffect(() => {
-    const session = Cookies.get("connect.sid") || null;
-    setSessionCookie(session);
+    // const session = Cookies.get("connect.sid") || null;
+    // setSessionCookie(session);
 
     async function fetchData() {
       const response = await axios.get(
