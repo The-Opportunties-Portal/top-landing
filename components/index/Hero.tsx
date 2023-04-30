@@ -83,7 +83,7 @@ export const Hero = () => {
                   sm: "row",
                 }}
               >
-                <Link href="https://29ggsvdxkad.typeform.com/to/vbJ4Xz7Q">
+                <Link href="https://top-landing-beta.vercel.app/demo">
                   <Button
                     fontWeight="bold"
                     fontSize={{ base: "md", lg: "lg" }}
