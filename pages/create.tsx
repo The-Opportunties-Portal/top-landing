@@ -21,6 +21,7 @@ export default function Create() {
     contentBody: string;
     skills: Array<{ id: string; text: string }>;
     link: string;
+    emailAddress: string;
   }>({
     position: "",
     company: "",
@@ -28,6 +29,7 @@ export default function Create() {
     contentBody: "",
     skills: [],
     link: "",
+    emailAddress: "",
   });
 
   const KeyCodes = {
@@ -176,6 +178,20 @@ export default function Create() {
               "
               size="lg"
               value={formData.link}
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel>Contact mail</FormLabel>
+            <Input
+              type="email"
+              id="emailAddress"
+              name="emailAddress"
+              placeholder="
+              contact@theopportunitiesportal.com
+              "
+              size="lg"
+              value={formData.emailAddress}
               onChange={handleChange}
             />
           </FormControl>
