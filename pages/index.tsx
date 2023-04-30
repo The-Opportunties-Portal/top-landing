@@ -33,7 +33,7 @@ export default function Home() {
             },
             {
               label: "Early Access",
-              href: "/demo",
+              href: "https://top-landing-beta.vercel.app/demo",
             },
             {
               label: "Users",
