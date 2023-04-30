@@ -129,7 +129,7 @@ export const Footer = () => {
       >
         <Box w="151px" h="42px" position="relative">
           <NextImage
-            src="/images/logo.svg"
+            src="/images/logo-white.svg"
             alt="logo"
             fill
             sizes="151px"

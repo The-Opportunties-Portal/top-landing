@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Link,
   Stack,
   Collapse,
@@ -265,7 +264,7 @@ export default function WithSubnavigation({
                 position="relative"
               >
                 <NextImage
-                  src="/images/logo.svg"
+                  src="/images/logo-white.svg"
                   alt="The Opprtunities Portal logo"
                   fill
                   priority

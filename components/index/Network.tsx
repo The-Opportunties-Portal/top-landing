@@ -38,7 +38,7 @@ export const Network = () => {
           <Text maxW={500} fontSize={{ base: "small", sm: "medium" }}>
             The Opportunities Portal: Connects skilled students with relevant
             project opportunities and the right teams to turn ideas into
-            reality. It's a quick, direct, and transparent platform for
+            reality. It&apos;s a quick, direct, and transparent platform for
             discovering and engaging with others, leading to potential
             collaborations, startups, job opportunities, research initiatives,
             and investments.
