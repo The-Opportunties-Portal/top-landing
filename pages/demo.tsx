@@ -38,9 +38,7 @@ interface OpportunitySchema {
 }
 
 function Demo() {
-  const [sessionCookie, setSessionCookie] = React.useState<string | null>(
-    "fake session"
-  );
+  const [sessionCookie, setSessionCookie] = React.useState<string | null>(null);
   const [opportunities, setOpportunities] = React.useState<OpportunitySchema[]>(
     []
   );
@@ -53,8 +51,8 @@ function Demo() {
   };
 
   useEffect(() => {
-    // const session = Cookies.get("connect.sid") || null;
-    // setSessionCookie(session);
+    const session = Cookies.get("connect.sid") || null;
+    setSessionCookie(session);
 
     async function fetchData() {
       const response = await axios.get(
@@ -89,7 +87,7 @@ function Demo() {
             </Box>
           </NextLink>
         </Box>
-        {/* <Link
+        <Link
           role={"group"}
           p={2}
           rounded={"md"}
@@ -141,7 +139,7 @@ function Demo() {
               <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
             </Flex>
           </Stack>
-        </Link> */}
+        </Link>
       </HStack>
       <Heading
         pt={4}
