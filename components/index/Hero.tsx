@@ -83,7 +83,7 @@ export const Hero = () => {
                   sm: "row",
                 }}
               >
-                <Link href="https://top-landing-beta.vercel.app/demo">
+                <Link href="/demo">
                   <Button
                     fontWeight="bold"
                     fontSize={{ base: "md", lg: "lg" }}

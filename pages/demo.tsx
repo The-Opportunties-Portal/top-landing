@@ -95,17 +95,20 @@ function Demo() {
           onClick={
             sessionCookie
               ? () => {
-                  axios
-                    .get(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
-                      withCredentials: true,
-                    })
-                    .then((res) => {
-                      setSessionCookie(null);
-                      Cookies.set("connect.sid", "");
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
+                  (e: any) => {
+                    e.preventDefault();
+                    axios
+                      .get(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+                        withCredentials: true,
+                      })
+                      .then((res) => {
+                        setSessionCookie(null);
+                        Cookies.set("connect.sid", "");
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  };
                 }
               : () => {
                   window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth`;
