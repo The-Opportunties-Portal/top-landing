@@ -8,7 +8,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
   Link,
   SimpleGrid,
   Stack,
