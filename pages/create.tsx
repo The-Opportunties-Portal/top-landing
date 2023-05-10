@@ -11,6 +11,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { WithContext as ReactTags } from "react-tag-input";
+import { useAppDispatch } from "../app/store";
+import { createOpportunity } from "../features/opportunity/opportunity.slice";
 
 export default function Create() {
   const [formData, setFormData] = useState<{
@@ -46,19 +48,11 @@ export default function Create() {
   };
 
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    console.log(process.env.NEXT_PUBLIC_API_URL);
-
-    await axios.post(
-      process.env.NEXT_PUBLIC_API_URL + "/opportunity",
-      formData,
-      {
-        withCredentials: true,
-      }
-    );
+    dispatch(createOpportunity(formData));
 
     router.push("/demo");
   }

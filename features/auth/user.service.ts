@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Fetch user
-export const fetchUser = async () => {
+const fetchUser = async () => {
   try {
     const response = await axios.get(
       process.env.NEXT_PUBLIC_API_URL + "/auth/getUser",
@@ -17,7 +17,7 @@ export const fetchUser = async () => {
 };
 
 // Logout user
-export const logoutUser = async () => {
+const logoutUser = async () => {
   try {
     const response = await axios.get(
       process.env.NEXT_PUBLIC_API_URL + "/auth/logout",

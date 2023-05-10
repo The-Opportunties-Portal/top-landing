@@ -12,6 +12,7 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { User } from "../../types/types";
 
 export function Card({
   position,
@@ -21,16 +22,16 @@ export function Card({
   skills,
   link,
   emailAddress,
-  sessionCookie,
+  user,
 }: {
   position: string;
   company: string;
   contentTitle: string;
   contentBody: string;
-  skills: [{ id: string; text: string }];
+  skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
-  sessionCookie: string | null;
+  user: User | null;
 }) {
   return (
     <Box
@@ -71,7 +72,7 @@ export function Card({
         <Flex mt={8} justify="space-between">
           <Button
             colorScheme="teal"
-            disabled={!sessionCookie}
+            disabled={!user}
             onClick={() => {
               window.open(link, "_blank");
             }}
@@ -80,7 +81,7 @@ export function Card({
           </Button>
           <Button
             colorScheme="blackAlpha"
-            disabled={!sessionCookie}
+            disabled={!user}
             onClick={() => {
               window.location.href = `mailto:${emailAddress}`;
             }}

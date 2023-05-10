@@ -24,6 +24,10 @@ import Navbar from "../components/Navbar";
 import { Card } from "../components/demo/Card";
 import { ChevronRightIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import { RootState, useAppDispatch } from "../app/store";
+import { useSelector } from "react-redux";
+import { fetchOpportunities } from "../features/opportunity/opportunity.slice";
+import { fetchUser, logoutUser } from "../features/auth/user.slice";
 
 interface OpportunitySchema {
   _id: string;
@@ -37,35 +41,23 @@ interface OpportunitySchema {
 }
 
 function Demo() {
-  const [sessionCookie, setSessionCookie] = React.useState<string | null>(null);
-  const [opportunities, setOpportunities] = React.useState<OpportunitySchema[]>(
-    []
-  );
-  const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useAppDispatch();
+  const userSlice = useSelector((state: RootState) => state.user);
+  const opportunitySlice = useSelector((state: RootState) => state.opportunity);
 
-  console.log(opportunities);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchInputChange = (event: any) => {
     setSearchQuery(event.target.value);
   };
 
   useEffect(() => {
-    const session = Cookies.get("connect.sid") || null;
-    setSessionCookie(session);
-
-    async function fetchData() {
-      const response = await axios.get(
-        process.env.NEXT_PUBLIC_API_URL + "/opportunity",
-        {
-          withCredentials: true,
-        }
-      );
-
-      setOpportunities(response.data);
+    if (!userSlice.user) {
+      dispatch(fetchUser());
     }
 
-    fetchData();
-  }, [sessionCookie]);
+    dispatch(fetchOpportunities());
+  }, []);
 
   return (
     <VStack minH={"100vh"} p={8} gap={4}>
@@ -93,22 +85,10 @@ function Demo() {
           rounded={"md"}
           _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
           onClick={
-            sessionCookie
-              ? () => {
-                  (e: any) => {
-                    e.preventDefault();
-                    axios
-                      .get(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
-                        withCredentials: true,
-                      })
-                      .then((res) => {
-                        setSessionCookie(null);
-                        Cookies.set("connect.sid", "");
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      });
-                  };
+            userSlice.user
+              ? (e: any) => {
+                  e.preventDefault();
+                  dispatch(logoutUser());
                 }
               : () => {
                   window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`;
@@ -124,7 +104,7 @@ function Demo() {
                 fontSize={["md", "lg", "lg", "lg"]}
                 whiteSpace={"nowrap"}
               >
-                {sessionCookie ? "Logout" : "Login"}
+                {userSlice.user ? "Logout" : "Login"}
               </Text>
             </Box>
             <Flex
@@ -171,7 +151,7 @@ function Demo() {
           <Button>Create opportunity</Button>
         </Link>
       </HStack>
-      {!sessionCookie && (
+      {!userSlice.user && (
         <Text mt={2} color={"red.600"} fontSize={"2xl"}>
           Please login to access contact details
         </Text>
@@ -186,23 +166,19 @@ function Demo() {
       >
         {Array.from(
           new Set([
-            ...opportunities.filter((opportunity) =>
+            ...opportunitySlice.opportunities.filter((opportunity) =>
               opportunity.position
                 .toLowerCase()
                 .includes(searchQuery.toLowerCase())
             ),
-            ...opportunities.filter((opportunity) =>
+            ...opportunitySlice.opportunities.filter((opportunity) =>
               opportunity.skills.some((skill) =>
                 skill.text.toLowerCase().includes(searchQuery.toLowerCase())
               )
             ),
           ])
         ).map((opportunity) => (
-          <Card
-            key={opportunity._id}
-            {...opportunity}
-            sessionCookie={sessionCookie}
-          />
+          <Card key={opportunity._id} {...opportunity} user={userSlice.user} />
         ))}
       </SimpleGrid>
     </VStack>

@@ -3,17 +3,19 @@ export interface CreateOpportunityForm {
   company: string;
   contentTitle: string;
   contentBody: string;
-  skills: [{ id: string; text: string }];
+  skills: Array<{ id: string; text: string }>;
   link: string;
 }
 
 export interface User {
+  _id: string;
   googleId: string;
   email: string;
   name: string;
 }
 
 export interface Opportunity extends CreateOpportunityForm {
+  _id: string;
   emailAddress: string;
 }
 

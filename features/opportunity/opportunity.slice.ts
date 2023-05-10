@@ -16,7 +16,7 @@ const initialState: OpportunitySliceInitialState = {
 
 export const fetchOpportunities = createAsyncThunk(
   "opportunity/fetchOpportunities",
-  async ({}, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       return await opportunityService.fetchAllOpportunities();
     } catch (err: any) {

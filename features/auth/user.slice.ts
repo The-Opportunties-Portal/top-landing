@@ -12,7 +12,8 @@ const initialState: UserSliceInitialState = {
 
 export const fetchUser = createAsyncThunk(
   "user/fetchUser",
-  async ({}, thunkAPI) => {
+  async (_, thunkAPI) => {
+    console.log("hi");
     try {
       return await userService.fetchUser();
     } catch (error: any) {
@@ -29,7 +30,7 @@ export const fetchUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   "user/logoutUser",
-  async ({}, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       return await userService.logoutUser();
     } catch (error: any) {
