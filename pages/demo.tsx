@@ -60,6 +60,7 @@ function Demo() {
           withCredentials: true,
         }
       );
+
       setOpportunities(response.data);
     }
 
