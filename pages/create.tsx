@@ -1,16 +1,22 @@
 import {
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
+  Spinner,
   Textarea,
   VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { WithContext as ReactTags } from "react-tag-input";
+import { RootState, useAppDispatch } from "../app/store";
+import { createOpportunity } from "../features/opportunity/opportunity.slice";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 export default function Create() {
   const [formData, setFormData] = useState<{
@@ -46,20 +52,28 @@ export default function Create() {
   };
 
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const opportunitySlice = useSelector((state: RootState) => state.opportunity);
+  const [isCreated, setIsCreated] = useState(false);
+
+  useEffect(() => {
+    if (opportunitySlice.isError) {
+      toast.error("Error creating opportunity!", {
+        autoClose: 1000,
+        position: "bottom-right",
+      });
+    } else if (isCreated) {
+      toast.success("Opportunity created!", {
+        autoClose: 1000,
+        position: "bottom-right",
+      });
+    }
+  }, [isCreated]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    console.log(process.env.NEXT_PUBLIC_API_URL);
-
-    await axios.post(
-      process.env.NEXT_PUBLIC_API_URL + "/opportunity",
-      formData,
-      {
-        withCredentials: true,
-      }
-    );
-
+    await dispatch(createOpportunity(formData));
+    setIsCreated(true);
     router.push("/demo");
   }
 
@@ -194,8 +208,20 @@ export default function Create() {
               onChange={handleChange}
             />
           </FormControl>
-          <Button colorScheme={"blackAlpha"} type="submit" width="full" mt={4}>
-            Create
+          <Button
+            colorScheme={"blackAlpha"}
+            type="submit"
+            width="full"
+            mt={4}
+            disabled={opportunitySlice.isLoading}
+          >
+            {opportunitySlice.isLoading ? (
+              <Flex align={"center"}>
+                <Spinner size="sm" mr={2} />
+              </Flex>
+            ) : (
+              "Create"
+            )}
           </Button>
         </VStack>
       </form>

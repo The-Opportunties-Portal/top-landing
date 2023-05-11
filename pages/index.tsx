@@ -1,6 +1,4 @@
-import Head from "next/head";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import { Box, Flex, VStack } from "@chakra-ui/react";
 
@@ -33,7 +31,7 @@ export default function Home() {
             },
             {
               label: "Early Access",
-              href: "https://top-landing-beta.vercel.app/demo",
+              href: "/demo",
             },
             {
               label: "Users",
