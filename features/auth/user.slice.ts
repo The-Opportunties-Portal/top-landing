@@ -13,7 +13,6 @@ const initialState: UserSliceInitialState = {
 export const fetchUser = createAsyncThunk(
   "user/fetchUser",
   async (_, thunkAPI) => {
-    console.log("hi");
     try {
       return await userService.fetchUser();
     } catch (error: any) {

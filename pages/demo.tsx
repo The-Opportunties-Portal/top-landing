@@ -10,6 +10,7 @@ import {
   InputLeftElement,
   Link,
   SimpleGrid,
+  Spinner,
   Stack,
   Text,
   VStack,
@@ -28,6 +29,8 @@ import { RootState, useAppDispatch } from "../app/store";
 import { useSelector } from "react-redux";
 import { fetchOpportunities } from "../features/opportunity/opportunity.slice";
 import { fetchUser, logoutUser } from "../features/auth/user.slice";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 interface OpportunitySchema {
   _id: string;
@@ -44,20 +47,44 @@ function Demo() {
   const dispatch = useAppDispatch();
   const userSlice = useSelector((state: RootState) => state.user);
   const opportunitySlice = useSelector((state: RootState) => state.opportunity);
+  const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleCreateOpportunity = () => {
+    if (userSlice.user) {
+      router.push("./create");
+    } else {
+      toast.error("You must be logged in to create an opportunity!", {
+        autoClose: 1000,
+        position: "bottom-right",
+      });
+    }
+  };
 
   const handleSearchInputChange = (event: any) => {
     setSearchQuery(event.target.value);
   };
 
   useEffect(() => {
-    if (!userSlice.user) {
-      dispatch(fetchUser());
+    async function fetchUserHelper() {
+      if (!userSlice.user) {
+        await dispatch(fetchUser());
+      }
+      await dispatch(fetchOpportunities());
     }
 
-    dispatch(fetchOpportunities());
+    fetchUserHelper();
   }, []);
+
+  useEffect(() => {
+    if (userSlice.isSuccess && !userSlice.user) {
+      toast.error("You have been logged out!", {
+        autoClose: 1000,
+        position: "bottom-right",
+      });
+    }
+  }, [userSlice.user]);
 
   return (
     <VStack minH={"100vh"} p={8} gap={4}>
@@ -97,15 +124,24 @@ function Demo() {
         >
           <Stack direction={"row"} align={"center"}>
             <Box>
-              <Text
-                transition={"all .3s ease"}
-                _groupHover={{ color: "pink.400" }}
-                fontWeight={500}
-                fontSize={["md", "lg", "lg", "lg"]}
-                whiteSpace={"nowrap"}
-              >
-                {userSlice.user ? "Logout" : "Login"}
-              </Text>
+              {userSlice.isLoading ? (
+                // Show loader if isLoading is true
+                <Flex align={"center"}>
+                  <Spinner size="sm" mr={2} />
+                  <Text>Attempting to log in...</Text>
+                </Flex>
+              ) : (
+                // Show login/logout depending on user state
+                <Text
+                  transition={"all .3s ease"}
+                  _groupHover={{ color: "pink.400" }}
+                  fontWeight={500}
+                  fontSize={["md", "lg", "lg", "lg"]}
+                  whiteSpace={"nowrap"}
+                >
+                  {userSlice.user ? "Logout" : "Login"}
+                </Text>
+              )}
             </Box>
             <Flex
               transition={"all .3s ease"}
@@ -147,9 +183,7 @@ function Demo() {
             />
           </InputGroup>
         </Box>
-        <Link href="./create">
-          <Button>Create opportunity</Button>
-        </Link>
+        <Button onClick={handleCreateOpportunity}>Create opportunity</Button>
       </HStack>
       {!userSlice.user && (
         <Text mt={2} color={"red.600"} fontSize={"2xl"}>
@@ -164,22 +198,33 @@ function Demo() {
         justifyItems={"center"}
         pt={8}
       >
-        {Array.from(
-          new Set([
-            ...opportunitySlice.opportunities.filter((opportunity) =>
-              opportunity.position
-                .toLowerCase()
-                .includes(searchQuery.toLowerCase())
-            ),
-            ...opportunitySlice.opportunities.filter((opportunity) =>
-              opportunity.skills.some((skill) =>
-                skill.text.toLowerCase().includes(searchQuery.toLowerCase())
-              )
-            ),
-          ])
-        ).map((opportunity) => (
-          <Card key={opportunity._id} {...opportunity} user={userSlice.user} />
-        ))}
+        {!opportunitySlice.isLoading ? (
+          Array.from(
+            new Set([
+              ...opportunitySlice.opportunities.filter((opportunity) =>
+                opportunity.position
+                  .toLowerCase()
+                  .includes(searchQuery.toLowerCase())
+              ),
+              ...opportunitySlice.opportunities.filter((opportunity) =>
+                opportunity.skills.some((skill) =>
+                  skill.text.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+              ),
+            ])
+          ).map((opportunity) => (
+            <Card
+              key={opportunity._id}
+              {...opportunity}
+              user={userSlice.user}
+            />
+          ))
+        ) : (
+          <Flex align={"center"}>
+            <Spinner size="sm" mr={2} />
+            <Text>Loading opportunities</Text>
+          </Flex>
+        )}
       </SimpleGrid>
     </VStack>
   );

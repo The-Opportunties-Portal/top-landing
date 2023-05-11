@@ -19,6 +19,7 @@ const createOpportunity = async (opportunity: CreateOpportunityForm) => {
       withCredentials: true,
     }
   );
+
   return response.data;
 };
 
