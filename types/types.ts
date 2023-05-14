@@ -1,10 +1,9 @@
 export interface CreateOpportunityForm {
-  position: string;
-  company: string;
-  contentTitle: string;
-  contentBody: string;
+  role: string;
+  description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
+  emailAddress: string;
 }
 
 export interface User {
