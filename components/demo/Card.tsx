@@ -15,19 +15,15 @@ import {
 import { User } from "../../types/types";
 
 export function Card({
-  position,
-  company,
-  contentTitle,
-  contentBody,
+  role,
+  description,
   skills,
   link,
   emailAddress,
   user,
 }: {
-  position: string;
-  company: string;
-  contentTitle: string;
-  contentBody: string;
+  role: string;
+  description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
@@ -45,16 +41,16 @@ export function Card({
     >
       <Box bg="gray.200" p={4}>
         <Heading size="lg" fontWeight="bold">
-          {position}
+          {role}
         </Heading>
-        <Text fontSize="sm" color="gray.500">
+        {/* <Text fontSize="sm" color="gray.500">
           {company}
-        </Text>
+        </Text> */}
       </Box>
       <Divider />
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
-        <Heading size="md">{contentTitle}</Heading>
-        <Text>{contentBody}</Text>
+        {/* <Heading size="md">{contentTitle}</Heading> */}
+        <Text>{description}</Text>
       </Box>
       <Box justifySelf={"flex-end"} p={4}>
         <Heading size="md" mt={8}>

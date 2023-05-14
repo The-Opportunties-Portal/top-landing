@@ -2,6 +2,7 @@ import {
   Button,
   Flex,
   FormControl,
+  FormHelperText,
   FormLabel,
   Heading,
   Input,
@@ -20,18 +21,14 @@ import { useSelector } from "react-redux";
 
 export default function Create() {
   const [formData, setFormData] = useState<{
-    position: string;
-    company: string;
-    contentTitle: string;
-    contentBody: string;
+    role: string;
+    description: string;
     skills: Array<{ id: string; text: string }>;
     link: string;
     emailAddress: string;
   }>({
-    position: "",
-    company: "",
-    contentTitle: "",
-    contentBody: "",
+    role: "",
+    description: "",
     skills: [],
     link: "",
     emailAddress: "",
@@ -117,60 +114,31 @@ export default function Create() {
       >
         <VStack gap={2} mt={4}>
           <FormControl isRequired>
-            <FormLabel>Position</FormLabel>
+            <FormLabel>Role</FormLabel>
             <Input
               type="text"
-              id="position"
-              name="position"
-              placeholder="Graphic designer at TOP"
+              id="role"
+              name="role"
+              placeholder="The position you are hiring for"
               size="lg"
-              value={formData.position}
+              value={formData.role}
               onChange={handleChange}
             />
           </FormControl>
           <FormControl isRequired>
-            <FormLabel>Company</FormLabel>
-            <Input
-              type="text"
-              id="company"
-              name="company"
-              placeholder="
-              The opportunities portal
-              "
-              size="lg"
-              value={formData.company}
-              onChange={handleChange}
-            />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Content Title</FormLabel>
-            <Input
-              type="text"
-              id="contentTitle"
-              name="contentTitle"
-              placeholder="Key responsibilities"
-              size="lg"
-              value={formData.contentTitle}
-              onChange={handleChange}
-            />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Content Body</FormLabel>
+            <FormLabel>Description</FormLabel>
             <Textarea
-              id="contentBody"
-              name="contentBody"
-              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint"
+              id="description"
+              name="description"
+              placeholder="Description of the role"
               size="lg"
-              value={formData.contentBody}
+              value={formData.description}
               onChange={handleChange}
             />
           </FormControl>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Skills</FormLabel>
+            <FormHelperText>Press enter to add a skill</FormHelperText>
             <ReactTags
               tags={formData.skills}
               delimiters={delimiters}
@@ -178,16 +146,17 @@ export default function Create() {
               handleAddition={handleTagAddition}
               handleDrag={handleTagDrag}
               inputFieldPosition="bottom"
+              placeholder="Adobe Photoshop"
             />
           </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Link</FormLabel>
+          <FormControl>
+            <FormLabel>Link to apply</FormLabel>
             <Input
               type="text"
               id="link"
               name="link"
               placeholder="
-              form.google.com/lsakdfsdlk
+              https://formlink.com
               "
               size="lg"
               value={formData.link}
@@ -201,7 +170,7 @@ export default function Create() {
               id="emailAddress"
               name="emailAddress"
               placeholder="
-              contact@theopportunitiesportal.com
+              contact@yourmail.com
               "
               size="lg"
               value={formData.emailAddress}

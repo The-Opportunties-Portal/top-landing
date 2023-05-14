@@ -34,11 +34,9 @@ import { useRouter } from "next/router";
 
 interface OpportunitySchema {
   _id: string;
-  position: string;
-  company: string;
-  contentTitle: string;
-  contentBody: string;
-  skills: [{ id: string; text: string }];
+  role: string;
+  description: string;
+  skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
 }
@@ -201,10 +199,11 @@ function Demo() {
         {!opportunitySlice.isLoading ? (
           Array.from(
             new Set([
-              ...opportunitySlice.opportunities.filter((opportunity) =>
-                opportunity.position
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase())
+              ...opportunitySlice.opportunities.filter(
+                (opportunity: OpportunitySchema) =>
+                  opportunity.role
+                    .toLowerCase()
+                    .includes(searchQuery.toLowerCase())
               ),
               ...opportunitySlice.opportunities.filter((opportunity) =>
                 opportunity.skills.some((skill) =>
