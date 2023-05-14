@@ -20,6 +20,10 @@ const createOpportunity = async (opportunity: CreateOpportunityForm) => {
     }
   );
 
+  if (response.data.error) {
+    throw new Error(response.data.error);
+  }
+
   return response.data;
 };
 

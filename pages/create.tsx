@@ -161,6 +161,8 @@ export default function Create() {
               size="lg"
               value={formData.link}
               onChange={handleChange}
+              pattern="https://.*"
+              title="Link must start with https://"
             />
           </FormControl>
           <FormControl isRequired>
