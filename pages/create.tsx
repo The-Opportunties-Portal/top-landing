@@ -6,6 +6,8 @@ import {
   FormLabel,
   Heading,
   Input,
+  InputGroup,
+  InputLeftAddon,
   Spinner,
   Textarea,
   VStack,
@@ -18,20 +20,27 @@ import { RootState, useAppDispatch } from "../app/store";
 import { createOpportunity } from "../features/opportunity/opportunity.slice";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import DomainInput from "../components/create/DomainInput";
 
 export default function Create() {
   const [formData, setFormData] = useState<{
+    projectName: string;
     role: string;
     description: string;
+    domain: "Design" | "Tech" | "Management" | "Other";
     skills: Array<{ id: string; text: string }>;
     link: string;
     emailAddress: string;
+    phoneNumber: string;
   }>({
+    projectName: "",
     role: "",
     description: "",
+    domain: "Other",
     skills: [],
     link: "",
     emailAddress: "",
+    phoneNumber: "",
   });
 
   const KeyCodes = {
@@ -45,6 +54,13 @@ export default function Create() {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+    }));
+  };
+
+  const setDomain = (newValue: typeof formData.domain) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      domain: newValue,
     }));
   };
 
@@ -114,6 +130,18 @@ export default function Create() {
       >
         <VStack gap={2} mt={4}>
           <FormControl isRequired>
+            <FormLabel>Project/Company Name</FormLabel>
+            <Input
+              type="text"
+              id="projectName"
+              name="projectName"
+              placeholder="The name of your organisation"
+              size="lg"
+              value={formData.projectName}
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl isRequired>
             <FormLabel>Role</FormLabel>
             <Input
               type="text"
@@ -126,6 +154,10 @@ export default function Create() {
             />
           </FormControl>
           <FormControl isRequired>
+            <FormLabel>Domain</FormLabel>
+            <DomainInput setDomain={setDomain} />
+          </FormControl>
+          <FormControl>
             <FormLabel>Description</FormLabel>
             <Textarea
               id="description"
@@ -178,6 +210,21 @@ export default function Create() {
               value={formData.emailAddress}
               onChange={handleChange}
             />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Contact number</FormLabel>
+            <InputGroup>
+              <InputLeftAddon>+91</InputLeftAddon>
+              <Input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                pattern="\d{10}"
+                title="Please enter a valid 10 digit phone number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+              />
+            </InputGroup>
           </FormControl>
           <Button
             colorScheme={"blackAlpha"}

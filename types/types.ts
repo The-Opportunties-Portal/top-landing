@@ -1,9 +1,12 @@
 export interface CreateOpportunityForm {
+  projectName: string;
   role: string;
+  domain: "Design" | "Tech" | "Management" | "Other";
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
+  phoneNumber: string;
 }
 
 export interface User {
