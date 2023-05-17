@@ -6,6 +6,7 @@ export interface CreateOpportunityForm {
   skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
+  phoneNumber: string;
 }
 
 export interface User {

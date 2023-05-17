@@ -6,6 +6,8 @@ import {
   FormLabel,
   Heading,
   Input,
+  InputGroup,
+  InputLeftAddon,
   Spinner,
   Textarea,
   VStack,
@@ -29,6 +31,7 @@ export default function Create() {
     skills: Array<{ id: string; text: string }>;
     link: string;
     emailAddress: string;
+    phoneNumber: string;
   }>({
     projectName: "",
     role: "",
@@ -37,6 +40,7 @@ export default function Create() {
     skills: [],
     link: "",
     emailAddress: "",
+    phoneNumber: "",
   });
 
   const KeyCodes = {
@@ -206,6 +210,21 @@ export default function Create() {
               value={formData.emailAddress}
               onChange={handleChange}
             />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Contact number</FormLabel>
+            <InputGroup>
+              <InputLeftAddon>+91</InputLeftAddon>
+              <Input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                pattern="\d{10}"
+                title="Please enter a valid 10 digit phone number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+              />
+            </InputGroup>
           </FormControl>
           <Button
             colorScheme={"blackAlpha"}
