@@ -153,7 +153,7 @@ export default function Create() {
             <FormLabel>Domain</FormLabel>
             <DomainInput setDomain={setDomain} />
           </FormControl>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Description</FormLabel>
             <Textarea
               id="description"
