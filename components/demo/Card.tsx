@@ -114,34 +114,40 @@ export function Card({
         <ModalContent>
           <ModalHeader>Contact Information</ModalHeader>
           <ModalBody>
-            <Text>Email: {emailAddress}</Text>
-            <Text>Phone: {phoneNumber}</Text>
+            {emailAddress && <Text>Email: {emailAddress}</Text>}
+            {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
             <VStack justify="space-between" mt={4}>
-              <Button
-                colorScheme="linkedin"
-                variant={"outline"}
-                onClick={sendEmail}
-                gap={2}
-              >
-                <Icon as={FaEnvelope} mr={2} />
-                Send Email
-              </Button>
-              <Button
-                colorScheme="whatsapp"
-                variant={"outline"}
-                onClick={sendWhatsApp}
-              >
-                <Icon as={FaWhatsapp} mr={2} />
-                Message on WhatsApp
-              </Button>
-              <Button
-                colorScheme="teal"
-                variant={"outline"}
-                onClick={navigateToLink}
-              >
-                <Icon as={FaExternalLinkAlt} mr={2} />
-                Navigate to Link
-              </Button>
+              {emailAddress && (
+                <Button
+                  colorScheme="linkedin"
+                  variant={"outline"}
+                  onClick={sendEmail}
+                  gap={2}
+                >
+                  <Icon as={FaEnvelope} mr={2} />
+                  Send Email
+                </Button>
+              )}
+              {phoneNumber && (
+                <Button
+                  colorScheme="whatsapp"
+                  variant={"outline"}
+                  onClick={sendWhatsApp}
+                >
+                  <Icon as={FaWhatsapp} mr={2} />
+                  Message on WhatsApp
+                </Button>
+              )}
+              {link && (
+                <Button
+                  colorScheme="teal"
+                  variant={"outline"}
+                  onClick={navigateToLink}
+                >
+                  <Icon as={FaExternalLinkAlt} mr={2} />
+                  Navigate to Link
+                </Button>
+              )}
             </VStack>
           </ModalBody>
           <ModalFooter>
