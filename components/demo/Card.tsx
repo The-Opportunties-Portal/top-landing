@@ -11,24 +11,53 @@ import {
   Button,
   Wrap,
   WrapItem,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+  VStack,
+  Icon,
 } from "@chakra-ui/react";
+import { FaEnvelope, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
+
 import { User } from "../../types/types";
 
 export function Card({
+  projectName,
   role,
   description,
   skills,
   link,
   emailAddress,
+  phoneNumber,
   user,
 }: {
+  projectName: string;
   role: string;
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
   emailAddress: string;
+  phoneNumber: string;
   user: User | null;
 }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const sendEmail = () => {
+    window.location.href = `mailto:${emailAddress}`;
+  };
+
+  const sendWhatsApp = () => {
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
+
+  const navigateToLink = () => {
+    window.open(link, "_blank");
+  };
+
   return (
     <Box
       borderWidth="1px"
@@ -43,9 +72,9 @@ export function Card({
         <Heading size="lg" fontWeight="bold">
           {role}
         </Heading>
-        {/* <Text fontSize="sm" color="gray.500">
-          {company}
-        </Text> */}
+        <Text fontSize="sm" color="gray.600">
+          {projectName}
+        </Text>
       </Box>
       <Divider />
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
@@ -57,35 +86,71 @@ export function Card({
           Skills Required
         </Heading>
         <Wrap mt={4} spacing={4}>
-          {skills.map((skill, index) => (
-            <WrapItem key={index}>
-              <Badge colorScheme="blue" p={2} borderRadius={12}>
-                {skill.text}
-              </Badge>
-            </WrapItem>
-          ))}
+          {skills.length == 0 ? (
+            <Text>None</Text>
+          ) : (
+            skills.map((skill, index) => (
+              <WrapItem key={index}>
+                <Badge colorScheme="blue" p={2} borderRadius={12}>
+                  {skill.text}
+                </Badge>
+              </WrapItem>
+            ))
+          )}
         </Wrap>
         <Flex mt={8} justify="space-between">
           <Button
             colorScheme="teal"
             disabled={!user}
-            onClick={() => {
-              window.open(link, "_blank");
-            }}
+            onClick={onOpen} // Open the modal on click
+            width={"100%"}
           >
             {"Apply"}
           </Button>
-          <Button
-            colorScheme="blackAlpha"
-            disabled={!user}
-            onClick={() => {
-              window.location.href = `mailto:${emailAddress}`;
-            }}
-          >
-            {"Contact"}
-          </Button>
         </Flex>
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Contact Information</ModalHeader>
+          <ModalBody>
+            <Text>Email: {emailAddress}</Text>
+            <Text>Phone: {phoneNumber}</Text>
+            <VStack justify="space-between" mt={4}>
+              <Button
+                colorScheme="linkedin"
+                variant={"outline"}
+                onClick={sendEmail}
+                gap={2}
+              >
+                <Icon as={FaEnvelope} mr={2} />
+                Send Email
+              </Button>
+              <Button
+                colorScheme="whatsapp"
+                variant={"outline"}
+                onClick={sendWhatsApp}
+              >
+                <Icon as={FaWhatsapp} mr={2} />
+                Message on WhatsApp
+              </Button>
+              <Button
+                colorScheme="teal"
+                variant={"outline"}
+                onClick={navigateToLink}
+              >
+                <Icon as={FaExternalLinkAlt} mr={2} />
+                Navigate to Link
+              </Button>
+            </VStack>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="red" variant={"outline"} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
