@@ -20,7 +20,7 @@ import { RootState, useAppDispatch } from "../app/store";
 import { createOpportunity } from "../features/opportunity/opportunity.slice";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
-import DomainInput from "../components/create/DomainInput";
+import { DomainInput } from "../components/create/DomainInput";
 
 export default function Create() {
   const [formData, setFormData] = useState<{

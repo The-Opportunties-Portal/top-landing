@@ -33,16 +33,39 @@ function RadioCard(props: any) {
 }
 
 // Step 2: Use the `useRadioGroup` hook to control a group of custom radios.
-export default function DomainInput({
-  setDomain,
-}: {
-  setDomain: (e: any) => void;
-}) {
+export function DomainInput({ setDomain }: { setDomain: (e: any) => void }) {
   const options = ["Design", "Tech", "Management", "Other"];
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "domain",
     defaultValue: "Other",
+    onChange: (newValue: string) => {
+      setDomain(newValue);
+    },
+  });
+
+  const group = getRootProps();
+
+  return (
+    <HStack {...group}>
+      {options.map((value) => {
+        const radio = getRadioProps({ value });
+        return (
+          <RadioCard key={value} {...radio}>
+            {value}
+          </RadioCard>
+        );
+      })}
+    </HStack>
+  );
+}
+
+export function DomainFilter({ setDomain }: { setDomain: (e: any) => void }) {
+  const options = ["All", "Design", "Tech", "Management", "Other"];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "domain",
+    defaultValue: "All",
     onChange: (newValue: string) => {
       setDomain(newValue);
     },
