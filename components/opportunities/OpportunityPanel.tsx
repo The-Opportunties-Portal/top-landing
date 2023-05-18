@@ -6,6 +6,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Stack,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
@@ -53,7 +54,11 @@ function OpportunityPanel({
 
   return (
     <VStack>
-      <HStack alignItems={"center"} mb={2}>
+      <Stack
+        direction={{ base: "column", sm: "row" }}
+        alignItems={"center"}
+        mb={2}
+      >
         <Box>
           <InputGroup>
             <InputLeftElement pointerEvents="none">
@@ -68,7 +73,7 @@ function OpportunityPanel({
           </InputGroup>
         </Box>
         <Button onClick={handleCreateOpportunity}>Create opportunity</Button>
-      </HStack>
+      </Stack>
       <DomainFilter setDomain={handleDomainFilterChange} />
     </VStack>
   );
