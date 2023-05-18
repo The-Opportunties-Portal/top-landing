@@ -24,8 +24,10 @@ import {
 import { FaEnvelope, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
 
 import { User } from "../../types/types";
+import { useRouter } from "next/router";
 
-export function Card({
+export function OpportunitiesCard({
+  _id,
   projectName,
   role,
   description,
@@ -35,6 +37,7 @@ export function Card({
   phoneNumber,
   user,
 }: {
+  _id: string;
   projectName: string;
   role: string;
   description: string;
@@ -45,6 +48,7 @@ export function Card({
   user: User | null;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
   const sendEmail = () => {
     window.location.href = `mailto:${emailAddress}`;
@@ -67,6 +71,15 @@ export function Card({
       display={"flex"}
       flexDirection={"column"}
       w={"350px"}
+      onClick={() => {
+        router.push(`/opportunity/${_id}`);
+      }}
+      _hover={{
+        cursor: "pointer",
+        boxShadow: "lg",
+        transform: "scale(1.1)",
+        transition: "all 0.2s ease-in-out",
+      }}
     >
       <Box bg="gray.200" p={4}>
         <Heading size="lg" fontWeight="bold">
@@ -102,7 +115,10 @@ export function Card({
           <Button
             colorScheme="teal"
             disabled={!user}
-            onClick={onOpen} // Open the modal on click
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpen();
+            }} // Open the modal on click
             width={"100%"}
           >
             {"Apply"}

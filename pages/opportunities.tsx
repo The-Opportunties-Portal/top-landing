@@ -22,7 +22,7 @@ import NextImage from "next/image";
 import Cookies from "js-cookie";
 
 import Navbar from "../components/Navbar";
-import { Card } from "../components/demo/Card";
+import { OpportunitiesCard } from "../components/demo/OpportunitiesCard";
 import { ChevronRightIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { RootState, useAppDispatch } from "../app/store";
@@ -31,15 +31,7 @@ import { fetchOpportunities } from "../features/opportunity/opportunity.slice";
 import { fetchUser, logoutUser } from "../features/auth/user.slice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-
-interface OpportunitySchema {
-  _id: string;
-  role: string;
-  description: string;
-  skills: Array<{ id: string; text: string }>;
-  link: string;
-  emailAddress: string;
-}
+import { OpportunitySchema } from "../types/types";
 
 function Demo() {
   const dispatch = useAppDispatch();
@@ -212,7 +204,7 @@ function Demo() {
               ),
             ])
           ).map((opportunity) => (
-            <Card
+            <OpportunitiesCard
               key={opportunity._id}
               {...opportunity}
               user={userSlice.user}

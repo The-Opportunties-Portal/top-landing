@@ -83,7 +83,7 @@ export const Hero = () => {
                   sm: "row",
                 }}
               >
-                <Link href="/demo">
+                <Link href="/opportunities">
                   <Button
                     fontWeight="bold"
                     fontSize={{ base: "md", lg: "lg" }}

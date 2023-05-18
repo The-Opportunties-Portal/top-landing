@@ -11,6 +11,16 @@ const fetchAllOpportunities = async () => {
   return response.data;
 };
 
+const fetchOpportunityById = async (slug: string) => {
+  const response = await axios.get(
+    process.env.NEXT_PUBLIC_API_URL + `/opportunity/${slug}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
+};
+
 const createOpportunity = async (opportunity: CreateOpportunityForm) => {
   const response = await axios.post(
     process.env.NEXT_PUBLIC_API_URL + "/opportunity",
@@ -29,6 +39,7 @@ const createOpportunity = async (opportunity: CreateOpportunityForm) => {
 
 const opportunityService = {
   fetchAllOpportunities,
+  fetchOpportunityById,
   createOpportunity,
 };
 
