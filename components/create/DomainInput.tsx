@@ -33,12 +33,18 @@ function RadioCard(props: any) {
 }
 
 // Step 2: Use the `useRadioGroup` hook to control a group of custom radios.
-export function DomainInput({ setDomain }: { setDomain: (e: any) => void }) {
+export function DomainInput({
+  setDomain,
+  initialValue = "Other",
+}: {
+  setDomain: (e: any) => void;
+  initialValue: "Design" | "Tech" | "Management" | "Other";
+}) {
   const options = ["Design", "Tech", "Management", "Other"];
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "domain",
-    defaultValue: "Other",
+    defaultValue: initialValue,
     onChange: (newValue: string) => {
       setDomain(newValue);
     },

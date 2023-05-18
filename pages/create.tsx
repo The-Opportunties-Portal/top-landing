@@ -155,7 +155,7 @@ export default function Create() {
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Domain</FormLabel>
-            <DomainInput setDomain={setDomain} />
+            <DomainInput setDomain={setDomain} initialValue={"Other"} />
           </FormControl>
           <FormControl>
             <FormLabel>Description</FormLabel>
