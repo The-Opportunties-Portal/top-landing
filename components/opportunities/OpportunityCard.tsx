@@ -25,6 +25,7 @@ import { FaEnvelope, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
 
 import { User } from "../../types/types";
 import { useRouter } from "next/router";
+import { SocialIcon } from "react-social-icons";
 
 export function OpportunityCard({
   _id,
@@ -115,6 +116,27 @@ export function OpportunityCard({
             {"Apply"}
           </Button>
         </Flex>
+      </Box>
+      <Box>
+        <Text align={"center"}>Share it!</Text>
+        <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
+          <SocialIcon
+            url={`https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theopportunitiesportal.com/opportunity/${_id}`}
+            style={{ height: 35, width: 35 }}
+          />
+          <SocialIcon
+            url={`https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20opportunity%20%20https%3A//www.theopportunitiesportal.com/opportunity/${_id}`}
+            style={{ height: 35, width: 35 }}
+          />
+          <SocialIcon
+            url="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//www.theopportunitiesportal.com/opportunity/${_id}&title=&summary=&source="
+            style={{ height: 35, width: 35 }}
+          />
+          <SocialIcon
+            url="https://www.youtube.com/channel/"
+            style={{ height: 35, width: 35 }}
+          />
+        </HStack>
       </Box>
       <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
         <ModalOverlay />

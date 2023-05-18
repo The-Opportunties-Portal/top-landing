@@ -72,7 +72,9 @@ function OpportunityPanel({
             />
           </InputGroup>
         </Box>
-        <Button onClick={handleCreateOpportunity}>Create opportunity</Button>
+        <Button colorScheme="teal" onClick={handleCreateOpportunity}>
+          Create opportunity
+        </Button>
       </Stack>
       <DomainFilter setDomain={handleDomainFilterChange} />
     </VStack>
