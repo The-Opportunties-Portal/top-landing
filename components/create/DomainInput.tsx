@@ -1,4 +1,4 @@
-import { Box, HStack, useRadio, useRadioGroup } from "@chakra-ui/react";
+import { Box, HStack, Stack, useRadio, useRadioGroup } from "@chakra-ui/react";
 
 function RadioCard(props: any) {
   const { getInputProps, getCheckboxProps } = useRadio(props);
@@ -53,7 +53,7 @@ export function DomainInput({
   const group = getRootProps();
 
   return (
-    <HStack {...group}>
+    <Stack direction={{ base: "column", sm: "row" }} {...group}>
       {options.map((value) => {
         const radio = getRadioProps({ value });
         return (
@@ -62,7 +62,7 @@ export function DomainInput({
           </RadioCard>
         );
       })}
-    </HStack>
+    </Stack>
   );
 }
 
@@ -80,7 +80,7 @@ export function DomainFilter({ setDomain }: { setDomain: (e: any) => void }) {
   const group = getRootProps();
 
   return (
-    <HStack {...group}>
+    <Stack {...group} direction={{ base: "column", sm: "row" }}>
       {options.map((value) => {
         const radio = getRadioProps({ value });
         return (
@@ -89,6 +89,6 @@ export function DomainFilter({ setDomain }: { setDomain: (e: any) => void }) {
           </RadioCard>
         );
       })}
-    </HStack>
+    </Stack>
   );
 }
