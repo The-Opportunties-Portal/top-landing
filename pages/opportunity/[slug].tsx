@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import opportunityService from "../../features/opportunity/opportunity.service";
-import { OpportunityCard } from "../../components/demo/OpportunityCard";
+import { OpportunityCard } from "../../components/opportunities/OpportunityCard";
 import { RootState, useAppDispatch } from "../../app/store";
-import DemoNavbar from "../../components/demo/DemoNavbar";
+import DemoNavbar from "../../components/opportunities/DemoNavbar";
 
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";

@@ -2,12 +2,9 @@ import axios from "axios";
 
 // Fetch user
 const fetchUser = async () => {
-  const response = await axios.get(
-    process.env.NEXT_PUBLIC_API_URL + "/auth/getUser",
-    {
-      withCredentials: true,
-    }
-  );
+  const response = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/user", {
+    withCredentials: true,
+  });
   return response.data;
 };
 
