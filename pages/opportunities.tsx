@@ -32,6 +32,7 @@ import { fetchUser, logoutUser } from "../features/auth/user.slice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { OpportunitySchema } from "../types/types";
+import { DomainFilter } from "../components/create/DomainInput";
 
 function Demo() {
   const dispatch = useAppDispatch();
@@ -40,6 +41,9 @@ function Demo() {
   const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [domainFilter, setDomainFilter] = useState<
+    "All" | "Design" | "Tech" | "Management" | "Other"
+  >("All");
 
   const handleCreateOpportunity = () => {
     if (userSlice.user) {
@@ -54,6 +58,12 @@ function Demo() {
 
   const handleSearchInputChange = (event: any) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleDomainFilterChange = (newDomain: typeof domainFilter) => {
+    setDomainFilter(newDomain);
+    console.log(newDomain);
+    console.log(opportunitySlice.opportunities);
   };
 
   useEffect(() => {
@@ -159,22 +169,25 @@ function Demo() {
         Find Opportunities
       </Heading>
 
-      <HStack alignItems={"center"}>
-        <Box>
-          <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              <SearchIcon color="gray.300" />
-            </InputLeftElement>
-            <Input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-              placeholder={`Search...`}
-            />
-          </InputGroup>
-        </Box>
-        <Button onClick={handleCreateOpportunity}>Create opportunity</Button>
-      </HStack>
+      <VStack>
+        <HStack alignItems={"center"} mb={2}>
+          <Box>
+            <InputGroup>
+              <InputLeftElement pointerEvents="none">
+                <SearchIcon color="gray.300" />
+              </InputLeftElement>
+              <Input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+                placeholder={`Search...`}
+              />
+            </InputGroup>
+          </Box>
+          <Button onClick={handleCreateOpportunity}>Create opportunity</Button>
+        </HStack>
+        <DomainFilter setDomain={handleDomainFilterChange} />
+      </VStack>
       {!userSlice.user && (
         <Text mt={2} color={"red.600"} fontSize={"2xl"}>
           Please login to access contact details
@@ -195,12 +208,19 @@ function Demo() {
                 (opportunity: OpportunitySchema) =>
                   opportunity.role
                     .toLowerCase()
-                    .includes(searchQuery.toLowerCase())
+                    .includes(searchQuery.toLowerCase()) &&
+                  (domainFilter == "All"
+                    ? true
+                    : opportunity.domain == domainFilter)
               ),
-              ...opportunitySlice.opportunities.filter((opportunity) =>
-                opportunity.skills.some((skill) =>
-                  skill.text.toLowerCase().includes(searchQuery.toLowerCase())
-                )
+              ...opportunitySlice.opportunities.filter(
+                (opportunity) =>
+                  opportunity.skills.some((skill) =>
+                    skill.text.toLowerCase().includes(searchQuery.toLowerCase())
+                  ) &&
+                  (domainFilter == "All"
+                    ? true
+                    : opportunity.domain == domainFilter)
               ),
             ])
           ).map((opportunity) => (
