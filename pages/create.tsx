@@ -227,7 +227,7 @@ export default function Create() {
             </InputGroup>
           </FormControl>
           <Button
-            colorScheme={"blackAlpha"}
+            colorScheme={"teal"}
             type="submit"
             width="full"
             mt={4}
