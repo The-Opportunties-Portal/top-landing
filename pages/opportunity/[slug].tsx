@@ -70,7 +70,7 @@ function Opportunity({ slug }: { slug: string }) {
       <ModalOverlay />
       <ModalContent>
         <VStack p={8} gap={4}>
-          <DemoNavbar />
+          <DemoNavbar onEditPage={false} />
           {/* <Heading
             pt={4}
             size={"3xl"}
