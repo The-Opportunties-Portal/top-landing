@@ -116,7 +116,7 @@ export async function getStaticPaths() {
   const paths = opportunities.map((opportunity: OpportunitySchema) => ({
     params: { slug: opportunity._id },
   }));
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
