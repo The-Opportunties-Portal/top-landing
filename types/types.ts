@@ -1,3 +1,14 @@
+export interface OpportunitySchema {
+  _id: string;
+  projectName: string;
+  domain: "Design" | "Tech" | "Management" | "Other";
+  role: string;
+  description: string;
+  skills: Array<{ id: string; text: string }>;
+  link: string;
+  emailAddress: string;
+  phoneNumber: string;
+}
 export interface CreateOpportunityForm {
   projectName: string;
   role: string;

@@ -31,7 +31,7 @@ export default function Home() {
             },
             {
               label: "Early Access",
-              href: "/demo",
+              href: "/opportunities",
             },
             {
               label: "Users",

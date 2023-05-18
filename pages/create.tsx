@@ -87,7 +87,7 @@ export default function Create() {
     event.preventDefault();
     await dispatch(createOpportunity(formData));
     setIsCreated(true);
-    router.push("/demo");
+    router.push("/opportunities");
   }
 
   const handleTagDelete = (i: number) => {
