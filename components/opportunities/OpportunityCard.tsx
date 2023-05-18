@@ -119,7 +119,7 @@ export function OpportunityCard({
       </Box>
       <Box>
         <Text align={"center"}>Share it!</Text>
-        <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
+        {/* <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
           <SocialIcon
             url={`https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theopportunitiesportal.com/opportunity/${_id}`}
             style={{ height: 35, width: 35 }}
@@ -136,7 +136,7 @@ export function OpportunityCard({
             url="https://www.youtube.com/channel/"
             style={{ height: 35, width: 35 }}
           />
-        </HStack>
+        </HStack> */}
       </Box>
       <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
         <ModalOverlay />
