@@ -5,7 +5,6 @@ import {
   Text,
   Divider,
   UnorderedList,
-  ListItem,
   HStack,
   Badge,
   Button,
