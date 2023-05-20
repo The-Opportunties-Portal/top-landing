@@ -73,7 +73,9 @@ export function OpportunitiesCard({
       navigator.share({
         title: "Don't miss this chance!",
         text: `Check out this opportunity: ${role} at ${projectName}\n`,
-        url: window.location.href,
+        url:
+          window.location.href.replace(/opportunities\b$/, "") +
+          `/opportunity/${_id}`,
       });
     }
   }
