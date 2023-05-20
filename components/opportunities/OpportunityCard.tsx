@@ -117,8 +117,10 @@ export function OpportunityCard({
           </Button>
         </Flex>
       </Box>
-      <Box>
-        <Text align={"center"}>Share it!</Text>
+      <Flex justify={"center"}>
+        <Button mt={2} mb={4} colorScheme="facebook">
+          <Text align={"center"}>Share it!</Text>
+        </Button>
         {/* <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
           <SocialIcon
             url={`https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theopportunitiesportal.com/opportunity/${_id}`}
@@ -137,7 +139,7 @@ export function OpportunityCard({
             style={{ height: 35, width: 35 }}
           />
         </HStack> */}
-      </Box>
+      </Flex>
       <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
         <ModalOverlay />
         <ModalContent>
