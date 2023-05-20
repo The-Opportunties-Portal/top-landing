@@ -27,6 +27,7 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { OpportunitySchema } from "../../types/types";
+import OpportunityNavbar from "../../components/opportunities/OpportunityNavbar";
 
 function Opportunity({ slug }: { slug: string }) {
   const router = useRouter();
@@ -70,7 +71,7 @@ function Opportunity({ slug }: { slug: string }) {
       <ModalOverlay />
       <ModalContent>
         <VStack p={8} gap={4}>
-          <DemoNavbar onEditPage={false} />
+          <OpportunityNavbar />
           {/* <Heading
             pt={4}
             size={"3xl"}
