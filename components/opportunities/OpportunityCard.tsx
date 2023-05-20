@@ -73,9 +73,9 @@ export function OpportunityCard({
     // Invoke the native share dialog to share link
     if (navigator.share) {
       navigator.share({
-        title: `Check out this opportunity: ${role} at ${projectName}`,
+        title: "Don't miss this chance!",
+        text: `Check out this opportunity: ${role} at ${projectName}\n`,
         url: window.location.href,
-        text: "Don't miss it!",
       });
     }
   }
