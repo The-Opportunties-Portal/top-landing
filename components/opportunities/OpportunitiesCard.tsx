@@ -21,7 +21,12 @@ import {
   VStack,
   Icon,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaExternalLinkAlt,
+  FaShareAlt,
+} from "react-icons/fa";
 
 import { User } from "../../types/types";
 import { useRouter } from "next/router";
@@ -62,6 +67,17 @@ export function OpportunitiesCard({
     window.open(link, "_blank");
   };
 
+  function handleShare() {
+    // Invoke the native share dialog to share link
+    if (navigator.share) {
+      navigator.share({
+        title: "Don't miss this chance!",
+        text: `Check out this opportunity: ${role} at ${projectName}\n`,
+        url: window.location.href,
+      });
+    }
+  }
+
   return (
     <Box
       borderWidth="1px"
@@ -81,15 +97,30 @@ export function OpportunitiesCard({
         transition: "all 0.2s ease-in-out",
       }}
     >
-      <Box bg="gray.200" p={4}>
-        <Heading size="lg" fontWeight="bold">
-          {role}
-        </Heading>
-        <Text fontSize="sm" color="gray.600">
-          {projectName}
-        </Text>
-      </Box>
-      <Divider />
+      <HStack bg="gray.200" justify={"space-between"} p={4}>
+        <Box>
+          <Heading size="lg" fontWeight="bold">
+            {role}
+          </Heading>
+          <Text fontSize="sm" color="gray.600">
+            {projectName}
+          </Text>
+        </Box>
+        <VStack>
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleShare();
+            }}
+            size={"md"}
+            colorScheme={"none"}
+            color={"black"}
+            _hover={{ color: "green.500" }}
+          >
+            <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
+          </Button>
+        </VStack>
+      </HStack>
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
         <Text>{description}</Text>
