@@ -63,6 +63,16 @@ export function OpportunityCard({
     window.open(link, "_blank");
   };
 
+  function handleShare() {
+    // Invoke the native share dialog to share link
+    if (navigator.share) {
+      navigator.share({
+        title: "Check out this amazing opportunity!",
+        url: window.location.href,
+      });
+    }
+  }
+
   return (
     <Box
       borderWidth="1px"
@@ -117,7 +127,7 @@ export function OpportunityCard({
           </Button>
         </Flex>
       </Box>
-      <Flex justify={"center"}>
+      <Flex justify={"center"} onClick={handleShare}>
         <Button mt={2} mb={4} colorScheme="facebook">
           <Text align={"center"}>Share it!</Text>
         </Button>
