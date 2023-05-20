@@ -21,7 +21,13 @@ import {
   VStack,
   Icon,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaWhatsapp, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaExternalLinkAlt,
+  FaShare,
+  FaShareAlt,
+} from "react-icons/fa";
 
 import { User } from "../../types/types";
 import { useRouter } from "next/router";
@@ -67,8 +73,9 @@ export function OpportunityCard({
     // Invoke the native share dialog to share link
     if (navigator.share) {
       navigator.share({
-        title: "Check out this amazing opportunity!",
+        title: `Check out this opportunity: ${role} at ${projectName}`,
         url: window.location.href,
+        text: "Don't miss it!",
       });
     }
   }
@@ -83,15 +90,27 @@ export function OpportunityCard({
       flexDirection={"column"}
       w={"350px"}
     >
-      <Box bg="gray.200" p={4}>
-        <Heading size="lg" fontWeight="bold">
-          {role}
-        </Heading>
-        <Text fontSize="sm" color="gray.600">
-          {projectName}
-        </Text>
-      </Box>
-      <Divider />
+      <HStack bg="gray.200" justify={"space-between"} p={4}>
+        <Box>
+          <Heading size="lg" fontWeight="bold">
+            {role}
+          </Heading>
+          <Text fontSize="sm" color="gray.600">
+            {projectName}
+          </Text>
+        </Box>
+        <VStack>
+          <Button
+            onClick={handleShare}
+            size={"md"}
+            colorScheme={"none"}
+            color={"black"}
+            _hover={{ color: "green.500" }}
+          >
+            <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
+          </Button>
+        </VStack>
+      </HStack>
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
         <Text>{description}</Text>
@@ -127,11 +146,8 @@ export function OpportunityCard({
           </Button>
         </Flex>
       </Box>
-      <Flex justify={"center"} onClick={handleShare}>
-        <Button mt={2} mb={4} colorScheme="facebook">
-          <Text align={"center"}>Share it!</Text>
-        </Button>
-        {/* <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
+      {/* <Flex justify={"center"} onClick={handleShare}>
+        <HStack justify={"center"} gap={8} align={"center"} w="100%" p={2}>
           <SocialIcon
             url={`https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theopportunitiesportal.com/opportunity/${_id}`}
             style={{ height: 35, width: 35 }}
@@ -148,8 +164,8 @@ export function OpportunityCard({
             url="https://www.youtube.com/channel/"
             style={{ height: 35, width: 35 }}
           />
-        </HStack> */}
-      </Flex>
+        </HStack>
+      </Flex> */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
         <ModalOverlay />
         <ModalContent>
