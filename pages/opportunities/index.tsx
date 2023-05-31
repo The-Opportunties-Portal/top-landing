@@ -31,7 +31,7 @@ import { fetchOpportunities } from "../../features/opportunity/opportunity.slice
 import { fetchUser, logoutUser } from "../../features/auth/user.slice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import { OpportunitySchema } from "../../types/types";
+import { Hackathon, OpportunitySchema } from "../../types/types";
 import { DomainFilter } from "../../components/create/DomainInput";
 import AuthButton from "../../components/opportunities/AuthButton";
 import EditOpportunties from "../../components/opportunities/EditOpportunties";
@@ -48,6 +48,7 @@ function Demo() {
   const [domainFilter, setDomainFilter] = useState<
     "All" | "Design" | "Tech" | "Management" | "Other"
   >("All");
+  const [hackathon, setHackathon] = useState<Hackathon>("-");
 
   useEffect(() => {
     async function fetchUserHelper() {
@@ -87,6 +88,8 @@ function Demo() {
         setSearchQuery={setSearchQuery}
         domainFilter={domainFilter}
         setDomainFilter={setDomainFilter}
+        hackathon={hackathon}
+        setHackathon={setHackathon}
       />
       {!userSlice.user && (
         <Text mt={2} color={"red.600"} fontSize={"2xl"}>
@@ -123,13 +126,26 @@ function Demo() {
                     : opportunity.domain == domainFilter)
               ),
             ])
-          ).map((opportunity) => (
-            <OpportunitiesCard
-              key={opportunity._id}
-              {...opportunity}
-              user={userSlice.user}
-            />
-          ))
+          )
+            .filter((opportunity) => {
+              console.log(!opportunity.hackathon, hackathon);
+              if (!opportunity.hackathon) {
+                return hackathon == "-";
+              } else if (opportunity.hackathon == "-") {
+                return hackathon == "-";
+              } else {
+                return hackathon == "-"
+                  ? true
+                  : opportunity.hackathon == hackathon;
+              }
+            })
+            .map((opportunity) => (
+              <OpportunitiesCard
+                key={opportunity._id}
+                {...opportunity}
+                user={userSlice.user}
+              />
+            ))
         ) : (
           <Flex align={"center"}>
             <Spinner size="sm" mr={2} />

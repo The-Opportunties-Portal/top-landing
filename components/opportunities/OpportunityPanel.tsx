@@ -13,7 +13,8 @@ import React from "react";
 import { DomainFilter } from "../create/DomainInput";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { User } from "../../types/types";
+import { Hackathon, User } from "../../types/types";
+import HackathonFilter from "./HackathonFilter";
 
 function OpportunityPanel({
   user,
@@ -21,6 +22,8 @@ function OpportunityPanel({
   setSearchQuery,
   domainFilter,
   setDomainFilter,
+  hackathon,
+  setHackathon,
 }: {
   user: User | null;
   searchQuery: string;
@@ -29,6 +32,8 @@ function OpportunityPanel({
   setDomainFilter: React.Dispatch<
     React.SetStateAction<"All" | "Design" | "Tech" | "Management" | "Other">
   >;
+  hackathon: Hackathon;
+  setHackathon: React.Dispatch<React.SetStateAction<Hackathon>>;
 }) {
   const router = useRouter();
 
@@ -49,11 +54,14 @@ function OpportunityPanel({
 
   const handleDomainFilterChange = (newDomain: typeof domainFilter) => {
     setDomainFilter(newDomain);
-    console.log(newDomain);
+  };
+
+  const handleHackathonChange = (newHackathon: Hackathon) => {
+    setHackathon(newHackathon);
   };
 
   return (
-    <VStack>
+    <VStack gap={1}>
       <Stack
         direction={{ base: "column", sm: "row" }}
         alignItems={"center"}
@@ -77,6 +85,10 @@ function OpportunityPanel({
         </Button>
       </Stack>
       <DomainFilter setDomain={handleDomainFilterChange} />
+      <HackathonFilter
+        hackathon={hackathon}
+        setHackathon={handleHackathonChange}
+      />
     </VStack>
   );
 }

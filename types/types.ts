@@ -2,6 +2,7 @@ export interface OpportunitySchema {
   _id: string;
   projectName: string;
   domain: "Design" | "Tech" | "Management" | "Other";
+  hackathon: Hackathon;
   role: string;
   description: string;
   skills: Array<{ id: string; text: string }>;
@@ -13,6 +14,7 @@ export interface CreateOpportunityForm {
   projectName: string;
   role: string;
   domain: "Design" | "Tech" | "Management" | "Other";
+  hackathon: Hackathon;
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
@@ -20,6 +22,7 @@ export interface CreateOpportunityForm {
   phoneNumber: string;
 }
 
+export type Hackathon = "-" | "DEVSOC";
 export interface User {
   _id: string;
   googleId: string;

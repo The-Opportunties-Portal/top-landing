@@ -15,6 +15,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
   Spinner,
   Textarea,
   VStack,
@@ -27,7 +28,7 @@ import { RootState, useAppDispatch } from "../../app/store";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { DomainInput } from "../create/DomainInput";
-import { Opportunity } from "../../types/types";
+import { Hackathon, Opportunity } from "../../types/types";
 import { updateOpportunity } from "../../features/opportunity/opportunity.slice";
 
 interface EditOpportunityModalProps {
@@ -48,6 +49,7 @@ export default function EditOpportunityModal({
     _id: string;
     projectName: string;
     role: string;
+    hackathon: Hackathon;
     description: string;
     domain: "Design" | "Tech" | "Management" | "Other";
     skills: Array<{ id: string; text: string }>;
@@ -58,6 +60,7 @@ export default function EditOpportunityModal({
     _id: opportunity._id,
     projectName: opportunity.projectName,
     role: opportunity.role,
+    hackathon: opportunity.hackathon,
     description: opportunity.description,
     domain: opportunity.domain,
     skills: opportunity.skills,
@@ -130,7 +133,7 @@ export default function EditOpportunityModal({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <form onSubmit={handleSubmit}>
@@ -168,6 +171,22 @@ export default function EditOpportunityModal({
                   setDomain={setDomain}
                   initialValue={opportunity.domain}
                 />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Hackathon</FormLabel>
+                <FormHelperText mb={2}>
+                  Select if this is an opportunity to participate in a hackathon
+                </FormHelperText>
+                <Select
+                  id="hackathon"
+                  name="hackathon"
+                  size="lg"
+                  value={formData.hackathon}
+                  onChange={handleChange}
+                >
+                  <option value={"-"}>-</option>
+                  <option value="DEVSOC">DEVSOC 🚀</option>
+                </Select>
               </FormControl>
               <FormControl>
                 <FormLabel>Description</FormLabel>

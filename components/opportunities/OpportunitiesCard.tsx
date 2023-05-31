@@ -35,6 +35,7 @@ export function OpportunitiesCard({
   _id,
   projectName,
   role,
+  hackathon,
   description,
   skills,
   link,
@@ -45,6 +46,7 @@ export function OpportunitiesCard({
   _id: string;
   projectName: string;
   role: string;
+  hackathon: string;
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
@@ -102,9 +104,9 @@ export function OpportunitiesCard({
       <HStack bg="gray.200" justify={"space-between"} p={4}>
         <Box>
           <Heading size="lg" fontWeight="bold">
-            {role}
+            {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
           </Heading>
-          <Text fontSize="sm" color="gray.600">
+          <Text fontSize="xl" color="gray.600">
             {projectName}
           </Text>
         </Box>

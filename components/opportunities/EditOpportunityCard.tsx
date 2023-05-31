@@ -28,7 +28,7 @@ import {
   FaTrash,
 } from "react-icons/fa";
 
-import { User } from "../../types/types";
+import { Hackathon, User } from "../../types/types";
 import { useRouter } from "next/router";
 import EditOpportunityModal from "./EditOpportunityModal";
 import { useAppDispatch } from "../../app/store";
@@ -40,6 +40,7 @@ export function EditOpportunityCard({
   projectName,
   role,
   domain,
+  hackathon,
   description,
   skills,
   link,
@@ -51,6 +52,7 @@ export function EditOpportunityCard({
   projectName: string;
   role: string;
   domain: "Design" | "Tech" | "Management" | "Other";
+  hackathon: Hackathon;
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
@@ -212,6 +214,7 @@ export function EditOpportunityCard({
           projectName,
           role,
           domain,
+          hackathon,
           description,
           skills,
           link,
