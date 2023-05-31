@@ -29,7 +29,7 @@ import {
   FaShareAlt,
 } from "react-icons/fa";
 
-import { User } from "../../types/types";
+import { Hackathon, User } from "../../types/types";
 import { useRouter } from "next/router";
 import { SocialIcon } from "react-social-icons";
 
@@ -37,6 +37,7 @@ export function OpportunityCard({
   _id,
   projectName,
   role,
+  hackathon,
   description,
   skills,
   link,
@@ -47,6 +48,7 @@ export function OpportunityCard({
   _id: string;
   projectName: string;
   role: string;
+  hackathon: Hackathon;
   description: string;
   skills: Array<{ id: string; text: string }>;
   link: string;
@@ -93,9 +95,9 @@ export function OpportunityCard({
       <HStack bg="gray.200" justify={"space-between"} p={4}>
         <Box>
           <Heading size="lg" fontWeight="bold">
-            {role}
+            {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
           </Heading>
-          <Text fontSize="sm" color="gray.600">
+          <Text fontSize="xl" color="gray.600">
             {projectName}
           </Text>
         </Box>

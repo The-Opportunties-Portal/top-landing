@@ -8,6 +8,7 @@ import {
   Input,
   InputGroup,
   InputLeftAddon,
+  Select,
   Spinner,
   Textarea,
   VStack,
@@ -21,6 +22,7 @@ import { createOpportunity } from "../features/opportunity/opportunity.slice";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { DomainInput } from "../components/create/DomainInput";
+import { Hackathon } from "../types/types";
 
 export default function Create() {
   const [formData, setFormData] = useState<{
@@ -28,6 +30,7 @@ export default function Create() {
     role: string;
     description: string;
     domain: "Design" | "Tech" | "Management" | "Other";
+    hackathon: Hackathon;
     skills: Array<{ id: string; text: string }>;
     link: string;
     emailAddress: string;
@@ -37,6 +40,7 @@ export default function Create() {
     role: "",
     description: "",
     domain: "Other",
+    hackathon: "-",
     skills: [],
     link: "",
     emailAddress: "",
@@ -128,7 +132,7 @@ export default function Create() {
         onSubmit={handleSubmit}
         style={{ width: "100%", maxWidth: "600px" }}
       >
-        <VStack gap={2} mt={4}>
+        <VStack gap={4} mt={4}>
           <FormControl isRequired>
             <FormLabel>Project/Company Name</FormLabel>
             <Input
@@ -156,6 +160,22 @@ export default function Create() {
           <FormControl isRequired>
             <FormLabel>Domain</FormLabel>
             <DomainInput setDomain={setDomain} initialValue={"Other"} />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Hackathon</FormLabel>
+            <FormHelperText mb={2}>
+              Select if this is an opportunity to participate in a hackathon
+            </FormHelperText>
+            <Select
+              id="hackathon"
+              name="hackathon"
+              size="lg"
+              value={formData.hackathon}
+              onChange={handleChange}
+            >
+              <option value={"-"}>-</option>
+              <option value="DEVSOC">DEVSOC 🚀</option>
+            </Select>
           </FormControl>
           <FormControl>
             <FormLabel>Description</FormLabel>

@@ -12,7 +12,7 @@ import DemoNavbar from "../../components/opportunities/DemoNavbar";
 import OpportunityPanel from "../../components/opportunities/OpportunityPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import { Opportunity, OpportunitySchema } from "../../types/types";
+import { Hackathon, Opportunity, OpportunitySchema } from "../../types/types";
 import { OpportunitiesCard } from "../../components/opportunities/OpportunitiesCard";
 import { useRouter } from "next/router";
 import { EditOpportunityCard } from "../../components/opportunities/EditOpportunityCard";
@@ -26,6 +26,8 @@ function EditListings() {
   const [domainFilter, setDomainFilter] = useState<
     "All" | "Design" | "Tech" | "Management" | "Other"
   >("All");
+  const [hackathon, setHackathon] = useState<Hackathon>("-");
+
   const userSlice = useSelector((state: RootState) => state.user);
   const router = useRouter();
   const opportunitySlice = useSelector((state: RootState) => state.opportunity);
@@ -64,6 +66,8 @@ function EditListings() {
         setSearchQuery={setSearchQuery}
         domainFilter={domainFilter}
         setDomainFilter={setDomainFilter}
+        hackathon={hackathon}
+        setHackathon={setHackathon}
       />
       <SimpleGrid
         w={"100%"}
@@ -95,13 +99,26 @@ function EditListings() {
                     : opportunity.domain == domainFilter)
               ),
             ])
-          ).map((opportunity) => (
-            <EditOpportunityCard
-              key={opportunity._id}
-              {...opportunity}
-              user={userSlice.user}
-            />
-          ))
+          )
+            .filter((opportunity) => {
+              console.log(!opportunity.hackathon, hackathon);
+              if (!opportunity.hackathon) {
+                return hackathon == "-";
+              } else if (opportunity.hackathon == "-") {
+                return hackathon == "-";
+              } else {
+                return hackathon == "-"
+                  ? true
+                  : opportunity.hackathon == hackathon;
+              }
+            })
+            .map((opportunity) => (
+              <EditOpportunityCard
+                key={opportunity._id}
+                {...opportunity}
+                user={userSlice.user}
+              />
+            ))
         ) : (
           <Flex align={"center"}>
             <Spinner size="sm" mr={2} />
