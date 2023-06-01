@@ -186,6 +186,7 @@ export default function EditOpportunityModal({
                 >
                   <option value={"-"}>-</option>
                   <option value="DEVSOC">DEVSOC 🚀</option>
+                  <option value="Ignitia">Ignitia 🔥</option>
                 </Select>
               </FormControl>
               <FormControl>
