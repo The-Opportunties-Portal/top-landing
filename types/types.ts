@@ -22,7 +22,7 @@ export interface CreateOpportunityForm {
   phoneNumber: string;
 }
 
-export type Hackathon = "-" | "DEVSOC";
+export type Hackathon = "-" | "DEVSOC" | "Ignitia";
 export interface User {
   _id: string;
   googleId: string;
