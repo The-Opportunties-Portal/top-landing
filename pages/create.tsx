@@ -49,7 +49,7 @@ export default function Create() {
 
   const KeyCodes = {
     comma: 188,
-    enter: [13, 66],
+    enter: [13, 9, 66, 61],
   };
 
   const delimiters = [KeyCodes.comma, KeyCodes.enter];
