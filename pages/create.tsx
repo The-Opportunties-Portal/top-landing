@@ -8,6 +8,7 @@ import {
   Input,
   InputGroup,
   InputLeftAddon,
+  InputRightAddon,
   Select,
   Spinner,
   Textarea,
@@ -52,7 +53,7 @@ export default function Create() {
     enter: [13, 9, 66, 61],
   };
 
-  const delimiters = [KeyCodes.comma, KeyCodes.enter];
+  const delimiters = [KeyCodes.comma, ...KeyCodes.enter];
 
   const handleChange = (e: any) => {
     setFormData((prevState) => ({
@@ -191,10 +192,9 @@ export default function Create() {
           </FormControl>
           <FormControl>
             <FormLabel>Skills</FormLabel>
-            <FormHelperText>Press enter to add a skill</FormHelperText>
+            <FormHelperText>Press enter/tab to add a skill</FormHelperText>
             <ReactTags
               tags={formData.skills}
-              // @ts-ignore
               delimiters={delimiters}
               handleDelete={handleTagDelete}
               handleAddition={handleTagAddition}
