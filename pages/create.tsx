@@ -194,6 +194,7 @@ export default function Create() {
             <FormHelperText>Press enter to add a skill</FormHelperText>
             <ReactTags
               tags={formData.skills}
+              // @ts-ignore
               delimiters={delimiters}
               handleDelete={handleTagDelete}
               handleAddition={handleTagAddition}
