@@ -202,16 +202,42 @@ export default function EditOpportunityModal({
               </FormControl>
               <FormControl>
                 <FormLabel>Skills</FormLabel>
-                <FormHelperText>Press enter to add a skill</FormHelperText>
-                <ReactTags
-                  tags={formData.skills}
-                  delimiters={delimiters}
-                  handleDelete={handleTagDelete}
-                  handleAddition={handleTagAddition}
-                  handleDrag={handleTagDrag}
-                  inputFieldPosition="bottom"
-                  placeholder="Adobe Photoshop"
-                />
+                <FormHelperText>
+                  Press enter/tab to add a skill, use the add button on mobile
+                </FormHelperText>
+                <InputGroup>
+                  <ReactTags
+                    id={"tag-input"}
+                    tags={formData.skills}
+                    delimiters={delimiters}
+                    handleDelete={handleTagDelete}
+                    handleAddition={handleTagAddition}
+                    handleDrag={handleTagDrag}
+                    inputFieldPosition="bottom"
+                    placeholder="Adobe Photoshop"
+                  />
+                  <Flex ml={6} alignItems={"end"}>
+                    <Button
+                      colorScheme="teal"
+                      h={"42px"}
+                      onClick={(e: any) => {
+                        e.preventDefault();
+                        const input = document.getElementById(
+                          "tag-input"
+                        ) as HTMLInputElement;
+                        if (input) {
+                          handleTagAddition({
+                            id: input.value,
+                            text: input.value,
+                          });
+                          input.value = "";
+                        }
+                      }}
+                    >
+                      Add
+                    </Button>
+                  </Flex>
+                </InputGroup>
               </FormControl>
               <FormControl>
                 <FormLabel>Link to apply</FormLabel>
