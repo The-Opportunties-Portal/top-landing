@@ -55,6 +55,12 @@ export default function Create() {
 
   const delimiters = [KeyCodes.comma, ...KeyCodes.enter];
 
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      toast.success(e.keyCode);
+    });
+  }, []);
+
   const handleChange = (e: any) => {
     setFormData((prevState) => ({
       ...prevState,
