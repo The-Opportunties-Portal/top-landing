@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Flex,
@@ -30,6 +31,28 @@ import {
 
 import { User } from "../../types/types";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+// import { useRef } from "react";
+// import { useInView } from "framer-motion";
+
+// export function ViewComp({children}) {
+//   const ref = useRef(null);
+//   const isInView = useInView(ref, { once: true });
+
+//   return (
+//     <section ref={ref}>
+//       <span
+//         style={{
+//           transform: isInView ? "none" : "translateX(-200px)",
+//           opacity: isInView ? 1 : 0,
+//           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+//         }}
+//       >
+//         {children}
+//       </span>
+//     </section>
+//   );
+// }
 
 export function OpportunitiesCard({
   _id,
@@ -82,35 +105,47 @@ export function OpportunitiesCard({
     }
   }
 
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
   return (
-    <Box
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      boxShadow="md"
-      display={"flex"}
-      flexDirection={"column"}
-      w={"350px"}
-      onClick={() => {
-        router.push(`/opportunity/${_id}`);
-      }}
-      _hover={{
-        cursor: "pointer",
-        boxShadow: "lg",
-        transform: "scale(1.1)",
-        transition: "all 0.2s ease-in-out",
-      }}
-    >
-      <HStack bg="gray.200" justify={"space-between"} p={4}>
-        <Box>
-          <Heading size="lg" fontWeight="bold">
-            {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
-          </Heading>
-          <Text fontSize="xl" color="gray.600">
-            {projectName}
-          </Text>
-        </Box>
-        <VStack>
+    <>
+      <Box
+        as={motion.div}
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        boxShadow="md"
+        display={"flex"}
+        flexDirection={"column"}
+        w={"350px"}
+        onClick={() => {
+          router.push(`/opportunity/${_id}`);
+        }}
+        initial={{
+          scale: 1,
+        }}
+        animate={{
+          scale: [1, 1.2, 1.2, 1, 1],
+          rotate: [0, 0, 270, 270, 0],
+          transition: { duration: 1.1 },
+        }}
+        transition={{
+          duration: "10",
+        }}
+      >
+        <HStack bg="gray.200" justify={"space-between"} p={4}>
+          <Box>
+            <Heading size="lg" fontWeight="bold">
+              {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
+            </Heading>
+            <Text fontSize="xl" color="gray.600">
+              {projectName}
+            </Text>
+          </Box>
+          {/* <VStack> */}
           <Button
             onClick={(e) => {
               e.stopPropagation();
@@ -123,91 +158,499 @@ export function OpportunitiesCard({
           >
             <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
           </Button>
-        </VStack>
-      </HStack>
-      <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
-        {/* <Heading size="md">{contentTitle}</Heading> */}
-        <Text>{description}</Text>
+          {/* </VStack> */}
+        </HStack>
+
+        <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+          {/* <Heading size="md">{contentTitle}</Heading> */}
+          <Text>{description}</Text>
+        </Box>
+        <Box justifySelf={"flex-end"} p={4}>
+          <Heading size="md" mt={8}>
+            Skills Required
+          </Heading>
+          <Wrap mt={4} spacing={4}>
+            {skills.length == 0 ? (
+              <Text>None</Text>
+            ) : (
+              skills.map((skill, index) => (
+                <WrapItem key={index}>
+                  <Badge colorScheme="blue" p={2} borderRadius={12}>
+                    {skill.text}
+                  </Badge>
+                </WrapItem>
+              ))
+            )}
+          </Wrap>
+
+          <Flex mt={8} justify="space-between">
+            <Button
+              colorScheme="teal"
+              disabled={!user}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen();
+              }} // Open the modal on click
+              width={"100%"}
+            >
+              {"Apply"}
+            </Button>
+          </Flex>
+        </Box>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered
+          preserveScrollBarGap
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Contact Information</ModalHeader>
+            <ModalBody>
+              {emailAddress && <Text>Email: {emailAddress}</Text>}
+              {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
+              <VStack justify="space-between" mt={4}>
+                {emailAddress && (
+                  <Button
+                    colorScheme="linkedin"
+                    variant={"outline"}
+                    onClick={sendEmail}
+                    gap={2}
+                  >
+                    <Icon as={FaEnvelope} mr={2} />
+                    Send Email
+                  </Button>
+                )}
+                {phoneNumber && (
+                  <Button
+                    colorScheme="whatsapp"
+                    variant={"outline"}
+                    onClick={sendWhatsApp}
+                  >
+                    <Icon as={FaWhatsapp} mr={2} />
+                    Message on WhatsApp
+                  </Button>
+                )}
+                {link && (
+                  <Button
+                    colorScheme="teal"
+                    variant={"outline"}
+                    onClick={navigateToLink}
+                  >
+                    <Icon as={FaExternalLinkAlt} mr={2} />
+                    Navigate to Link
+                  </Button>
+                )}
+              </VStack>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="red" variant={"outline"} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Box>
-      <Box justifySelf={"flex-end"} p={4}>
-        <Heading size="md" mt={8}>
-          Skills Required
-        </Heading>
-        <Wrap mt={4} spacing={4}>
-          {skills.length == 0 ? (
-            <Text>None</Text>
-          ) : (
-            skills.map((skill, index) => (
-              <WrapItem key={index}>
-                <Badge colorScheme="blue" p={2} borderRadius={12}>
-                  {skill.text}
-                </Badge>
-              </WrapItem>
-            ))
-          )}
-        </Wrap>
-        <Flex mt={8} justify="space-between">
+
+      {/* ---------------------------------------- tap -------------------------------------------- */}
+      <Box
+        as={motion.div}
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        boxShadow="md"
+        display={"flex"}
+        flexDirection={"column"}
+        w={"350px"}
+        onClick={() => {
+          router.push(`/opportunity/${_id}`);
+        }}
+        whileTap={{ scale: 0.5, transition: { duration: 0.5 } }}
+      >
+        <HStack bg="gray.200" justify={"space-between"} p={4}>
+          <Box>
+            <Heading size="lg" fontWeight="bold">
+              {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
+            </Heading>
+            <Text fontSize="xl" color="gray.600">
+              {projectName}
+            </Text>
+          </Box>
+          {/* <VStack> */}
           <Button
-            colorScheme="teal"
-            disabled={!user}
             onClick={(e) => {
               e.stopPropagation();
-              onOpen();
-            }} // Open the modal on click
-            width={"100%"}
+              handleShare();
+            }}
+            size={"md"}
+            colorScheme={"none"}
+            color={"black"}
+            _hover={{ color: "green.500" }}
           >
-            {"Apply"}
+            <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
           </Button>
-        </Flex>
-      </Box>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered preserveScrollBarGap>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Contact Information</ModalHeader>
-          <ModalBody>
-            {emailAddress && <Text>Email: {emailAddress}</Text>}
-            {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
-            <VStack justify="space-between" mt={4}>
-              {emailAddress && (
-                <Button
-                  colorScheme="linkedin"
-                  variant={"outline"}
-                  onClick={sendEmail}
-                  gap={2}
-                >
-                  <Icon as={FaEnvelope} mr={2} />
-                  Send Email
-                </Button>
-              )}
-              {phoneNumber && (
-                <Button
-                  colorScheme="whatsapp"
-                  variant={"outline"}
-                  onClick={sendWhatsApp}
-                >
-                  <Icon as={FaWhatsapp} mr={2} />
-                  Message on WhatsApp
-                </Button>
-              )}
-              {link && (
-                <Button
-                  colorScheme="teal"
-                  variant={"outline"}
-                  onClick={navigateToLink}
-                >
-                  <Icon as={FaExternalLinkAlt} mr={2} />
-                  Navigate to Link
-                </Button>
-              )}
-            </VStack>
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="red" variant={"outline"} onClick={onClose}>
-              Close
+          {/* </VStack> */}
+        </HStack>
+
+        <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+          {/* <Heading size="md">{contentTitle}</Heading> */}
+          <Text>{description}</Text>
+        </Box>
+        <Box justifySelf={"flex-end"} p={4}>
+          <Heading size="md" mt={8}>
+            Skills Required
+          </Heading>
+          <Wrap mt={4} spacing={4}>
+            {skills.length == 0 ? (
+              <Text>None</Text>
+            ) : (
+              skills.map((skill, index) => (
+                <WrapItem key={index}>
+                  <Badge colorScheme="blue" p={2} borderRadius={12}>
+                    {skill.text}
+                  </Badge>
+                </WrapItem>
+              ))
+            )}
+          </Wrap>
+
+          <Flex mt={8} justify="space-between">
+            <Button
+              colorScheme="teal"
+              disabled={!user}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen();
+              }} // Open the modal on click
+              width={"100%"}
+            >
+              {"Apply"}
             </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </Box>
+          </Flex>
+        </Box>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered
+          preserveScrollBarGap
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Contact Information</ModalHeader>
+            <ModalBody>
+              {emailAddress && <Text>Email: {emailAddress}</Text>}
+              {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
+              <VStack justify="space-between" mt={4}>
+                {emailAddress && (
+                  <Button
+                    colorScheme="linkedin"
+                    variant={"outline"}
+                    onClick={sendEmail}
+                    gap={2}
+                  >
+                    <Icon as={FaEnvelope} mr={2} />
+                    Send Email
+                  </Button>
+                )}
+                {phoneNumber && (
+                  <Button
+                    colorScheme="whatsapp"
+                    variant={"outline"}
+                    onClick={sendWhatsApp}
+                  >
+                    <Icon as={FaWhatsapp} mr={2} />
+                    Message on WhatsApp
+                  </Button>
+                )}
+                {link && (
+                  <Button
+                    colorScheme="teal"
+                    variant={"outline"}
+                    onClick={navigateToLink}
+                  >
+                    <Icon as={FaExternalLinkAlt} mr={2} />
+                    Navigate to Link
+                  </Button>
+                )}
+              </VStack>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="red" variant={"outline"} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+      {/* ---------------------------------------Rotate + hover----------------------------------------- */}
+      <Box
+        as={motion.div}
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        boxShadow="md"
+        display={"flex"}
+        flexDirection={"column"}
+        w={"350px"}
+        onClick={() => {
+          router.push(`/opportunity/${_id}`);
+        }}
+        animate={{
+          scale: [1, 1.2, 1.2, 1, 1],
+          rotate: [0, 0, 270, 270, 0],
+          transition: { duration: 1.1 },
+        }}
+        whileHover={{
+          scale: 1.1,
+        }}
+      >
+        <HStack bg="gray.200" justify={"space-between"} p={4}>
+          <Box>
+            <Heading size="lg" fontWeight="bold">
+              {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
+            </Heading>
+            <Text fontSize="xl" color="gray.600">
+              {projectName}
+            </Text>
+          </Box>
+          {/* <VStack> */}
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleShare();
+            }}
+            size={"md"}
+            colorScheme={"none"}
+            color={"black"}
+            _hover={{ color: "green.500" }}
+          >
+            <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
+          </Button>
+          {/* </VStack> */}
+        </HStack>
+
+        <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+          {/* <Heading size="md">{contentTitle}</Heading> */}
+          <Text>{description}</Text>
+        </Box>
+        <Box justifySelf={"flex-end"} p={4}>
+          <Heading size="md" mt={8}>
+            Skills Required
+          </Heading>
+          <Wrap mt={4} spacing={4}>
+            {skills.length == 0 ? (
+              <Text>None</Text>
+            ) : (
+              skills.map((skill, index) => (
+                <WrapItem key={index}>
+                  <Badge colorScheme="blue" p={2} borderRadius={12}>
+                    {skill.text}
+                  </Badge>
+                </WrapItem>
+              ))
+            )}
+          </Wrap>
+
+          <Flex mt={8} justify="space-between">
+            <Button
+              colorScheme="teal"
+              disabled={!user}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen();
+              }} // Open the modal on click
+              width={"100%"}
+            >
+              {"Apply"}
+            </Button>
+          </Flex>
+        </Box>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered
+          preserveScrollBarGap
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Contact Information</ModalHeader>
+            <ModalBody>
+              {emailAddress && <Text>Email: {emailAddress}</Text>}
+              {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
+              <VStack justify="space-between" mt={4}>
+                {emailAddress && (
+                  <Button
+                    colorScheme="linkedin"
+                    variant={"outline"}
+                    onClick={sendEmail}
+                    gap={2}
+                  >
+                    <Icon as={FaEnvelope} mr={2} />
+                    Send Email
+                  </Button>
+                )}
+                {phoneNumber && (
+                  <Button
+                    colorScheme="whatsapp"
+                    variant={"outline"}
+                    onClick={sendWhatsApp}
+                  >
+                    <Icon as={FaWhatsapp} mr={2} />
+                    Message on WhatsApp
+                  </Button>
+                )}
+                {link && (
+                  <Button
+                    colorScheme="teal"
+                    variant={"outline"}
+                    onClick={navigateToLink}
+                  >
+                    <Icon as={FaExternalLinkAlt} mr={2} />
+                    Navigate to Link
+                  </Button>
+                )}
+              </VStack>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="red" variant={"outline"} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+
+      <Box
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        boxShadow="md"
+        display={"flex"}
+        flexDirection={"column"}
+        w={"350px"}
+        onClick={() => {
+          router.push(`/opportunity/${_id}`);
+        }}
+        _hover={{
+          cursor: "pointer",
+          boxShadow: "lg",
+          transform: "scale(1.1)",
+          transition: "all 0.2s ease-in-out",
+        }}
+      >
+        <HStack bg="gray.200" justify={"space-between"} p={4}>
+          <Box>
+            <Heading size="lg" fontWeight="bold">
+              {!hackathon || hackathon == "-" ? role : `${hackathon} - ${role}`}
+            </Heading>
+            <Text fontSize="xl" color="gray.600">
+              {projectName}
+            </Text>
+          </Box>
+          <VStack>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleShare();
+              }}
+              size={"md"}
+              colorScheme={"none"}
+              color={"black"}
+              _hover={{ color: "green.500" }}
+            >
+              <Icon boxSize={8} as={FaShareAlt} color={"inherit"} />
+            </Button>
+          </VStack>
+        </HStack>
+        <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+          {/* <Heading size="md">{contentTitle}</Heading> */}
+          <Text>{description}</Text>
+        </Box>
+        <Box justifySelf={"flex-end"} p={4}>
+          <Heading size="md" mt={8}>
+            Skills Required
+          </Heading>
+          <Wrap mt={4} spacing={4}>
+            {skills.length == 0 ? (
+              <Text>None</Text>
+            ) : (
+              skills.map((skill, index) => (
+                <WrapItem key={index}>
+                  <Badge colorScheme="blue" p={2} borderRadius={12}>
+                    {skill.text}
+                  </Badge>
+                </WrapItem>
+              ))
+            )}
+          </Wrap>
+          <Flex mt={8} justify="space-between">
+            <Button
+              colorScheme="teal"
+              disabled={!user}
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen();
+              }} // Open the modal on click
+              width={"100%"}
+            >
+              {"Apply"}
+            </Button>
+          </Flex>
+        </Box>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered
+          preserveScrollBarGap
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Contact Information</ModalHeader>
+            <ModalBody>
+              {emailAddress && <Text>Email: {emailAddress}</Text>}
+              {phoneNumber && <Text>Phone: {phoneNumber}</Text>}
+              <VStack justify="space-between" mt={4}>
+                {emailAddress && (
+                  <Button
+                    colorScheme="linkedin"
+                    variant={"outline"}
+                    onClick={sendEmail}
+                    gap={2}
+                  >
+                    <Icon as={FaEnvelope} mr={2} />
+                    Send Email
+                  </Button>
+                )}
+                {phoneNumber && (
+                  <Button
+                    colorScheme="whatsapp"
+                    variant={"outline"}
+                    onClick={sendWhatsApp}
+                  >
+                    <Icon as={FaWhatsapp} mr={2} />
+                    Message on WhatsApp
+                  </Button>
+                )}
+                {link && (
+                  <Button
+                    colorScheme="teal"
+                    variant={"outline"}
+                    onClick={navigateToLink}
+                  >
+                    <Icon as={FaExternalLinkAlt} mr={2} />
+                    Navigate to Link
+                  </Button>
+                )}
+              </VStack>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="red" variant={"outline"} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+    </>
   );
 }
