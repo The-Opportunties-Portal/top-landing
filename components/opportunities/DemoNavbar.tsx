@@ -8,6 +8,7 @@ import {
   Text,
   Link,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
@@ -43,6 +44,15 @@ export default function DemoNavbar({ onEditPage }: { onEditPage: boolean }) {
         </NextLink>
       </Box>
       <HStack>
+        <Link
+          as={NextLink}
+          href="profiling"
+          fontWeight={500}
+          fontSize={["md", "lg", "lg", "lg"]}
+          p={2}
+        >
+          Profiling
+        </Link>
         {onEditPage ? (
           <AllOpportunities userSlice={userSlice} />
         ) : (

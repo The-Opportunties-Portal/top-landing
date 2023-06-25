@@ -28,7 +28,7 @@ const About = () => {
           },
           {
             label: "Join the team",
-            href: "/#",
+            href: "https://mzsw9vw3nyl.typeform.com/to/aewFiTGR",
           },
         ]}
       />

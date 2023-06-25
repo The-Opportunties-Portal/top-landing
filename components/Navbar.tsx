@@ -279,7 +279,7 @@ export default function WithSubnavigation({
           </Flex>
           <DesktopSubNav
             label="Join the team >"
-            href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1"
+            href="https://mzsw9vw3nyl.typeform.com/to/aewFiTGR"
           />
         </Flex>
       </Flex>
