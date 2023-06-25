@@ -46,7 +46,7 @@ export const Footer = () => {
           <Text>Community</Text>
           <ChakraLink
             as={Link}
-            href="https://29ggsvdxkad.typeform.com/to/ubcZK2t1"
+            href="https://mzsw9vw3nyl.typeform.com/to/aewFiTGR"
           >
             <Text>Join our team</Text>
           </ChakraLink>
