@@ -50,3 +50,60 @@ export interface OpportunitySliceInitialState {
   isError: boolean;
   message: string;
 }
+
+export interface ProfilingForm {
+  firstName: string;
+  lastName: string;
+  bio: string;
+  username: string;
+  social: {
+    website: string;
+    twitter: string;
+    linkedin: string;
+    github: string;
+    dribbble: string;
+  };
+  education: {
+    school: string;
+    degree: string;
+    field: string;
+    startYear: number;
+    endYear: number;
+    grade: string;
+  };
+  experience: {
+    jobTitle: string;
+    company: string;
+    employmentType: employmentType;
+    startMonth: number;
+    startYear: number;
+    endMonth: number;
+    endYear: number;
+    worksHere: boolean;
+    locationType: locationType;
+    description: string;
+  };
+  contactDetails: {
+    primaryEmail: string;
+    showPrimaryEmail: boolean;
+    secondaryEmail: string;
+    showSecondaryEmail: boolean;
+    mobileNumber: number;
+    showMobileNumber: boolean;
+  };
+  locationDetails: {
+    country: string;
+    state: string;
+    city: string;
+  };
+}
+
+export type employmentType =
+  | "Full Time"
+  | "Part Time"
+  | "Self Employed"
+  | "Freelance"
+  | "Internship"
+  | "Trainee";
+
+export type locationType = "On Site" | "Remote" | "Hybrid";
