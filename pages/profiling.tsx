@@ -139,7 +139,6 @@ export default function Create() {
   };
 
   const router = useRouter();
-  const dispatch = useAppDispatch();
   const opportunitySlice = useSelector((state: RootState) => state.opportunity);
   const [isCreated, setIsCreated] = useState(false);
 
@@ -161,6 +160,7 @@ export default function Create() {
     event.preventDefault();
 
     try {
+      debugger;
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/user/profiling`,
         formData,
@@ -168,7 +168,6 @@ export default function Create() {
           withCredentials: true,
         }
       );
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

@@ -16,7 +16,7 @@ const About = () => {
           },
           {
             label: "Early Access",
-            href: "/earlyAccess",
+            href: "/opportunities",
           },
           {
             label: "Users",
