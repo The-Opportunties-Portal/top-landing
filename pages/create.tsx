@@ -256,7 +256,7 @@ export default function Create() {
               contact@yourmail.com
               "
               size="lg"
-              value={formData.emailAddress}
+              value={formData.emailAddress} 
               onChange={handleChange}
             />
           </FormControl>
