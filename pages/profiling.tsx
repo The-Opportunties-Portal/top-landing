@@ -226,7 +226,7 @@ export default function Create() {
               type="text"
               id="username"
               name="username"
-              placeholder="Your last name"
+              placeholder="Your username name"
               size="lg"
               value={formData.username}
               onChange={handleChange}
@@ -241,7 +241,7 @@ export default function Create() {
               type="text"
               id="website"
               name="website"
-              placeholder="Your last name"
+              placeholder="Link to your website"
               size="lg"
               value={formData.social.website}
               onChange={handleSocialChange}
@@ -253,7 +253,7 @@ export default function Create() {
               type="text"
               id="twitter"
               name="twitter"
-              placeholder="Your last name"
+              placeholder="Your twitter handle"
               size="lg"
               value={formData.social.twitter}
               onChange={handleSocialChange}
@@ -265,7 +265,7 @@ export default function Create() {
               type="text"
               id="linkedin"
               name="linkedin"
-              placeholder="Your last name"
+              placeholder="Your linkedIn profile"
               size="lg"
               value={formData.social.linkedin}
               onChange={handleSocialChange}
@@ -277,7 +277,7 @@ export default function Create() {
               type="text"
               id="github"
               name="github"
-              placeholder="Your last name"
+              placeholder="Your github profile"
               size="lg"
               value={formData.social.github}
               onChange={handleSocialChange}
@@ -289,7 +289,7 @@ export default function Create() {
               type="text"
               id="dribbble"
               name="dribbble"
-              placeholder="Your last name"
+              placeholder="Your dribbble profile"
               size="lg"
               value={formData.social.dribbble}
               onChange={handleSocialChange}
@@ -305,7 +305,7 @@ export default function Create() {
               type="text"
               id="school"
               name="school"
-              placeholder="Your last name"
+              placeholder="Your school name"
               size="lg"
               value={formData.education.school}
               onChange={handleEducationChange}
@@ -317,7 +317,7 @@ export default function Create() {
               type="text"
               id="degree"
               name="degree"
-              placeholder="Your last name"
+              placeholder="Your latest degree"
               size="lg"
               value={formData.education.degree}
               onChange={handleEducationChange}
@@ -329,7 +329,7 @@ export default function Create() {
               type="text"
               id="field"
               name="field"
-              placeholder="Your last name"
+              placeholder="Your field of study"
               size="lg"
               value={formData.education.field}
               onChange={handleEducationChange}
@@ -337,27 +337,87 @@ export default function Create() {
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Start Year</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="startYear"
               name="startYear"
-              placeholder="Your last name"
+              placeholder="Start year of your degree"
               size="lg"
               value={formData.education.startYear}
               onChange={handleEducationChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your start year"
+              size="lg"
+              id="startYear"
+              name="startYear"
+              value={formData.education.startYear}
+              onChange={handleEducationChange}
+            >
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2054</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>End Year</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="endYear"
               name="endYear"
-              placeholder="Your last name"
+              placeholder="End year of your degree"
               size="lg"
               value={formData.education.endYear}
               onChange={handleEducationChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your end year"
+              size="lg"
+              id="endYear"
+              name="endYear"
+              value={formData.education.startYear}
+              onChange={handleEducationChange}
+            >
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2054</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Grade</FormLabel>
@@ -365,7 +425,7 @@ export default function Create() {
               type="text"
               id="grade"
               name="grade"
-              placeholder="Your last name"
+              placeholder="Your grade (GPA)"
               size="lg"
               value={formData.education.grade}
               onChange={handleEducationChange}
@@ -381,7 +441,7 @@ export default function Create() {
               type="text"
               id="jobTitle"
               name="jobTitle"
-              placeholder="Your last name"
+              placeholder="Your job title"
               size="lg"
               value={formData.experience.jobTitle}
               onChange={handleExperienceChange}
@@ -393,7 +453,7 @@ export default function Create() {
               type="text"
               id="company"
               name="company"
-              placeholder="Your last name"
+              placeholder="Company name"
               size="lg"
               value={formData.experience.company}
               onChange={handleExperienceChange}
@@ -418,7 +478,7 @@ export default function Create() {
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Start Month</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="startMonth"
               name="startMonth"
@@ -426,11 +486,32 @@ export default function Create() {
               size="lg"
               value={formData.experience.startMonth}
               onChange={handleExperienceChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your start month"
+              id="startMonth"
+              name="startMonth"
+              size="lg"
+              value={formData.experience.startMonth}
+              onClick={handleExperienceChange}
+            >
+              <option value="January">January</option>
+              <option value="Febuary">Febuary</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Start Year</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="startYear"
               name="startYear"
@@ -438,11 +519,41 @@ export default function Create() {
               size="lg"
               value={formData.experience.startYear}
               onChange={handleExperienceChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your start year"
+              size="lg"
+              id="startYear"
+              name="startYear"
+              value={formData.experience.startYear}
+              onChange={handleExperienceChange}
+            >
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2054</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>End Month</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="endMonth"
               name="endMonth"
@@ -450,11 +561,32 @@ export default function Create() {
               size="lg"
               value={formData.experience.endMonth}
               onChange={handleExperienceChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your end month"
+              id="endMonth"
+              name="endMonth"
+              size="lg"
+              value={formData.experience.endMonth}
+              onClick={handleExperienceChange}
+            >
+              <option value="January">January</option>
+              <option value="Febuary">Febuary</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </Select>
           </FormControl>
           <FormControl isRequired>
             <FormLabel>End Year</FormLabel>
-            <Input
+            {/* <Input
               type="number"
               id="endYear"
               name="endYear"
@@ -462,7 +594,37 @@ export default function Create() {
               size="lg"
               value={formData.experience.endYear}
               onChange={handleExperienceChange}
-            />
+            /> */}
+            <Select
+              placeholder="Your end year"
+              size="lg"
+              id="endYear"
+              name="endYear"
+              value={formData.experience.endYear}
+              onChange={handleExperienceChange}
+            >
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2054</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </Select>
           </FormControl>
           {/* Checkbox for works here */}
           <FormControl>
@@ -517,7 +679,7 @@ export default function Create() {
               type="email"
               id="primaryEmail"
               name="primaryEmail"
-              placeholder="Your last name"
+              placeholder="Your primary email"
               size="lg"
               value={formData.contactDetails.primaryEmail}
               onChange={handleContactDetailsChange}
@@ -539,7 +701,7 @@ export default function Create() {
                 }));
               }}
             >
-              Show on profile
+              Show primary email
             </Checkbox>
           </FormControl>
 
@@ -549,7 +711,7 @@ export default function Create() {
               type="email"
               id="secondaryEmail"
               name="secondaryEmail"
-              placeholder="Your last name"
+              placeholder="Your secondary email"
               size="lg"
               value={formData.contactDetails.secondaryEmail}
               onChange={handleContactDetailsChange}
@@ -572,7 +734,7 @@ export default function Create() {
                 }));
               }}
             >
-              Show on profile
+              Show secondary email
             </Checkbox>
           </FormControl>
 
@@ -582,7 +744,7 @@ export default function Create() {
               type="tel"
               id="mobileNumber"
               name="mobileNumber"
-              placeholder="Your last name"
+              placeholder="Your mobile number"
               size="lg"
               value={formData.contactDetails.mobileNumber}
               onChange={handleContactDetailsChange}
@@ -604,7 +766,7 @@ export default function Create() {
                 }));
               }}
             >
-              Show on profile
+              Show mobile number
             </Checkbox>
           </FormControl>
 
@@ -616,7 +778,7 @@ export default function Create() {
               type="text"
               id="country"
               name="country"
-              placeholder="Your last name"
+              placeholder="Your country"
               size="lg"
               value={formData.locationDetails.country}
               onChange={handleLocationDetailsChange}
@@ -628,7 +790,7 @@ export default function Create() {
               type="text"
               id="state"
               name="state"
-              placeholder="Your last name"
+              placeholder="Your state"
               size="lg"
               value={formData.locationDetails.state}
               onChange={handleLocationDetailsChange}
@@ -640,7 +802,7 @@ export default function Create() {
               type="text"
               id="city"
               name="city"
-              placeholder="Your last name"
+              placeholder="Your city"
               size="lg"
               value={formData.locationDetails.city}
               onChange={handleLocationDetailsChange}
