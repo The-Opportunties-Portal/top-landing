@@ -76,7 +76,7 @@ export function OpportunitiesCard({
     if (navigator.share) {
       navigator.share({
         title: "Don't miss this chance!",
-        text: `Check out this opportunity: ${role} at ${projectName}\n`,
+        text: `Check out this opportunity: ${role} at ${projectName}\n\n${description}\n\n`,
         url:
           window.location.href.replace(/opportunities\b$/, "") +
           `/opportunity/${_id}`,
