@@ -79,7 +79,7 @@ export function OpportunityCard({
     if (navigator.share) {
       navigator.share({
         title: "Don't miss this chance!",
-        text: `Check out this opportunity: ${role} at ${projectName}\n`,
+        text: `Check out this opportunity: ${role} at ${projectName}\n\nDescription: ${description}\n\n`,
         url: window.location.href,
       });
     }
