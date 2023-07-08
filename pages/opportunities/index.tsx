@@ -70,6 +70,32 @@ function Demo() {
     }
   }, [userSlice.user]);
 
+  let filteredArray = Array.from(
+    new Set([
+      ...opportunitySlice.opportunities.filter(
+        (opportunity: OpportunitySchema) =>
+          opportunity.role.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          (domainFilter == "All" ? true : opportunity.domain == domainFilter)
+      ),
+      ...opportunitySlice.opportunities.filter(
+        (opportunity) =>
+          opportunity.skills.some((skill) =>
+            skill.text.toLowerCase().includes(searchQuery.toLowerCase())
+          ) &&
+          (domainFilter == "All" ? true : opportunity.domain == domainFilter)
+      ),
+    ])
+  ).filter((opportunity) => {
+    console.log(!opportunity.hackathon, hackathon);
+    if (!opportunity.hackathon) {
+      return hackathon == "-";
+    } else if (opportunity.hackathon == "-") {
+      return hackathon == "-";
+    } else {
+      return hackathon == "-" ? true : opportunity.hackathon == hackathon;
+    }
+  });
+
   return (
     <VStack minH={"100vh"} p={8} gap={4}>
       <DemoNavbar onEditPage={false} />
@@ -96,6 +122,7 @@ function Demo() {
           Please login to access contact details
         </Text>
       )}
+      <Heading>Found {filteredArray.length} opportunities</Heading>
       <SimpleGrid
         w={"100%"}
         minChildWidth="300px"
@@ -105,47 +132,13 @@ function Demo() {
         pt={8}
       >
         {!opportunitySlice.isLoading ? (
-          Array.from(
-            new Set([
-              ...opportunitySlice.opportunities.filter(
-                (opportunity: OpportunitySchema) =>
-                  opportunity.role
-                    .toLowerCase()
-                    .includes(searchQuery.toLowerCase()) &&
-                  (domainFilter == "All"
-                    ? true
-                    : opportunity.domain == domainFilter)
-              ),
-              ...opportunitySlice.opportunities.filter(
-                (opportunity) =>
-                  opportunity.skills.some((skill) =>
-                    skill.text.toLowerCase().includes(searchQuery.toLowerCase())
-                  ) &&
-                  (domainFilter == "All"
-                    ? true
-                    : opportunity.domain == domainFilter)
-              ),
-            ])
-          )
-            .filter((opportunity) => {
-              console.log(!opportunity.hackathon, hackathon);
-              if (!opportunity.hackathon) {
-                return hackathon == "-";
-              } else if (opportunity.hackathon == "-") {
-                return hackathon == "-";
-              } else {
-                return hackathon == "-"
-                  ? true
-                  : opportunity.hackathon == hackathon;
-              }
-            })
-            .map((opportunity) => (
-              <OpportunitiesCard
-                key={opportunity._id}
-                {...opportunity}
-                user={userSlice.user}
-              />
-            ))
+          filteredArray.map((opportunity) => (
+            <OpportunitiesCard
+              key={opportunity._id}
+              {...opportunity}
+              user={userSlice.user}
+            />
+          ))
         ) : (
           <Flex align={"center"}>
             <Spinner size="sm" mr={2} />
