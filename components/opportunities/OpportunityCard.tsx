@@ -33,6 +33,8 @@ import { Hackathon, User } from "../../types/types";
 import { useRouter } from "next/router";
 import { SocialIcon } from "react-social-icons";
 
+import Linkify from "react-linkify";
+
 export function OpportunityCard({
   _id,
   projectName,
@@ -56,6 +58,7 @@ export function OpportunityCard({
   phoneNumber: string;
   user: User | null;
 }) {
+  const options = { defaultProtocol: "https" };
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
@@ -115,7 +118,9 @@ export function OpportunityCard({
       </HStack>
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
-        <Text>{description}</Text>
+        <Text as={Linkify}>
+          <Linkify>{description}</Linkify>
+        </Text>
       </Box>
       <Box justifySelf={"flex-end"} p={4}>
         <Heading size="md" mt={8}>
