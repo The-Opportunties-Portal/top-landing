@@ -28,6 +28,8 @@ import {
   FaTrash,
 } from "react-icons/fa";
 
+import Linkify from "react-linkify";
+
 import { Hackathon, User } from "../../types/types";
 import { useRouter } from "next/router";
 import EditOpportunityModal from "./EditOpportunityModal";
@@ -60,6 +62,7 @@ export function EditOpportunityCard({
   phoneNumber: string;
   user: User | null;
 }) {
+  const options = { defaultProtocol: "https" };
   const { isOpen, onOpen, onClose } = useDisclosure();
   const editModalProps = useDisclosure();
   const router = useRouter();
@@ -125,7 +128,9 @@ export function EditOpportunityCard({
       <Divider />
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
-        <Text>{description}</Text>
+        <Text>
+          <Linkify>{description}</Linkify>
+        </Text>
       </Box>
       <Box justifySelf={"flex-end"} p={4}>
         <Heading size="md" mt={8}>
