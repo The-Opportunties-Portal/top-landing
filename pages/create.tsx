@@ -51,7 +51,7 @@ export default function Create() {
 
   const KeyCodes = {
     comma: 188,
-    enter: [13, 9, 66, 61],
+    enter: [13, 9, 61],
   };
 
   const delimiters = [KeyCodes.comma, ...KeyCodes.enter];
@@ -256,7 +256,7 @@ export default function Create() {
               contact@yourmail.com
               "
               size="lg"
-              value={formData.emailAddress} 
+              value={formData.emailAddress}
               onChange={handleChange}
             />
           </FormControl>
