@@ -42,6 +42,8 @@ function Demo() {
   const dispatch = useAppDispatch();
   const userSlice = useSelector((state: RootState) => state.user);
   const opportunitySlice = useSelector((state: RootState) => state.opportunity);
+  console.log(opportunitySlice.opportunities);
+
   const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState("");

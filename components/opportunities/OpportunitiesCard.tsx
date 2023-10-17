@@ -31,8 +31,6 @@ import {
 import { User } from "../../types/types";
 import { useRouter } from "next/router";
 
-import Linkify from "react-linkify";
-
 export function OpportunitiesCard({
   _id,
   projectName,
@@ -130,7 +128,9 @@ export function OpportunitiesCard({
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
         <Text>
-          <Linkify>{description}</Linkify>
+          {description.length < 200
+            ? description
+            : description.slice(0, 200) + "..."}
         </Text>
       </Box>
       <Box justifySelf={"flex-end"} p={4}>

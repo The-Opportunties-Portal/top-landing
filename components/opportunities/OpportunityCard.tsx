@@ -118,9 +118,20 @@ export function OpportunityCard({
       </HStack>
       <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
         {/* <Heading size="md">{contentTitle}</Heading> */}
-        <Text as={Linkify}>
-          <Linkify>{description}</Linkify>
-        </Text>
+        <Linkify
+          componentDecorator={(decoratedHref, decoratedText, key) => (
+            <a
+              target="blank"
+              href={decoratedHref}
+              key={key}
+              style={{ color: "blue" }}
+            >
+              {decoratedText}
+            </a>
+          )}
+        >
+          {description}
+        </Linkify>
       </Box>
       <Box justifySelf={"flex-end"} p={4}>
         <Heading size="md" mt={8}>
