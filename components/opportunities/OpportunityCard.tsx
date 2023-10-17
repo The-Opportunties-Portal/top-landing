@@ -116,7 +116,14 @@ export function OpportunityCard({
           </Button>
         </VStack>
       </HStack>
-      <Box p={4} display={"flex"} flexDirection={"column"} flexGrow={1}>
+      <Box
+        p={4}
+        display={"flex"}
+        flexDirection={"column"}
+        flexGrow={1}
+        maxH={"250px"}
+        overflow={"auto"}
+      >
         {/* <Heading size="md">{contentTitle}</Heading> */}
         <Linkify
           componentDecorator={(decoratedHref, decoratedText, key) => (
