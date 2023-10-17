@@ -26,6 +26,8 @@ import { useSelector } from "react-redux";
 import { DomainInput } from "../components/create/DomainInput";
 import { Hackathon } from "../types/types";
 
+// Test permissions
+
 export default function Create() {
   const [formData, setFormData] = useState<{
     projectName: string;
