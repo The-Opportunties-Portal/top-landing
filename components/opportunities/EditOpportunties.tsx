@@ -10,7 +10,6 @@ import {
 import React from "react";
 import { UserSliceInitialState } from "../../types/types";
 import { useAppDispatch } from "../../app/store";
-import { logoutUser } from "../../features/auth/user.slice";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
